@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth.jsx';
 import { info } from '../alerts.js';
-import BackgroundWatermarks from './BackgroundWatermarks.jsx';
 import RobotMascot from './RobotMascot.jsx';
 import UserMenu from './UserMenu.jsx';
 import './Layout.css';
@@ -37,7 +36,6 @@ export default function Layout() {
 
   return (
     <div className={`dashboard-layout ${isStudent ? 'no-sidebar' : ''}`}>
-      <BackgroundWatermarks />
       {/* Barra móvil para pantallas pequeñas (solo cuando hay sidebar para docente/admin) */}
       {!isStudent && (
         <>

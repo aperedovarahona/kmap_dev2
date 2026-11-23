@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useAuth } from './auth.jsx';
 import Layout from './components/Layout.jsx';
+import BackgroundWatermarks from './components/BackgroundWatermarks.jsx';
 import Login from './pages/Login.jsx';
 import Profile from './pages/Profile.jsx';
 import StudentHome from './pages/StudentHome.jsx';
@@ -10,6 +11,7 @@ import Quiz from './pages/Quiz.jsx';
 import TeacherHome from './pages/TeacherHome.jsx';
 import TeacherSubject from './pages/TeacherSubject.jsx';
 import AdminHome from './pages/AdminHome.jsx';
+import LandingPage from './pages/LandingPage.jsx';
 import StudentSecurityGuard from './components/StudentSecurityGuard.jsx';
 
 export default function App() {
@@ -23,19 +25,21 @@ export default function App() {
       <div className="aurora-top-left" aria-hidden="true" />
       <div className="aurora-bottom-right" aria-hidden="true" />
 
+      {/* Marcas de agua: BIT, Σ, π, { }, √x, A, 01 + marcos y órbitas */}
+      <BackgroundWatermarks />
+
       <Routes>
-        {/* 1. Login directo como página de inicio */}
-        <Route
-          path="/"
-          element={user ? <Navigate to="/panel" replace /> : <Login />}
-        />
+        {/* 1. La LandingPage SIEMPRE se muestra primero en la raíz '/' */}
+        <Route path="/" element={<LandingPage />} />
+
+        {/* 2. Login: si el usuario ya está autenticado, va directo a /panel */}
         <Route
           path="/login"
           element={user ? <Navigate to="/panel" replace /> : <Login />}
         />
 
-        {/* 2. Rutas privadas bajo Layout (protegidas) */}
-        <Route element={user ? <Layout /> : <Navigate to="/" replace />}>
+        {/* 3. Rutas privadas bajo Layout (protegidas) */}
+        <Route element={user ? <Layout /> : <Navigate to="/login" replace />}>
           <Route
             path="/panel"
             element={
@@ -64,7 +68,7 @@ export default function App() {
           <Route path="/perfil" element={<Profile />} />
         </Route>
 
-        {/* Cualquier otra ruta redirige al login */}
+        {/* Cualquier otra ruta manda a la LandingPage */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
