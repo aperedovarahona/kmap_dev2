@@ -130,10 +130,14 @@ class Kmap_model extends CI_Model {
 
         if ($q && $q->num_rows() > 0) {
             foreach ($q->result_array() as $r) {
+                $orig = (string) $r['tema_origen_id'];
+                $dest = (string) $r['tema_destino_id'];
                 $edges[] = [
-                    'id' => "e-{$r['tema_origen_id']}-{$r['tema_destino_id']}",
-                    'from' => (string) $r['tema_origen_id'],
-                    'to' => (string) $r['tema_destino_id'],
+                    'id' => "e-{$orig}-{$dest}",
+                    'source' => $orig,
+                    'target' => $dest,
+                    'from' => $orig,
+                    'to' => $dest,
                     'subjectId' => (string) $r['materia_id']
                 ];
             }
@@ -183,10 +187,13 @@ class Kmap_model extends CI_Model {
 
         if ($q && $q->num_rows() > 0) {
             foreach ($q->result_array() as $im) {
+                $uid = (string) $im['estudiante_id'];
+                $sid = (string) $im['materia_id'];
                 $enrollments[] = [
                     'id' => (string) $im['id'],
-                    'subjectId' => (string) $im['materia_id'],
-                    'studentId' => (string) $im['estudiante_id'],
+                    'subjectId' => $sid,
+                    'userId' => $uid,
+                    'studentId' => $uid,
                     'date' => $im['fecha'],
                     'status' => $im['estado']
                 ];

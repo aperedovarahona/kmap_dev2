@@ -199,32 +199,23 @@ const PANEL_BOT_STYLES = `
   transform: translateX(3px);
 }
 
-/* ---------- Botón Flotante Minimizado ---------- */
-.pbot-mini-trigger {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, var(--cyan), var(--blue) 70%, var(--bg-primary, #030d1e));
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 25px rgba(var(--primary-rgb), 0.65), 0 8px 20px rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ---------- Modo Mascota Minimizada (Escala compacta sin iconos extra) ---------- */
+.pbot-container.pbot-minimized {
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
-  animation: pbot-mini-pulse 3s infinite;
 }
-.pbot-mini-trigger:hover {
-  transform: scale(1.12) rotate(8deg);
-  box-shadow: 0 0 35px rgba(var(--primary-rgb), 0.9), 0 10px 25px rgba(0, 0, 0, 0.6);
+.pbot-container.pbot-minimized .pbot-core {
+  width: 52px;
+  height: 56px;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 16px rgba(var(--primary-rgb), 0.65));
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
-@keyframes pbot-mini-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.6); }
-  50% { box-shadow: 0 0 35px rgba(var(--secondary-rgb), 0.8); }
+.pbot-container.pbot-minimized .pbot-core:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.85)) drop-shadow(0 0 24px rgba(var(--primary-rgb), 0.9));
+}
+.pbot-container.pbot-minimized .pbot-speech-bubble,
+.pbot-container.pbot-minimized .pbot-quick-menu {
+  display: none !important;
 }
 
 /* Partículas de chispas */
@@ -365,6 +356,11 @@ export default function PanelBot() {
     containerRef.current?.releasePointerCapture?.(e.pointerId);
 
     if (!moved) {
+      if (minimized) {
+        setMinimized(false);
+        triggerSpeech('¡De vuelta en acción! ✨', 2500);
+        return;
+      }
       // Clic normal: alternar menú interactivo y soltar chispas
       setMood('wink');
       spawnSparkles(e);
@@ -378,103 +374,89 @@ export default function PanelBot() {
       {/* Inyección modular de estilos autónomos */}
       <style>{PANEL_BOT_STYLES}</style>
 
-      {/* Versión minimizada */}
-      {minimized ? (
-        <button
-          type="button"
-          onClick={() => {
-            setMinimized(false);
-            triggerSpeech('¡De vuelta en acción! 🚀', 2500);
-          }}
-          className="pbot-mini-trigger"
-          title="Abrir Asistente AURA"
-          aria-label="Abrir Asistente AURA"
-        >
-          <span style={{ fontSize: '24px' }}>🤖</span>
-        </button>
-      ) : (
-        <div
-          ref={containerRef}
-          className="pbot-container"
-          style={
-            pos
-              ? { left: `${pos.x}px`, top: `${pos.y}px`, right: 'auto', bottom: 'auto' }
-              : undefined
-          }
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={handlePointerUp}
-        >
-          {/* Partículas de chispas */}
-          {sparkles.map((s) => (
-            <span
-              key={s.id}
-              className="pbot-sparkle"
-              style={{ left: s.x, top: s.y, '--dx': s.dx, '--dy': s.dy }}
-            >
-              {s.char}
-            </span>
-          ))}
+      <div
+        ref={containerRef}
+        className={`pbot-container ${minimized ? 'pbot-minimized' : ''}`}
+        style={
+          pos
+            ? { left: `${pos.x}px`, top: `${pos.y}px`, right: 'auto', bottom: 'auto' }
+            : undefined
+        }
+        title={minimized ? 'Haz clic para ampliar la mascota AURA' : 'Haz clic para interactuar o arrastra para mover'}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
+      >
+        {/* Partículas de chispas */}
+        {sparkles.map((s) => (
+          <span
+            key={s.id}
+            className="pbot-sparkle"
+            style={{ left: s.x, top: s.y, '--dx': s.dx, '--dy': s.dy }}
+          >
+            {s.char}
+          </span>
+        ))}
 
-          {/* Menú rápido al interactuar */}
-          {menuOpen && (
-            <div className="pbot-quick-menu">
-              <div className="pbot-menu-header">
-                <span>⚡ ASISTENTE KMAP</span>
-                <button
-                  type="button"
-                  onClick={() => setMenuOpen(false)}
-                  style={{ background: 'none', border: 'none', color: '#8da6c9', cursor: 'pointer', fontSize: '13px' }}
-                >
-                  ✕
-                </button>
-              </div>
+        {/* Menú rápido al interactuar (solo cuando no está minimizado) */}
+        {!minimized && menuOpen && (
+          <div className="pbot-quick-menu">
+            <div className="pbot-menu-header">
+              <span>⚡ ASISTENTE KMAP</span>
               <button
                 type="button"
-                className="pbot-menu-btn"
-                onClick={() => {
-                  const randomTip = tips[Math.floor(Math.random() * tips.length)];
-                  triggerSpeech(randomTip, 4000);
-                  setMenuOpen(false);
-                }}
+                onClick={() => setMenuOpen(false)}
+                style={{ background: 'none', border: 'none', color: '#8da6c9', cursor: 'pointer', fontSize: '13px' }}
               >
-                💡 <span>Dame un consejo</span>
-              </button>
-              <button
-                type="button"
-                className="pbot-menu-btn"
-                onClick={() => {
-                  triggerSpeech('¡Tú puedes lograrlo! El dominio paso a paso es la clave 🎯', 3500);
-                  setMenuOpen(false);
-                }}
-              >
-                🔥 <span>Motivación</span>
-              </button>
-              <button
-                type="button"
-                className="pbot-menu-btn"
-                onClick={() => {
-                  setPos(null);
-                  triggerSpeech('¡Posición restablecida! 📍', 2000);
-                  setMenuOpen(false);
-                }}
-              >
-                📍 <span>Centrar en esquina</span>
-              </button>
-              <button
-                type="button"
-                className="pbot-menu-btn"
-                style={{ color: '#fda4af' }}
-                onClick={() => {
-                  setMenuOpen(false);
-                  setMinimized(true);
-                }}
-              >
-                💤 <span>Minimizar a botón</span>
+                ✕
               </button>
             </div>
-          )}
+            <button
+              type="button"
+              className="pbot-menu-btn"
+              onClick={() => {
+                const randomTip = tips[Math.floor(Math.random() * tips.length)];
+                triggerSpeech(randomTip, 4000);
+                setMenuOpen(false);
+              }}
+            >
+              💡 <span>Dame un consejo</span>
+            </button>
+            <button
+              type="button"
+              className="pbot-menu-btn"
+              onClick={() => {
+                triggerSpeech('¡Tú puedes lograrlo! El dominio paso a paso es la clave 🎯', 3500);
+                setMenuOpen(false);
+              }}
+            >
+              🔥 <span>Motivación</span>
+            </button>
+            <button
+              type="button"
+              className="pbot-menu-btn"
+              onClick={() => {
+                setPos(null);
+                triggerSpeech('¡Posición restablecida! 📍', 2000);
+                setMenuOpen(false);
+              }}
+            >
+              📍 <span>Centrar en esquina</span>
+            </button>
+            <button
+              type="button"
+              className="pbot-menu-btn"
+              style={{ color: '#fda4af' }}
+              onClick={() => {
+                setMenuOpen(false);
+                setMinimized(true);
+              }}
+            >
+              🔽 <span>Minimizar mascota</span>
+            </button>
+          </div>
+        )}
 
           {/* Globo de diálogo inteligente */}
           <div className={`pbot-speech-bubble ${showBubble ? 'active' : ''}`}>
@@ -575,7 +557,6 @@ export default function PanelBot() {
             </svg>
           </div>
         </div>
-      )}
-    </>
-  );
-}
+      </>
+    );
+  }

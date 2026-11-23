@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react';
 
-const KEY = 'kmap_db_v3';
+const KEY = 'kmap_db_v4';
 export const uid = () => Math.random().toString(36).slice(2, 9);
 export const genCode = () => {
   const a = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -415,11 +415,9 @@ function seed() {
     d.questions.push({ id: 'q' + i, topicId: 't-' + k, text, options, correct: 0, source: 'manual' })
   );
 
-  // Matrículas de Jhoselyn en las 3 materias principales
+  // Matrícula inicial de Jhoselyn únicamente en Bases de Datos (las demás se añaden individualmente por código)
   d.enrollments.push(
-    { userId: 'u-ale', subjectId: 'sub-bd' },
-    { userId: 'u-ale', subjectId: 'sub-prg' },
-    { userId: 'u-ale', subjectId: 'sub-1' }
+    { userId: 'u-ale', subjectId: 'sub-bd' }
   );
 
   // Notas iniciales de Jhoselyn

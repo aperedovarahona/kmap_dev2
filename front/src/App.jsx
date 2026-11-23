@@ -13,6 +13,7 @@ import TeacherSubject from './pages/TeacherSubject.jsx';
 import AdminHome from './pages/AdminHome.jsx';
 import LandingPage from './pages/LandingPage.jsx';
 import StudentSecurityGuard from './components/StudentSecurityGuard.jsx';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
 
 export default function App() {
   const { user } = useAuth();
@@ -28,49 +29,51 @@ export default function App() {
       {/* Marcas de agua: BIT, Σ, π, { }, √x, A, 01 + marcos y órbitas */}
       <BackgroundWatermarks />
 
-      <Routes>
-        {/* 1. La LandingPage SIEMPRE se muestra primero en la raíz '/' */}
-        <Route path="/" element={<LandingPage />} />
+      <ErrorBoundary>
+        <Routes>
+          {/* 1. La LandingPage SIEMPRE se muestra primero en la raíz '/' */}
+          <Route path="/" element={<LandingPage />} />
 
-        {/* 2. Login: si el usuario ya está autenticado, va directo a /panel */}
-        <Route
-          path="/login"
-          element={user ? <Navigate to="/panel" replace /> : <Login />}
-        />
-
-        {/* 3. Rutas privadas bajo Layout (protegidas) */}
-        <Route element={user ? <Layout /> : <Navigate to="/login" replace />}>
+          {/* 2. Login: si el usuario ya está autenticado, va directo a /panel */}
           <Route
-            path="/panel"
-            element={
-              user?.role === 'estudiante' ? (
-                <StudentHome />
-              ) : user?.role === 'docente' ? (
-                <TeacherHome />
-              ) : (
-                <AdminHome />
-              )
-            }
+            path="/login"
+            element={user ? <Navigate to="/panel" replace /> : <Login />}
           />
 
-          {user?.role === 'estudiante' && (
-            <>
-              <Route path="/materia/:id" element={<StudentSubject />} />
-              <Route path="/materia/:id/tema/:tid" element={<StudentTopic />} />
-              <Route path="/materia/:id/tema/:tid/quiz" element={<Quiz />} />
-            </>
-          )}
+          {/* 3. Rutas privadas bajo Layout (protegidas) */}
+          <Route element={user ? <Layout /> : <Navigate to="/login" replace />}>
+            <Route
+              path="/panel"
+              element={
+                user?.role === 'estudiante' ? (
+                  <StudentHome />
+                ) : user?.role === 'docente' ? (
+                  <TeacherHome />
+                ) : (
+                  <AdminHome />
+                )
+              }
+            />
 
-          {user?.role === 'docente' && (
-            <Route path="/materia/:id" element={<TeacherSubject />} />
-          )}
+            {user?.role === 'estudiante' && (
+              <>
+                <Route path="/materia/:id" element={<StudentSubject />} />
+                <Route path="/materia/:id/tema/:tid" element={<StudentTopic />} />
+                <Route path="/materia/:id/tema/:tid/quiz" element={<Quiz />} />
+              </>
+            )}
 
-          <Route path="/perfil" element={<Profile />} />
-        </Route>
+            {user?.role === 'docente' && (
+              <Route path="/materia/:id" element={<TeacherSubject />} />
+            )}
 
-        {/* Cualquier otra ruta manda a la LandingPage */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+            <Route path="/perfil" element={<Profile />} />
+          </Route>
+
+          {/* Cualquier otra ruta manda a la LandingPage */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </ErrorBoundary>
     </>
   );
 }

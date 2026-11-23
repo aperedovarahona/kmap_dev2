@@ -115,17 +115,17 @@ export default function StudentHome() {
   const { user } = useAuth();
   const db = useDb();
 
-  const mine = db.enrollments
-    .filter((e) => e.userId === user.id)
-    .map((e) => db.subjects.find((s) => s.id === e.subjectId))
+  const mine = (db.enrollments || [])
+    .filter((e) => String(e.userId || e.studentId) === String(user.id))
+    .map((e) => db.subjects.find((s) => String(s.id) === String(e.subjectId)))
     .filter(Boolean);
 
-  const availableToJoin = db.subjects.filter(
-    (s) => !db.enrollments.some((e) => e.userId === user.id && e.subjectId === s.id)
+  const availableToJoin = (db.subjects || []).filter(
+    (s) => !mine.some((m) => String(m.id) === String(s.id))
   );
 
   // Estadísticas
-  const myAttempts = db.attempts.filter((a) => a.userId === user.id);
+  const myAttempts = (db.attempts || []).filter((a) => String(a.userId) === String(user.id));
   const attemptedTopicIds = [...new Set(myAttempts.map((a) => a.topicId))];
   const bestScores = attemptedTopicIds
     .map((tid) => best(db, user.id, tid))
@@ -137,28 +137,45 @@ export default function StudentHome() {
   // Ranking global
   const primarySubjectId = mine[0]?.id || 'sub-bd';
   const ranks = ranking(db, primarySubjectId);
-  const myRankPos = ranks.findIndex((r) => r.user.id === user.id) + 1 || 1;
+  const myRankPos = ranks.findIndex((r) => String(r.user?.id) === String(user.id)) + 1 || 1;
 
-  // Modificada para recibir el código directo del modal
+  // Matriculación exclusiva: añade ÚNICAMENTE la materia correspondiente al código ingresado
   const handleJoinWithCode = (code) => {
-    setIsJoinModalOpen(false); // Cerramos el modal primero
-    
-    const s = db.subjects.find((x) => x.code === code);
+    setIsJoinModalOpen(false);
+    const cleanCode = String(code || '').trim().toUpperCase();
+    if (!cleanCode) return fail('Ingresa un código válido');
+
+    const s = db.subjects.find((x) => String(x.code).trim().toUpperCase() === cleanCode);
     if (!s) return fail('No existe una materia con ese código');
-    
-    if (db.enrollments.some((e) => e.userId === user.id && e.subjectId === s.id))
-      return fail('Ya estás matriculado en esa materia');
-      
+
+    const isAlready = (db.enrollments || []).some(
+      (e) => String(e.userId || e.studentId) === String(user.id) && String(e.subjectId) === String(s.id)
+    );
+    if (isAlready) return fail('Ya estás matriculado en esa materia');
+
     update((d) => {
-      d.enrollments.push({ userId: user.id, subjectId: s.id });
+      d.enrollments.push({
+        id: uid(),
+        userId: user.id,
+        subjectId: s.id,
+        isNew: true,
+      });
     });
-    ok('¡Te uniste!', s.name);
+    ok('¡Te uniste!', `Te has matriculado en ${s.name}`);
   };
 
   const enrollDirect = (s) => {
-    if (db.enrollments.some((e) => e.userId === user.id && e.subjectId === s.id)) return;
+    const isAlready = (db.enrollments || []).some(
+      (e) => String(e.userId || e.studentId) === String(user.id) && String(e.subjectId) === String(s.id)
+    );
+    if (isAlready) return;
     update((d) => {
-      d.enrollments.push({ userId: user.id, subjectId: s.id });
+      d.enrollments.push({
+        id: uid(),
+        userId: user.id,
+        subjectId: s.id,
+        isNew: true,
+      });
     });
     ok('¡Materia agregada!', `Te matriculaste en ${s.name}`);
   };
