@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth.jsx';
 import { info } from '../alerts.js';
-import RobotMascot from './RobotMascot.jsx';
+import PanelBot from './PanelBot.jsx';
 import UserMenu from './UserMenu.jsx';
 import './Layout.css';
 
@@ -170,9 +170,9 @@ export default function Layout() {
       </main>
 
       {/* ====================================================================
-          3. BOT MASCOTA 2D INTERACTIVO (de univalle_bot)
+          3. BOT ASISTENTE INDEPENDIENTE PARA PANELES
           ==================================================================== */}
-      <RobotMascot />
+      <PanelBot />
     </div>
   );
 }

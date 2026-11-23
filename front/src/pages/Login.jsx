@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useAuth } from '../auth.jsx';
 import { fail, info } from '../alerts.js';
 import { Tabs } from '../components/ui.jsx';
-import RobotMascot from '../components/RobotMascot.jsx';
+import RobotMascotStatic from '../components/RobotMascotStatic.jsx';
 import { BitLogo, Line } from '../components/FX.jsx';
 import './Login.css';
 
@@ -59,10 +59,10 @@ export default function Login() {
   return (
     <div className="login-page-wrapper">
       <div className="login-content-grid">
-        {/* Lado izquierdo: mascota */}
+        {/* Lado izquierdo: mascota estática compartida con la landing */}
         <div className="login-mascot-column">
           <div className="login-mascot-float">
-            <RobotMascot mode="inline" size="xl" coveringEyes={passFocus} />
+            <RobotMascotStatic size="xl" />
           </div>
           <div className="login-mascot-badge mt-4">
             <span className="text-xs font-bold text-cyan-200 tracking-wide">
