@@ -87,6 +87,7 @@ function seed() {
       theme: 'purple',
       teacherId: 'u-doc',
       code: 'BDD3K9',
+      antiCopy: false,
     },
     {
       id: 'sub-prg',
@@ -96,6 +97,7 @@ function seed() {
       theme: 'blue',
       teacherId: 'u-doc',
       code: 'PRG4M9',
+      antiCopy: false,
     },
     {
       id: 'sub-1',
@@ -105,6 +107,7 @@ function seed() {
       theme: 'green',
       teacherId: 'u-doc',
       code: 'CAL7K2',
+      antiCopy: false,
     },
     {
       id: 'sub-alg',
@@ -114,6 +117,7 @@ function seed() {
       theme: 'cyan',
       teacherId: null,
       code: 'ALG8Q5',
+      antiCopy: false,
     }
   );
 

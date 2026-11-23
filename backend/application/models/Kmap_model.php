@@ -73,7 +73,7 @@ class Kmap_model extends CI_Model {
                     'code' => $m['codigo'],
                     'teacherId' => (string) $m['docente_id'],
                     'teacherName' => $docName ?: 'Docente',
-                    'antiCopy' => isset($m['anticopia_activa']) ? (bool) $m['anticopia_activa'] : true
+                    'antiCopy' => !empty($m['anticopia_activa'])
                 ];
             }
         }

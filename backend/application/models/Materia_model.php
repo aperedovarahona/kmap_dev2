@@ -88,8 +88,8 @@ class Materia_model extends CI_Model {
             'teacherName' => $docName ?: 'Docente Asignado',
             'icon' => $row['icono'] ?: '📚',
             'theme' => $row['color_tema'] ?: 'purple',
-            'antiCopy' => isset($row['anticopia_activa']) ? (bool) $row['anticopia_activa'] : true,
-            'anticopia_activa' => isset($row['anticopia_activa']) ? (bool) $row['anticopia_activa'] : true,
+            'antiCopy' => !empty($row['anticopia_activa']),
+            'anticopia_activa' => !empty($row['anticopia_activa']),
             'activo' => (bool) $row['activo']
         ];
     }

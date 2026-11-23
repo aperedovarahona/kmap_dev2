@@ -13,19 +13,20 @@ export default function StudentSecurityGuard({ active }) {
   const location = useLocation();
   const db = useDb();
 
-  // Detectar si la materia en la que se encuentra el estudiante tiene anticopia desactivada
-  let isSubjectAntiCopyDisabled = false;
+  // Por defecto, las medidas anticopia están SIEMPRE APAGADAS (desactivadas).
+  // Solo se activan si el estudiante está dentro de una materia específica que tenga antiCopy === true.
+  let isSubjectAntiCopyActive = false;
   const match = location.pathname.match(/\/materia\/([^/]+)/);
   if (match && match[1]) {
     const subjectId = match[1];
     const sub = db?.subjects?.find((s) => String(s.id) === String(subjectId) || s.code === subjectId);
-    if (sub && sub.antiCopy === false) {
-      isSubjectAntiCopyDisabled = true;
+    if (sub && sub.antiCopy === true) {
+      isSubjectAntiCopyActive = true;
     }
   }
 
-  // La protección solo opera si active es true Y la materia no tiene el flag antiCopy desactivado
-  const isGuardActive = Boolean(active && !isSubjectAntiCopyDisabled);
+  // La protección solo opera si active es true Y la materia tiene explícitamente activado antiCopy
+  const isGuardActive = Boolean(active && isSubjectAntiCopyActive);
 
   useEffect(() => {
     if (!isGuardActive) {

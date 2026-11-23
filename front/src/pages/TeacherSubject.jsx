@@ -42,12 +42,13 @@ export default function TeacherSubject() {
     ok('Código copiado', s.code);
   };
 
+  const isAntiCopyEnabled = Boolean(s?.antiCopy === true);
+
   const toggleAntiCopy = () => {
-    const isCurrentlyActive = s.antiCopy !== false;
-    const nextState = !isCurrentlyActive;
+    const nextState = !isAntiCopyEnabled;
 
     update((d) => {
-      const subject = d.subjects.find((x) => x.id === id);
+      const subject = d.subjects?.find((x) => String(x.id) === String(id) || x.code === id);
       if (subject) {
         subject.antiCopy = nextState;
       }
@@ -65,8 +66,6 @@ export default function TeacherSubject() {
       );
     }
   };
-
-  const isAntiCopyEnabled = s.antiCopy !== false;
 
   return (
     <Page
@@ -123,6 +122,61 @@ export default function TeacherSubject() {
         </div>
       }
     >
+      {/* Barra de estado y control de medidas anticopia */}
+      <div
+        className="mb-4 flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl border transition-all duration-300"
+        style={{
+          background: isAntiCopyEnabled
+            ? 'rgba(var(--primary-rgb), 0.12)'
+            : 'rgba(255, 255, 255, 0.03)',
+          borderColor: isAntiCopyEnabled ? 'var(--cyan)' : 'rgba(255, 255, 255, 0.1)',
+          boxShadow: isAntiCopyEnabled ? '0 0 16px rgba(var(--primary-rgb), 0.2)' : 'none',
+        }}
+      >
+        <div className="flex items-center gap-3">
+          <div
+            className="w-10 h-10 rounded-xl flex items-center justify-center text-lg border"
+            style={{
+              background: isAntiCopyEnabled ? 'rgba(var(--primary-rgb), 0.2)' : 'rgba(255, 255, 255, 0.05)',
+              borderColor: isAntiCopyEnabled ? 'var(--cyan)' : 'rgba(255, 255, 255, 0.15)',
+            }}
+          >
+            {isAntiCopyEnabled ? '🛡️' : '🔓'}
+          </div>
+          <div>
+            <div className="text-xs font-bold text-white flex items-center gap-2">
+              Medidas anticopia en exámenes y temas:
+              <span
+                className="px-2 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider"
+                style={{
+                  background: isAntiCopyEnabled ? 'var(--cyan)' : 'rgba(255, 255, 255, 0.1)',
+                  color: isAntiCopyEnabled ? '#000000' : 'var(--text-muted)',
+                }}
+              >
+                {isAntiCopyEnabled ? 'Activadas' : 'Desactivadas (Por defecto)'}
+              </span>
+            </div>
+            <p className="text-[11px] text-muted m-0 mt-0.5">
+              {isAntiCopyEnabled
+                ? 'Protección estricta: bloquea PrintScreen, capturas de pantalla, F12, selección y clic derecho en el panel del estudiante.'
+                : 'Protección desactivada: los estudiantes pueden copiar texto y navegar libremente en esta materia.'}
+            </p>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={toggleAntiCopy}
+          className="btn-ghost text-xs px-3.5 py-1.5 flex items-center gap-2 cursor-pointer font-bold rounded-xl transition-all"
+          style={{
+            borderColor: isAntiCopyEnabled ? 'var(--cyan)' : 'rgba(255, 255, 255, 0.2)',
+            color: isAntiCopyEnabled ? 'var(--cyan)' : '#ffffff',
+            background: isAntiCopyEnabled ? 'rgba(var(--primary-rgb), 0.15)' : 'rgba(255, 255, 255, 0.05)',
+          }}
+        >
+          {isAntiCopyEnabled ? '🔓 Desactivar medidas anticopia' : '🛡️ Activar medidas anticopia'}
+        </button>
+      </div>
       <Tabs
         tabs={[
           ['grafo', '🕸️ Editor de grafo'],
