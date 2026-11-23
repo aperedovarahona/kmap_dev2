@@ -5,7 +5,7 @@ import { useAuth } from '../auth.jsx';
 import { fail, info } from '../alerts.js';
 import { Tabs } from '../components/ui.jsx';
 import RobotMascot from '../components/RobotMascot.jsx';
-import { CursorFX, BitLogo, Line } from '../components/FX.jsx';
+import { BitLogo, Line } from '../components/FX.jsx';
 import './Login.css';
 
 export default function Login() {
@@ -58,9 +58,6 @@ export default function Login() {
 
   return (
     <div className="login-page-wrapper">
-      {/* Cursor con estela, anillo, luz y robotito que lo sigue */}
-      <CursorFX />
-
       <div className="login-content-grid">
         {/* Lado izquierdo: mascota */}
         <div className="login-mascot-column">

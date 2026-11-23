@@ -16,8 +16,9 @@
   transition: transform 0.25s ease;
 }
 
-/* Modo Inline (por ejemplo en el panel de Login) */
-#pet-2d.pet-inline {
+/* Modo Inline o Estático (por ejemplo en el panel de Login o Landing) */
+#pet-2d.pet-inline,
+#pet-2d.pet-static {
   position: relative !important;
   bottom: auto !important;
   right: auto !important;

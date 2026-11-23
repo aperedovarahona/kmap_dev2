@@ -37,13 +37,13 @@ const LogoText = ({ len }) => {
   });
 };
 
-/* Efectos del cursor: luz de fondo, rejilla que se enciende, estela, anillo y robotito que lo sigue */
+/* Efectos del cursor: luz de fondo, rejilla que se enciende, estela y anillo */
 export const CursorFX = () => {
-  const root = useRef(), spot = useRef(), grid = useRef(), cv = useRef(), ring = useRef(), dot = useRef(), bot = useRef(), botEyes = useRef();
+  const root = useRef(), spot = useRef(), grid = useRef(), cv = useRef(), ring = useRef(), dot = useRef();
   useEffect(() => {
     if (window.matchMedia('(hover: none), (prefers-reduced-motion: reduce)').matches) return;
     const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-    const m = { x: -300, y: -300 }, r = { ...m }, s = { ...m }, b = { ...m };
+    const m = { x: -300, y: -300 }, r = { ...m }, s = { ...m };
     let raf, first = true; const pts = [];
     const c = cv.current, ctx = c.getContext('2d');
     const resize = () => { c.width = window.innerWidth; c.height = window.innerHeight; };
@@ -52,7 +52,7 @@ export const CursorFX = () => {
 
     const onMove = (e) => {
       m.x = e.clientX; m.y = e.clientY;
-      if (first) { first = false; r.x = s.x = b.x = m.x; r.y = s.y = b.y = m.y; }
+      if (first) { first = false; r.x = s.x = m.x; r.y = s.y = m.y; }
       root.current.classList.add('on');
       const big = !!(e.target.closest && e.target.closest('button,a,.hop,.robot-hop,.feature-card,.evidence-card,.landing-logo,.slide'));
       ring.current.classList.toggle('big', big);
@@ -64,14 +64,10 @@ export const CursorFX = () => {
     const tick = (t) => {
       r.x += (m.x - r.x) * 0.25; r.y += (m.y - r.y) * 0.25;
       s.x += (m.x - s.x) * 0.08; s.y += (m.y - s.y) * 0.08;
-      const px = b.x; b.x += (m.x + 38 - b.x) * 0.1; b.y += (m.y + 32 - b.y) * 0.1;
-      const vx = b.x - px;
       spot.current.style.transform = `translate3d(${s.x}px,${s.y}px,0)`;
       grid.current.style.setProperty('--cx', `${s.x}px`); grid.current.style.setProperty('--cy', `${s.y}px`);
       ring.current.style.transform = `translate3d(${r.x}px,${r.y}px,0)`;
       dot.current.style.transform = `translate3d(${m.x}px,${m.y}px,0)`;
-      bot.current.style.transform = `translate3d(${b.x - 20}px,${b.y - 20}px,0) rotate(${clamp(vx * 2.5, -22, 22)}deg)`;
-      botEyes.current.style.transform = `translate(${clamp(vx, -2.5, 2.5)}px,0)`;
       if (robot && head && eyes) { // el robot grande te mira
         const q = robot.getBoundingClientRect();
         const dx = m.x - (q.left + q.width / 2), dy = m.y - (q.top + q.height * 0.3);
@@ -106,13 +102,6 @@ export const CursorFX = () => {
       <canvas className="fx-trail" ref={cv} />
       <div className="fx-ring" ref={ring} />
       <div className="fx-dot" ref={dot} />
-      <svg className="fx-bot" ref={bot} viewBox="0 0 40 40" fill="none">
-        <line x1="20" y1="8" x2="20" y2="3" stroke="#00f2fe" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="20" cy="3" r="2.4" fill="#9d50ff" />
-        <rect x="6" y="8" width="28" height="22" rx="9" fill="#152b47" stroke="#00f2fe" strokeWidth="2" />
-        <g ref={botEyes}><circle cx="15" cy="19" r="2.8" fill="#00f2fe" /><circle cx="25" cy="19" r="2.8" fill="#00f2fe" /></g>
-        <rect x="12" y="32" width="16" height="5" rx="2.5" fill="#1e3a5f" />
-      </svg>
     </div>,
     document.body
   );

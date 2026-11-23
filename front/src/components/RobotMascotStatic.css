@@ -7,7 +7,8 @@
   user-select: none;
 }
 
-.robot-mascot-static #pet-2d.pet-inline {
+.robot-mascot-static #pet-2d.pet-inline,
+.robot-mascot-static #pet-2d.pet-static {
   position: relative !important;
   inset: auto !important;
   width: 280px;

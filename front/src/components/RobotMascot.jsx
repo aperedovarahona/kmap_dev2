@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './RobotMascot.css';
 
 const MESSAGE_TRIGGER_CLICK = 3;
-const CUSTOM_MESSAGE = '¡Chupalo Paniagua!';
+const CUSTOM_MESSAGE = '¡Hola! Soy BITSIBOOT, tu tutor de Plan KMAP 🚀';
 
 export default function RobotMascot({
   mode = 'floating',
@@ -166,9 +166,11 @@ export default function RobotMascot({
   };
 
   useEffect(() => {
+    if (mode === 'static') return;
+    const greetingMsg = mode === 'inline' ? '¡Hola! Bienvenido a Plan KMAP 🚀' : '¡Saludos! Puedes moverme 👋';
     const initTimer = setTimeout(() => {
       triggerSalute();
-      triggerBubble('¡Saludos! Puedes moverme 👋', 2200);
+      triggerBubble(greetingMsg, 2200);
     }, 350);
 
     const blinkInterval = setInterval(() => {
@@ -257,7 +259,7 @@ export default function RobotMascot({
                   }
               : undefined
           }
-          className={`group ${mode === 'inline' ? 'pet-inline' : ''} ${
+          className={`group ${mode === 'inline' || mode === 'static' ? 'pet-inline' : ''} ${
             size === 'lg' ? 'pet-lg' : size === 'xl' ? 'pet-xl' : ''
           } ${blinking ? 'blinking' : ''} ${coveringEyes ? 'covering-eyes' : ''} ${
             saluting ? 'saluting' : ''
