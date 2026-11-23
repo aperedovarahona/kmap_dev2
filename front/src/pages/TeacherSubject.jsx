@@ -99,15 +99,15 @@ export default function TeacherSubject() {
               {isAntiCopyEnabled ? 'ON' : 'OFF'}
             </span>
             <span
-              className="w-8 h-4 rounded-full relative inline-block transition-colors duration-300 ml-0.5"
+              className="w-9 h-5 rounded-full inline-flex items-center px-0.5 transition-colors duration-300 ml-1 shrink-0 overflow-hidden"
               style={{
-                background: isAntiCopyEnabled ? 'var(--cyan)' : '#475569',
+                backgroundColor: isAntiCopyEnabled ? 'var(--cyan)' : '#334155',
               }}
             >
               <span
-                className="w-3 h-3 rounded-full bg-white absolute top-0.5 transition-transform duration-300 shadow-sm"
+                className="w-4 h-4 rounded-full bg-white shadow-md transition-transform duration-300 pointer-events-none block"
                 style={{
-                  transform: isAntiCopyEnabled ? 'translateX(17px)' : 'translateX(2px)',
+                  transform: isAntiCopyEnabled ? 'translateX(16px)' : 'translateX(0px)',
                 }}
               />
             </span>
