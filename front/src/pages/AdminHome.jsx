@@ -73,7 +73,7 @@ export default function AdminHome() {
       title="Panel de Administración"
       subtitle="Gestiona docentes, materias y asignaciones académicas ✨"
     >
-      <div className="grid gap-3.5 xl:grid-cols-2">
+      <div className="grid gap-4 xl:grid-cols-2">
         <div className="card">
           <div className="flex flex-wrap justify-between items-center gap-2 mb-3">
             <b className="text-lg text-white">👨‍🏫 Docentes ({docentes.length})</b>

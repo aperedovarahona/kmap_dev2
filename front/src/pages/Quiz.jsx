@@ -183,12 +183,12 @@ export default function Quiz() {
           <h1 className="text-2xl md:text-3xl font-extrabold text-white">Resultados</h1>
         </div>
 
-        <div className="grid gap-3.5 lg:grid-cols-[260px_1fr_320px]">
+        <div className="grid gap-4 lg:grid-cols-[270px_1fr_340px]">
           {/* Columna 1: Gráfico circular (Donut) de Nota */}
           <motion.div
             initial={{ scale: 0.92, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            className="card-glow flex flex-col items-center justify-center text-center py-4 px-3 group"
+            className="card-glow flex flex-col items-center justify-center text-center py-6 px-4 group"
           >
             <div className="relative w-40 h-40 grid place-items-center group-hover:scale-105 transition-transform duration-200">
               <svg className="w-40 h-40 -rotate-90" viewBox="0 0 160 160">
@@ -393,9 +393,9 @@ export default function Quiz() {
 
   return (
     <Page crumb={`Mis Materias › ${subject?.name || 'Materia'} › ${topic.name}`}>
-      <div className="grid gap-3.5 lg:grid-cols-[190px_1fr] items-start">
+      <div className="grid gap-5 lg:grid-cols-[190px_1fr] items-start">
         {/* Stepper vertical izquierdo interactivo */}
-        <div className="card flex lg:flex-col gap-2.5 justify-between lg:justify-start py-3 px-3">
+        <div className="card flex lg:flex-col gap-3 justify-between lg:justify-start py-4">
           <button
             type="button"
             onClick={() => nav(`/materia/${id}/tema/${tid}`)}
@@ -458,13 +458,13 @@ export default function Quiz() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
-              className="card-glow p-4 md:p-5 flex flex-col gap-3"
+              className="card-glow p-5 md:p-6 flex flex-col gap-4"
             >
               <p className="text-base md:text-lg font-extrabold text-white">
                 {i + 1}. {q.text}
               </p>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2.5">
                 {q.opts.map((o, k) => {
                   const active = selectedOpt === k;
                   return (

@@ -193,7 +193,7 @@ body::after {
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--panel-border);
     border-radius: var(--radius-lg);
-    padding: 16px 18px;
+    padding: 20px;
     box-shadow: var(--shadow-card), inset 0 0 1px rgba(0, 229, 255, 0.3);
     transition: var(--transition-smooth);
   }
@@ -210,7 +210,7 @@ body::after {
     -webkit-backdrop-filter: blur(18px);
     border: 1px solid rgba(0, 229, 255, 0.45);
     border-radius: var(--radius-lg);
-    padding: 18px;
+    padding: 22px;
     box-shadow: 0 8px 32px rgba(0, 10, 30, 0.65), var(--glow-cyan-sm), inset 0 0 1px rgba(0, 229, 255, 0.4);
     transition: var(--transition-smooth);
     position: relative;
