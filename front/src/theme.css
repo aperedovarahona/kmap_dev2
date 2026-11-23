@@ -1,0 +1,424 @@
+/**
+ * ============================================================================
+ * KMAP · MOTOR DE TEMAS NEÓN OSCUROS TOTALES
+ * Modifica: Fondos, Orbes, Auroras, Botones, Textos, Letras, Bordes y Efectos
+ * ============================================================================
+ */
+
+/* ============================================================================
+   1. TEMA AZUL (Por Defecto · Cyber Ocean)
+   ============================================================================ */
+:root,
+html[data-theme="blue"],
+html[data-theme="blue"] body,
+html[data-theme="blue"] .landing-container,
+html[data-theme="blue"] .login-page-wrapper {
+  --bg-primary: #020914;
+  --bg-secondary: #061225;
+  --bg-tertiary: #0a1c36;
+  --bg-dark: #020914;
+  --primary-rgb: 0, 242, 254;
+  --secondary-rgb: 0, 119, 254;
+  --accent-rgb: 157, 80, 255;
+  --cyan: #00f2fe;
+  --cyan-primary: #00d2ff;
+  --cyan-glow: #00f2fe;
+  --blue: #0077fe;
+  --blue-vivid: #0077fe;
+  --purple: #9d50ff;
+  --pink: #ff3366;
+  --text-main: #e2e8f0;
+  --text-light: #e2e8f0;
+  --text-muted: #8da6c9;
+  --g-primary: linear-gradient(135deg, #00f2fe 0%, #0077fe 100%);
+  --g-title: linear-gradient(90deg, #00f2fe, #9d50ff, #ff3366, #00f2fe);
+  --g-title-2: linear-gradient(90deg, #9d50ff, #00f2fe, #0077fe);
+  --gradient-main: linear-gradient(135deg, #00f2fe 0%, #0077fe 100%);
+  --gradient-title: linear-gradient(90deg, #00f2fe, #9d50ff, #ff3366);
+  --panel-border: rgba(0, 242, 254, 0.3);
+  --panel-border-hover: rgba(0, 242, 254, 0.7);
+  --aurora-1: rgba(0, 242, 254, 0.16);
+  --aurora-2: rgba(0, 119, 254, 0.12);
+  --theme-hue: 190;
+}
+
+/* ============================================================================
+   2. TEMA VERDE (Cyber Emerald / Matrix)
+   ============================================================================ */
+html[data-theme="green"],
+html[data-theme="green"] body,
+html[data-theme="green"] .landing-container,
+html[data-theme="green"] .login-page-wrapper {
+  --bg-primary: #02120a !important;
+  --bg-secondary: #041c10 !important;
+  --bg-tertiary: #072917 !important;
+  --bg-dark: #02120a !important;
+  --primary-rgb: 0, 255, 136 !important;
+  --secondary-rgb: 0, 184, 107 !important;
+  --accent-rgb: 0, 242, 254 !important;
+  --cyan: #00ff88 !important;
+  --cyan-primary: #00ff88 !important;
+  --cyan-glow: #00ff88 !important;
+  --blue: #00b86b !important;
+  --blue-vivid: #00c853 !important;
+  --purple: #059669 !important;
+  --pink: #34d399 !important;
+  --text-main: #e2f8ec !important;
+  --text-light: #e2f8ec !important;
+  --text-muted: #84ba9c !important;
+  --g-primary: linear-gradient(135deg, #00ff88 0%, #00b86b 100%) !important;
+  --g-title: linear-gradient(90deg, #00ff88, #34d399, #00f2fe, #00ff88) !important;
+  --g-title-2: linear-gradient(90deg, #00b86b, #00ff88, #34d399) !important;
+  --gradient-main: linear-gradient(135deg, #00ff88 0%, #00b86b 100%) !important;
+  --gradient-title: linear-gradient(90deg, #00ff88, #34d399, #00f2fe) !important;
+  --panel-border: rgba(0, 255, 136, 0.3) !important;
+  --panel-border-hover: rgba(0, 255, 136, 0.75) !important;
+  --aurora-1: rgba(0, 255, 136, 0.18) !important;
+  --aurora-2: rgba(0, 184, 107, 0.14) !important;
+  --theme-hue: 145 !important;
+}
+
+/* ============================================================================
+   3. TEMA NARANJA (Cyber Fire / Magma)
+   ============================================================================ */
+html[data-theme="orange"],
+html[data-theme="orange"] body,
+html[data-theme="orange"] .landing-container,
+html[data-theme="orange"] .login-page-wrapper {
+  --bg-primary: #140802 !important;
+  --bg-secondary: #1c0e04 !important;
+  --bg-tertiary: #291507 !important;
+  --bg-dark: #140802 !important;
+  --primary-rgb: 255, 136, 0 !important;
+  --secondary-rgb: 255, 68, 0 !important;
+  --accent-rgb: 255, 204, 0 !important;
+  --cyan: #ff8800 !important;
+  --cyan-primary: #ff9100 !important;
+  --cyan-glow: #ff8800 !important;
+  --blue: #ff5500 !important;
+  --blue-vivid: #ff3d00 !important;
+  --purple: #d97706 !important;
+  --pink: #fbbf24 !important;
+  --text-main: #fdeee2 !important;
+  --text-light: #fdeee2 !important;
+  --text-muted: #c99f8d !important;
+  --g-primary: linear-gradient(135deg, #ff8800 0%, #ff5500 100%) !important;
+  --g-title: linear-gradient(90deg, #ff8800, #ffcc00, #ff3d00, #ff8800) !important;
+  --g-title-2: linear-gradient(90deg, #ff5500, #ff8800, #ffaa00) !important;
+  --gradient-main: linear-gradient(135deg, #ff8800 0%, #ff5500 100%) !important;
+  --gradient-title: linear-gradient(90deg, #ff8800, #ffcc00, #ff3d00) !important;
+  --panel-border: rgba(255, 136, 0, 0.3) !important;
+  --panel-border-hover: rgba(255, 136, 0, 0.75) !important;
+  --aurora-1: rgba(255, 136, 0, 0.18) !important;
+  --aurora-2: rgba(255, 68, 0, 0.14) !important;
+  --theme-hue: 28 !important;
+}
+
+/* ============================================================================
+   4. TEMA MORADO (Cyberpunk Neon Violet)
+   ============================================================================ */
+html[data-theme="purple"],
+html[data-theme="purple"] body,
+html[data-theme="purple"] .landing-container,
+html[data-theme="purple"] .login-page-wrapper {
+  --bg-primary: #0c0414 !important;
+  --bg-secondary: #140722 !important;
+  --bg-tertiary: #1f0b34 !important;
+  --bg-dark: #0c0414 !important;
+  --primary-rgb: 176, 38, 255 !important;
+  --secondary-rgb: 121, 40, 202 !important;
+  --accent-rgb: 255, 0, 127 !important;
+  --cyan: #b026ff !important;
+  --cyan-primary: #c084fc !important;
+  --cyan-glow: #b026ff !important;
+  --blue: #7928ca !important;
+  --blue-vivid: #8b5cf6 !important;
+  --purple: #9333ea !important;
+  --pink: #ec4899 !important;
+  --text-main: #f8effe !important;
+  --text-light: #f8effe !important;
+  --text-muted: #b89bc9 !important;
+  --g-primary: linear-gradient(135deg, #b026ff 0%, #7928ca 100%) !important;
+  --g-title: linear-gradient(90deg, #b026ff, #ff007f, #7928ca, #b026ff) !important;
+  --g-title-2: linear-gradient(90deg, #7928ca, #b026ff, #ff007f) !important;
+  --gradient-main: linear-gradient(135deg, #b026ff 0%, #7928ca 100%) !important;
+  --gradient-title: linear-gradient(90deg, #b026ff, #ff007f, #7928ca) !important;
+  --panel-border: rgba(176, 38, 255, 0.3) !important;
+  --panel-border-hover: rgba(176, 38, 255, 0.75) !important;
+  --aurora-1: rgba(176, 38, 255, 0.18) !important;
+  --aurora-2: rgba(121, 40, 202, 0.14) !important;
+  --theme-hue: 280 !important;
+}
+
+/* ============================================================================
+   5. TEMA AMARILLO (Electric Solar / Neon Gold)
+   ============================================================================ */
+html[data-theme="yellow"],
+html[data-theme="yellow"] body,
+html[data-theme="yellow"] .landing-container,
+html[data-theme="yellow"] .login-page-wrapper {
+  --bg-primary: #121002 !important;
+  --bg-secondary: #1a1704 !important;
+  --bg-tertiary: #262206 !important;
+  --bg-dark: #121002 !important;
+  --primary-rgb: 255, 230, 0 !important;
+  --secondary-rgb: 255, 170, 0 !important;
+  --accent-rgb: 0, 255, 136 !important;
+  --cyan: #ffe600 !important;
+  --cyan-primary: #ffd600 !important;
+  --cyan-glow: #ffe600 !important;
+  --blue: #ffaa00 !important;
+  --blue-vivid: #ff9100 !important;
+  --purple: #eab308 !important;
+  --pink: #f59e0b !important;
+  --text-main: #fefde8 !important;
+  --text-light: #fefde8 !important;
+  --text-muted: #c7be85 !important;
+  --g-primary: linear-gradient(135deg, #ffe600 0%, #ffaa00 100%) !important;
+  --g-title: linear-gradient(90deg, #ffe600, #ffaa00, #ffd600, #ffe600) !important;
+  --g-title-2: linear-gradient(90deg, #ffaa00, #ffe600, #ffd600) !important;
+  --gradient-main: linear-gradient(135deg, #ffe600 0%, #ffaa00 100%) !important;
+  --gradient-title: linear-gradient(90deg, #ffe600, #ffaa00, #ffd600) !important;
+  --panel-border: rgba(255, 230, 0, 0.3) !important;
+  --panel-border-hover: rgba(255, 230, 0, 0.75) !important;
+  --aurora-1: rgba(255, 230, 0, 0.18) !important;
+  --aurora-2: rgba(255, 170, 0, 0.14) !important;
+  --theme-hue: 52 !important;
+}
+
+/* ============================================================================
+   6. TEMA ROJO (Crimson Laser / Cyber Blood)
+   ============================================================================ */
+html[data-theme="red"],
+html[data-theme="red"] body,
+html[data-theme="red"] .landing-container,
+html[data-theme="red"] .login-page-wrapper {
+  --bg-primary: #140206 !important;
+  --bg-secondary: #1c0309 !important;
+  --bg-tertiary: #2b050f !important;
+  --bg-dark: #140206 !important;
+  --primary-rgb: 255, 42, 95 !important;
+  --secondary-rgb: 214, 0, 54 !important;
+  --accent-rgb: 255, 117, 140 !important;
+  --cyan: #ff2a5f !important;
+  --cyan-primary: #ff1744 !important;
+  --cyan-glow: #ff2a5f !important;
+  --blue: #d60036 !important;
+  --blue-vivid: #c51162 !important;
+  --purple: #e11d48 !important;
+  --pink: #fb7185 !important;
+  --text-main: #fde8ec !important;
+  --text-light: #fde8ec !important;
+  --text-muted: #c98a96 !important;
+  --g-primary: linear-gradient(135deg, #ff2a5f 0%, #d60036 100%) !important;
+  --g-title: linear-gradient(90deg, #ff2a5f, #ff758c, #d60036, #ff2a5f) !important;
+  --g-title-2: linear-gradient(90deg, #d60036, #ff2a5f, #ff758c) !important;
+  --gradient-main: linear-gradient(135deg, #ff2a5f 0%, #d60036 100%) !important;
+  --gradient-title: linear-gradient(90deg, #ff2a5f, #ff758c, #d60036) !important;
+  --panel-border: rgba(255, 42, 95, 0.3) !important;
+  --panel-border-hover: rgba(255, 42, 95, 0.75) !important;
+  --aurora-1: rgba(255, 42, 95, 0.18) !important;
+  --aurora-2: rgba(214, 0, 54, 0.14) !important;
+  --theme-hue: 345 !important;
+}
+
+/* ============================================================================
+   APLICACIÓN GLOBAL DE COMPONENTES SEGÚN EL TEMA
+   ============================================================================ */
+
+/* 1. Fondo de Grid y Marcas de agua */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(var(--primary-rgb), .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--primary-rgb), .04) 1px, transparent 1px) !important;
+}
+.bg-watermark {
+  -webkit-text-stroke: 1px rgba(var(--primary-rgb), .07) !important;
+}
+.login-page-wrapper::before {
+  -webkit-text-stroke: 1px rgba(var(--primary-rgb), .07) !important;
+}
+
+/* 2. Orbes y Auroras Flotantes */
+.orb-cyan {
+  background: rgba(var(--primary-rgb), .18) !important;
+}
+.orb-purple {
+  background: rgba(var(--secondary-rgb), .15) !important;
+}
+.orb-blue {
+  background: rgba(var(--accent-rgb), .12) !important;
+}
+.aurora-top-left {
+  background: radial-gradient(circle at 10% 10%, var(--aurora-1) 0%, transparent 60%) !important;
+}
+.aurora-bottom-right {
+  background: radial-gradient(circle at 90% 90%, var(--aurora-2) 0%, transparent 60%) !important;
+}
+
+/* 3. Letras, Títulos y Animaciones */
+.text-gradient,
+.section-title-landing,
+.section-title-gradient {
+  background: var(--g-title) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+.text-gradient-1 {
+  background: var(--g-primary) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+.text-gradient-2 {
+  background: var(--g-title-2) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+.text-gradient-3 {
+  background: var(--g-title) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+.hero-symbols span {
+  color: rgba(var(--primary-rgb), .06) !important;
+}
+.hero-symbols span:nth-child(even) {
+  color: rgba(var(--secondary-rgb), .08) !important;
+}
+.value-text strong,
+.marquee b,
+.typewriter-cursor {
+  color: var(--cyan) !important;
+}
+.check-icon {
+  color: var(--cyan) !important;
+  background: rgba(var(--primary-rgb), .12) !important;
+  border-color: rgba(var(--primary-rgb), .35) !important;
+}
+
+/* 4. Botones Principales y Secundarios */
+.btn-nav-register,
+.btn-primary {
+  background: var(--g-primary) !important;
+  color: #020914 !important;
+  box-shadow: 0 6px 25px rgba(var(--primary-rgb), .45) !important;
+}
+.btn-nav-register:hover,
+.btn-primary:hover {
+  box-shadow: 0 10px 35px rgba(var(--primary-rgb), .65) !important;
+}
+.btn-nav-login,
+.btn-secondary {
+  border-color: rgba(var(--primary-rgb), .4) !important;
+  color: var(--text-main) !important;
+}
+.btn-nav-login:hover,
+.btn-secondary:hover {
+  background: rgba(var(--primary-rgb), .12) !important;
+  border-color: var(--cyan) !important;
+}
+.hero-badge {
+  background: rgba(var(--primary-rgb), .1) !important;
+  border-color: rgba(var(--primary-rgb), .3) !important;
+  color: var(--cyan) !important;
+}
+.pulse-dot {
+  background: var(--cyan) !important;
+  box-shadow: 0 0 10px var(--cyan) !important;
+}
+
+/* 5. Círculos orbitales y marcos Blueprint */
+.robot-rings i,
+.wm-orbit {
+  border-color: rgba(var(--primary-rgb), .25) !important;
+}
+.robot-rings i:nth-child(2) {
+  border-color: rgba(var(--secondary-rgb), .3) !important;
+}
+.wm-frame {
+  border-color: rgba(var(--primary-rgb), .12) !important;
+}
+.wm {
+  -webkit-text-stroke: 1.5px rgba(var(--primary-rgb), .12) !important;
+}
+
+/* 6. Efectos del Cursor (FX) */
+.fx-ring {
+  border-color: var(--cyan) !important;
+}
+.fx-dot {
+  background: var(--cyan) !important;
+  box-shadow: 0 0 12px var(--cyan) !important;
+}
+.fx-spot {
+  background: radial-gradient(circle, rgba(var(--primary-rgb), .18) 0%, transparent 70%) !important;
+}
+.fx-grid {
+  background-image:
+    linear-gradient(rgba(var(--primary-rgb), .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--primary-rgb), .05) 1px, transparent 1px) !important;
+}
+
+/* 7. Login y Tarjetas */
+.login-mascot-column::before {
+  border-color: rgba(var(--primary-rgb), .25) !important;
+}
+.login-mascot-column::after {
+  border-color: rgba(var(--secondary-rgb), .3) !important;
+}
+.login-mascot-badge {
+  border-color: rgba(var(--primary-rgb), .4) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .5), inset 0 0 15px rgba(var(--primary-rgb), .2) !important;
+}
+.login-mascot-badge::before {
+  background: var(--cyan) !important;
+  box-shadow: 0 0 10px var(--cyan) !important;
+}
+.login-mascot-badge span {
+  color: var(--cyan) !important;
+}
+.login-form-column .card-glow {
+  border-color: rgba(var(--primary-rgb), .25) !important;
+}
+.login-form-column .btn {
+  background: var(--g-primary) !important;
+  color: #020914 !important;
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), .35) !important;
+}
+.login-form-column .btn:hover {
+  box-shadow: 0 10px 30px rgba(var(--primary-rgb), .55) !important;
+}
+.login-form-column input.input:focus {
+  border-color: var(--cyan) !important;
+  box-shadow: 0 0 0 4px rgba(var(--primary-rgb), .15), 0 0 18px rgba(var(--primary-rgb), .25) !important;
+}
+
+/* 8. Botones demo de acceso rápido y botones fantasma */
+.btn-ghost {
+  border: 1px solid rgba(var(--primary-rgb), 0.3) !important;
+  background: rgba(var(--primary-rgb), 0.05) !important;
+  color: var(--text-main) !important;
+  transition: all 0.25s ease !important;
+}
+.btn-ghost:hover {
+  border-color: var(--cyan) !important;
+  background: rgba(var(--primary-rgb), 0.15) !important;
+  box-shadow: 0 0 14px rgba(var(--primary-rgb), 0.25) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 9. Mascota Robot (ojos, trim y antenas) */
+.eye-arc {
+  stroke: var(--cyan) !important;
+}
+#antenna-orb {
+  fill: var(--cyan) !important;
+}
+.pet-bubble {
+  border-color: var(--cyan) !important;
+  box-shadow: 0 0 18px rgba(var(--primary-rgb), 0.45) !important;
+}

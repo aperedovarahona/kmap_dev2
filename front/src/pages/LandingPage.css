@@ -267,14 +267,14 @@ button {
 .logo-robot {
   width: 42px;
   height: 42px;
-  background: rgba(0, 242, 254, .1);
+  background: rgba(var(--primary-rgb), .1);
   border-radius: 12px;
-  border: 1px solid rgba(0, 242, 254, .3);
+  border: 1px solid rgba(var(--primary-rgb), .3);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 4px;
-  box-shadow: 0 0 15px rgba(0, 242, 254, .2)
+  box-shadow: 0 0 15px rgba(var(--primary-rgb), .2)
 }
 
 .landing-nav-buttons {
@@ -294,12 +294,12 @@ button {
 
 .btn-nav-login {
   background: transparent;
-  border: 1px solid rgba(0, 242, 254, .4);
+  border: 1px solid rgba(var(--primary-rgb), .4);
   color: var(--text-main)
 }
 
 .btn-nav-login:hover {
-  background: rgba(0, 210, 255, .1);
+  background: rgba(var(--primary-rgb), .12);
   border-color: var(--cyan)
 }
 
@@ -312,7 +312,7 @@ button {
 
 .btn-nav-register:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(0, 242, 254, .5)
+  box-shadow: 0 5px 20px rgba(var(--primary-rgb), .5)
 }
 
 /* ---------- Hero ---------- */
@@ -374,8 +374,8 @@ button {
   align-items: center;
   gap: 8px;
   padding: .45rem 1rem;
-  background: rgba(0, 242, 254, .1);
-  border: 1px solid rgba(0, 242, 254, .3);
+  background: rgba(var(--primary-rgb), .1);
+  border: 1px solid rgba(var(--primary-rgb), .3);
   border-radius: 999px;
   font-size: .85rem;
   font-weight: 600;
@@ -565,14 +565,14 @@ button {
 }
 
 .text-gradient-1 {
-  background: linear-gradient(90deg, #00f2fe, #0077fe);
+  background: var(--g-primary);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent
 }
 
 .text-gradient-2 {
-  background: linear-gradient(90deg, #9d50ff, #00f2fe);
+  background: var(--g-title-2);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent
@@ -698,13 +698,13 @@ button {
 
 @keyframes pulse-antenna {
   0% {
-    fill: #00f2fe;
-    filter: drop-shadow(0 0 10px #00f2fe)
+    fill: var(--cyan);
+    filter: drop-shadow(0 0 10px var(--cyan))
   }
 
   100% {
-    fill: #9d50ff;
-    filter: drop-shadow(0 0 20px #9d50ff)
+    fill: var(--blue);
+    filter: drop-shadow(0 0 20px var(--blue))
   }
 }
 
@@ -1431,7 +1431,7 @@ button {
 
 .hop:hover .lc {
   color: #fff !important;
-  text-shadow: 0 0 18px #00f2fe
+  text-shadow: 0 0 18px var(--cyan)
 }
 
 @keyframes hop {
@@ -1479,40 +1479,40 @@ button {
 .l-wave {
   animation: wave 3.2s ease-in-out infinite;
   animation-delay: calc(var(--i)*-.18s);
-  text-shadow: 0 0 28px rgba(0, 200, 255, .45)
+  text-shadow: 0 0 28px rgba(var(--primary-rgb), .45)
 }
 
 @keyframes wave {
 
   0%,
   100% {
-    color: #00f2fe
+    color: var(--cyan)
   }
 
   50% {
-    color: #0077fe
+    color: var(--blue)
   }
 }
 
 .l-wave2 {
   animation: wave2 6s linear infinite;
   animation-delay: calc(var(--i)*-.22s);
-  text-shadow: 0 0 26px rgba(157, 80, 255, .35)
+  text-shadow: 0 0 26px rgba(var(--primary-rgb), .35)
 }
 
 @keyframes wave2 {
 
   0%,
   100% {
-    color: #00f2fe
+    color: var(--cyan)
   }
 
   33% {
-    color: #9d50ff
+    color: var(--blue)
   }
 
   66% {
-    color: #ff3366
+    color: var(--purple)
   }
 }
 
@@ -1547,8 +1547,8 @@ button {
   display: grid;
   place-items: center;
   padding: 6px;
-  background: radial-gradient(circle at 30% 25%, rgba(0, 242, 254, .3), rgba(2, 9, 20, .9) 70%);
-  box-shadow: 0 0 24px rgba(0, 242, 254, .35), inset 0 0 12px rgba(0, 242, 254, .15)
+  background: radial-gradient(circle at 30% 25%, rgba(var(--primary-rgb), .3), var(--bg-primary, rgba(2, 9, 20, .9)) 70%);
+  box-shadow: 0 0 24px rgba(var(--primary-rgb), .35), inset 0 0 12px rgba(var(--primary-rgb), .15)
 }
 
 .logo-icon svg {
@@ -1562,7 +1562,7 @@ button {
   inset: -2px;
   border-radius: 19px;
   padding: 2px;
-  background: conic-gradient(from var(--a), #00f2fe, #9d50ff, #0077fe, #00f2fe);
+  background: conic-gradient(from var(--a), var(--cyan), var(--blue), var(--purple), var(--cyan));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;

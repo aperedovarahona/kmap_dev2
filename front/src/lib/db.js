@@ -489,7 +489,38 @@ let state = (() => {
 
 const subs = new Set();
 const emit = () => subs.forEach((f) => f());
+
+/**
+ * Carga el estado real directamente desde la base de datos MySQL (vía backend PHP / CodeIgniter 3).
+ */
+export async function refreshDb() {
+  try {
+    const res = await fetch('/api/kmap/state');
+    if (!res.ok) return state;
+    const json = await res.json();
+    if (json && json.ok && json.state && Array.isArray(json.state.users) && json.state.users.length > 0) {
+      state = json.state;
+      try {
+        localStorage.setItem(KEY, JSON.stringify(state));
+      } catch {}
+      emit();
+      return state;
+    }
+  } catch (err) {
+    console.warn('[KMAP] No se pudo sincronizar con backend SQL, usando caché:', err.message);
+  }
+  return state;
+}
+
+// Iniciar sincronización inmediata con la base de datos SQL
+if (typeof window !== 'undefined') {
+  setTimeout(() => {
+    refreshDb();
+  }, 10);
+}
+
 export const getDb = () => state;
+
 export function update(fn) {
   const next = structuredClone(state);
   fn(next);
@@ -498,7 +529,17 @@ export function update(fn) {
     localStorage.setItem(KEY, JSON.stringify(next));
   } catch {}
   emit();
+
+  // Sincronizar cambios asíncronamente con MySQL
+  if (typeof fetch !== 'undefined') {
+    fetch('/api/kmap/sync', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(next),
+    }).catch(() => {});
+  }
 }
+
 export const useDb = () =>
   useSyncExternalStore(
     (f) => {

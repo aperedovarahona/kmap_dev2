@@ -22,21 +22,52 @@ export const ProgressBar = ({ value, color = 'cyan' }) => {
 };
 
 export const Tabs = ({ tabs, value, onChange }) => (
-  <div className="flex flex-wrap gap-1.5 bg-[#05132b]/95 border border-sky-400/40 rounded-2xl p-1.5 w-fit max-w-full">
-    {tabs.map(([k, label]) => (
-      <button
-        key={k}
-        type="button"
-        onClick={() => onChange(k)}
-        className={`cursor-pointer select-none px-4 py-2 rounded-xl text-xs sm:text-sm whitespace-nowrap transition-all duration-200 ${
-          value === k
-            ? 'bg-gradient-to-r from-[#00f2fe] to-sky-400 text-[#021329] font-extrabold shadow-[0_0_18px_rgba(0,242,254,0.55)] scale-[1.02]'
-            : 'text-blue-100 hover:bg-cyan-400/15 hover:text-white active:scale-95'
-        }`}
-      >
-        {label}
-      </button>
-    ))}
+  <div
+    className="flex flex-wrap gap-1.5 rounded-2xl p-1.5 w-fit max-w-full border backdrop-blur-md transition-all duration-300"
+    style={{
+      background: 'rgba(5, 19, 43, 0.85)',
+      borderColor: 'rgba(var(--primary-rgb), 0.35)',
+      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4)',
+    }}
+  >
+    {tabs.map(([k, label]) => {
+      const isSelected = value === k;
+      return (
+        <button
+          key={k}
+          type="button"
+          onClick={() => onChange(k)}
+          className="cursor-pointer select-none px-4 py-2 rounded-xl text-xs sm:text-sm whitespace-nowrap transition-all duration-300 font-bold"
+          style={
+            isSelected
+              ? {
+                  background: 'var(--g-primary)',
+                  color: '#020914',
+                  boxShadow: '0 0 18px rgba(var(--primary-rgb), 0.65)',
+                  transform: 'scale(1.02)',
+                }
+              : {
+                  background: 'transparent',
+                  color: 'var(--text-muted)',
+                }
+          }
+          onMouseEnter={(e) => {
+            if (!isSelected) {
+              e.currentTarget.style.color = '#ffffff';
+              e.currentTarget.style.background = 'rgba(var(--primary-rgb), 0.12)';
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (!isSelected) {
+              e.currentTarget.style.color = 'var(--text-muted)';
+              e.currentTarget.style.background = 'transparent';
+            }
+          }}
+        >
+          {label}
+        </button>
+      );
+    })}
   </div>
 );
 

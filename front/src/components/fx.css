@@ -1,16 +1,16 @@
-:root{--ease:cubic-bezier(.22,1,.36,1);--cyan:#00f2fe;--purple:#9d50ff;--pink:#ff3366;--text-muted:#8da6c9}
+:root{--ease:cubic-bezier(.22,1,.36,1);--cyan:#00f2fe;--blue:#0077fe;--purple:#9d50ff;--pink:#ff3366;--text-muted:#8da6c9}
 .bit-logo{display:flex;align-items:center;gap:14px;cursor:pointer;width:max-content}
 @keyframes blink{50%{opacity:0}}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 @keyframes blink-eyes{0%,96%,98%{transform:scaleY(1)}97%{transform:scaleY(.1)}}
-@keyframes pulse-antenna{0%{fill:#00f2fe;filter:drop-shadow(0 0 10px #00f2fe)}100%{fill:#9d50ff;filter:drop-shadow(0 0 20px #9d50ff)}}
+@keyframes pulse-antenna{0%{fill:var(--cyan);filter:drop-shadow(0 0 10px var(--cyan))}100%{fill:var(--blue);filter:drop-shadow(0 0 20px var(--blue))}}
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
 
 /* ---------- Letras que saltan (amigable) ---------- */
 .w{display:inline-block;white-space:nowrap;position:relative}
 .hop{display:inline-block}
 .hop:hover{animation:hop .6s var(--ease)}
-.hop:hover .lc{color:#fff!important;text-shadow:0 0 18px #00f2fe}
+.hop:hover .lc{color:#fff!important;text-shadow:0 0 18px var(--cyan)}
 @keyframes hop{0%{transform:none}30%{transform:translateY(-.3em) scale(1.12,.94)}60%{transform:translateY(.04em) scale(.96,1.06)}100%{transform:none}}
 .lc{display:inline-block;transition:opacity .3s,transform .4s var(--ease),color .2s}
 .lc.off{opacity:0;transform:translateY(.5em) scale(.5)}
@@ -18,10 +18,10 @@
 /* ---------- Título coloreado como el logo ---------- */
 .title-solid{background:none;filter:none;-webkit-background-clip:border-box;background-clip:border-box;color:inherit}
 .l-white{color:#eaf6ff;text-shadow:0 0 30px rgba(159,216,255,.35)}
-.l-wave{animation:wave 3.2s ease-in-out infinite;animation-delay:calc(var(--i)*-.18s);text-shadow:0 0 28px rgba(0,200,255,.45)}
-@keyframes wave{0%,100%{color:#00f2fe}50%{color:#0077fe}}
-.l-wave2{animation:wave2 6s linear infinite;animation-delay:calc(var(--i)*-.22s);text-shadow:0 0 26px rgba(157,80,255,.35)}
-@keyframes wave2{0%,100%{color:#00f2fe}33%{color:#9d50ff}66%{color:#ff3366}}
+.l-wave{animation:wave 3.2s ease-in-out infinite;animation-delay:calc(var(--i)*-.18s);text-shadow:0 0 28px rgba(var(--primary-rgb),.45)}
+@keyframes wave{0%,100%{color:var(--cyan)}50%{color:var(--blue)}}
+.l-wave2{animation:wave2 6s linear infinite;animation-delay:calc(var(--i)*-.22s);text-shadow:0 0 26px rgba(var(--primary-rgb),.35)}
+@keyframes wave2{0%,100%{color:var(--cyan)}33%{color:var(--purple)}66%{color:var(--pink)}}
 .w-ghost{visibility:hidden}
 .w-live{position:absolute;left:0;top:0;white-space:nowrap}
 .tw-error{display:inline-block;background:none;-webkit-text-fill-color:var(--pink);animation:shake .25s ease}
@@ -29,12 +29,13 @@
 /* ---------- Logo BIT ACADEMY ---------- */
 .bit-logo{gap:14px}
 .logo-icon{position:relative;width:54px;height:54px;border-radius:17px;display:grid;place-items:center;padding:6px;
-  background:radial-gradient(circle at 30% 25%,rgba(0,242,254,.3),rgba(2,9,20,.9) 70%);box-shadow:0 0 24px rgba(0,242,254,.35),inset 0 0 12px rgba(0,242,254,.15)}
+  background:radial-gradient(circle at 30% 25%,rgba(var(--primary-rgb),.3),var(--bg-primary, rgba(2,9,20,.9)) 70%);box-shadow:0 0 24px rgba(var(--primary-rgb),.35),inset 0 0 12px rgba(var(--primary-rgb),.15)}
 .logo-icon svg{width:100%;height:100%;overflow:visible}
-.logo-ring{position:absolute;inset:-2px;border-radius:19px;padding:2px;background:conic-gradient(from var(--a),#00f2fe,#9d50ff,#0077fe,#00f2fe);
+.logo-ring{position:absolute;inset:-2px;border-radius:19px;padding:2px;background:conic-gradient(from var(--a),var(--cyan),var(--purple),var(--blue),var(--cyan));
   -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:ring-spin 4s linear infinite}
 @keyframes ring-spin{to{--a:360deg}}
 .logo-antenna{animation:pulse-antenna 2s infinite alternate}
+@keyframes pulse-antenna{0%{fill:var(--cyan);filter:drop-shadow(0 0 10px var(--cyan))}100%{fill:var(--purple);filter:drop-shadow(0 0 20px var(--purple))}}
 .logo-eyes{transform-box:fill-box;transform-origin:center;animation:blink-eyes 4s infinite}
 .bit-logo:hover .logo-icon{animation:hop-big .7s var(--ease)}
 @keyframes hop-big{0%{transform:none}30%{transform:translateY(-10px) rotate(-8deg) scale(1.1)}60%{transform:translateY(0) rotate(5deg) scale(.96)}100%{transform:none}}

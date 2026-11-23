@@ -4,7 +4,7 @@ import './fx.css';
 
 // Efectos compartidos (Landing, Login...): cursor con estela, logo animado y letras que saltan.
 let logoTyped = false;
-const mixAcad = (k) => `rgb(0, ${Math.round(242 - (123 * k) / 6)}, 254)`; // degradado cian → azul como el logo
+const mixAcad = (k = 0) => (k % 2 === 0 ? 'var(--cyan)' : 'var(--blue)'); // Dinámico con el tono activo
 
 /* Letras que dan un saltito al pasar el cursor */
 export const Hop = ({ text, kind, offset = 0 }) =>
@@ -78,9 +78,10 @@ export const CursorFX = () => {
       if (!last || last.x !== m.x || last.y !== m.y) pts.push({ x: m.x, y: m.y, t });
       while (pts.length && t - pts[0].t > 500) pts.shift();
       ctx.clearRect(0, 0, c.width, c.height); ctx.lineCap = 'round';
+      const computedHue = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--theme-hue')) || 190;
       for (let i = 1; i < pts.length; i++) {
         const k = 1 - (t - pts[i].t) / 500;
-        ctx.strokeStyle = `hsla(${185 + (1 - k) * 90},100%,62%,${k * 0.85})`; ctx.lineWidth = k * 6;
+        ctx.strokeStyle = `hsla(${computedHue + (1 - k) * 30},100%,62%,${k * 0.85})`; ctx.lineWidth = k * 6;
         ctx.beginPath(); ctx.moveTo(pts[i - 1].x, pts[i - 1].y); ctx.lineTo(pts[i].x, pts[i].y); ctx.stroke();
       }
       raf = requestAnimationFrame(tick);
@@ -121,14 +122,19 @@ export const BitLogo = ({ onClick, title }) => {
           <div className="logo-icon">
             <span className="logo-ring" />
             <svg viewBox="0 0 100 100" fill="none">
-              <defs><linearGradient id="gradBitLogo" x1="20" y1="30" x2="80" y2="80"><stop stopColor="#00f2fe" /><stop offset="1" stopColor="#9d50ff" /></linearGradient></defs>
-              <line x1="50" y1="16" x2="50" y2="28" stroke="#00f2fe" strokeWidth="4" strokeLinecap="round" />
-              <circle cx="50" cy="12" r="6" fill="#9d50ff" className="logo-antenna" />
+              <defs>
+                <linearGradient id="gradBitLogo" x1="20" y1="30" x2="80" y2="80">
+                  <stop offset="0" style={{ stopColor: 'var(--cyan)' }} />
+                  <stop offset="1" style={{ stopColor: 'var(--blue)' }} />
+                </linearGradient>
+              </defs>
+              <line x1="50" y1="16" x2="50" y2="28" style={{ stroke: 'var(--cyan)' }} strokeWidth="4" strokeLinecap="round" />
+              <circle cx="50" cy="12" r="6" style={{ fill: 'var(--cyan)' }} className="logo-antenna" />
               <rect x="14" y="28" width="72" height="58" rx="25" fill="url(#gradBitLogo)" />
               <rect x="25" y="38" width="50" height="36" rx="15" fill="#030d1e" />
               <g className="logo-eyes">
-                <path d="M34 58 Q40 47 46 58" stroke="#00f2fe" strokeWidth="5" strokeLinecap="round" />
-                <path d="M54 58 Q60 47 66 58" stroke="#00f2fe" strokeWidth="5" strokeLinecap="round" />
+                <path d="M34 58 Q40 47 46 58" style={{ stroke: 'var(--cyan)' }} strokeWidth="5" strokeLinecap="round" />
+                <path d="M54 58 Q60 47 66 58" style={{ stroke: 'var(--cyan)' }} strokeWidth="5" strokeLinecap="round" />
               </g>
             </svg>
           </div>

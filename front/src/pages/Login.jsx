@@ -5,8 +5,10 @@ import { useAuth } from '../auth.jsx';
 import { fail, info } from '../alerts.js';
 import { Tabs } from '../components/ui.jsx';
 import RobotMascotStatic from '../components/RobotMascotStatic.jsx';
+import ThemeSelector from '../components/ThemeSelector.jsx';
 import { BitLogo, Line } from '../components/FX.jsx';
 import './Login.css';
+import '../theme.css';
 
 export default function Login() {
   const { login, register } = useAuth();
@@ -65,7 +67,7 @@ export default function Login() {
             <RobotMascotStatic size="xl" />
           </div>
           <div className="login-mascot-badge mt-4">
-            <span className="text-xs font-bold text-cyan-200 tracking-wide">
+            <span className="text-xs font-bold tracking-wide" style={{ color: 'var(--cyan)' }}>
               <Line text={badgeText} kind="" />
             </span>
           </div>
@@ -77,26 +79,30 @@ export default function Login() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             onSubmit={submit}
-            className="card-glow w-full flex flex-col gap-4 p-7"
+            className="card-glow w-full flex flex-col gap-4 p-8"
           >
-            <div className="flex items-center justify-between gap-3">
-              {/* Logo animado: se escribe solo y cada letra salta al pasar el cursor */}
+            {/* Header del Formulario con márgenes limpios y espaciados */}
+            <div className="flex items-center justify-between gap-3 pb-3 border-b" style={{ borderColor: 'rgba(var(--primary-rgb), 0.15)' }}>
               <BitLogo onClick={() => nav('/')} title="Volver a la portada" />
-              <button
-                type="button"
-                onClick={() => nav('/')}
-                className="text-xs text-cyan-300 hover:text-white flex items-center gap-1 transition-colors cursor-pointer bg-transparent border-none p-0"
-                title="Volver a la página principal"
-              >
-                ← Volver al inicio
-              </button>
+              <div className="flex items-center gap-2">
+                <ThemeSelector />
+                <button
+                  type="button"
+                  onClick={() => nav('/')}
+                  className="text-xs transition-colors cursor-pointer bg-transparent border-none p-1 hover:text-white flex items-center gap-1 font-semibold whitespace-nowrap"
+                  style={{ color: 'var(--cyan)' }}
+                  title="Volver a la página principal"
+                >
+                  ← Inicio
+                </button>
+              </div>
             </div>
 
-            <h1 className="login-title">
+            <h1 className="login-title" style={{ color: 'var(--cyan)' }}>
               <Line text={reg ? 'Crea tu cuenta' : '¡Hola de nuevo!'} kind="l-wave" />
             </h1>
 
-            <p className="text-[#8ca5c9] text-sm">
+            <p className="login-subtitle">
               Explora tu grafo de conocimiento, realiza quizzes adaptativos y descubre tu ruta de
               aprendizaje con nuestro bot tutor ✨
             </p>
@@ -189,15 +195,16 @@ export default function Login() {
             {role === 'estudiante' && (
               <button
                 type="button"
-                className="text-sm text-[#00d2ff] hover:underline"
+                className="text-sm font-semibold hover:underline cursor-pointer transition-colors"
+                style={{ color: 'var(--cyan)' }}
                 onClick={() => setMode(reg ? 'login' : 'register')}
               >
                 {reg ? 'Ya tengo cuenta · Iniciar sesión' : 'Registrarme como nuevo estudiante'}
               </button>
             )}
 
-            <div className="border-t border-[#00d2ff]/20 pt-3 mt-1">
-              <div className="text-xs text-[#8ca5c9] mb-2 font-semibold">
+            <div className="border-t pt-4 mt-2" style={{ borderColor: 'rgba(var(--primary-rgb), 0.2)' }}>
+              <div className="text-xs mb-2.5 font-semibold" style={{ color: 'var(--text-muted)' }}>
                 Acceso rápido cuentas Demo (1 clic):
               </div>
               <div className="grid grid-cols-3 gap-2">
@@ -205,25 +212,28 @@ export default function Login() {
                   type="button"
                   onClick={() => quickLogin('estudiante', '202012345', '123456')}
                   className="btn-ghost text-xs py-2 flex flex-col items-center gap-0.5"
+                  style={{ borderColor: 'rgba(var(--primary-rgb), 0.3)' }}
                 >
-                  <span className="text-[#00f2fe] font-bold">Estudiante</span>
-                  <span className="text-[11px] text-[#8ca5c9]">202012345</span>
+                  <span className="font-bold" style={{ color: 'var(--cyan)' }}>Estudiante</span>
+                  <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>202012345</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => quickLogin('docente', 'Prof. Rivera', '1234567')}
                   className="btn-ghost text-xs py-2 flex flex-col items-center gap-0.5"
+                  style={{ borderColor: 'rgba(var(--primary-rgb), 0.3)' }}
                 >
-                  <span className="text-[#00f2fe] font-bold">Docente</span>
-                  <span className="text-[11px] text-[#8ca5c9]">Prof. Rivera</span>
+                  <span className="font-bold" style={{ color: 'var(--cyan)' }}>Docente</span>
+                  <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>Prof. Rivera</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => quickLogin('admin', 'admin', 'admin123')}
                   className="btn-ghost text-xs py-2 flex flex-col items-center gap-0.5"
+                  style={{ borderColor: 'rgba(var(--primary-rgb), 0.3)' }}
                 >
-                  <span className="text-[#00f2fe] font-bold">Admin</span>
-                  <span className="text-[11px] text-[#8ca5c9]">admin</span>
+                  <span className="font-bold" style={{ color: 'var(--cyan)' }}>Admin</span>
+                  <span className="text-[11px]" style={{ color: 'var(--text-muted)' }}>admin</span>
                 </button>
               </div>
             </div>

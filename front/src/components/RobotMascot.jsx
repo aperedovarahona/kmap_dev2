@@ -321,13 +321,13 @@ export default function RobotMascot({
                 <stop offset="100%" stopColor="#0b1822" />
               </linearGradient>
               <radialGradient id="cyanOrbGrad" cx="35%" cy="30%" r="65%">
-                <stop offset="0%" stopColor="#a5f3fc" />
-                <stop offset="45%" stopColor="#22d3ee" />
-                <stop offset="100%" stopColor="#0891b2" />
+                <stop offset="0%" style={{ stopColor: 'var(--cyan)' }} />
+                <stop offset="60%" style={{ stopColor: 'var(--cyan)' }} />
+                <stop offset="100%" style={{ stopColor: 'var(--blue)' }} />
               </radialGradient>
               <linearGradient id="cyanTrimGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#22d3ee" />
-                <stop offset="100%" stopColor="#0e7490" />
+                <stop offset="0%" style={{ stopColor: 'var(--cyan)' }} />
+                <stop offset="100%" style={{ stopColor: 'var(--blue)' }} />
               </linearGradient>
               <linearGradient id="santaRedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#ef4444" />
@@ -769,7 +769,7 @@ export default function RobotMascot({
                   className="eye-arc"
                   d="M70 76 Q82 61 94 76"
                   fill="none"
-                  stroke="#38bdf8"
+                  stroke="var(--cyan)"
                   strokeWidth="6.5"
                   strokeLinecap="round"
                 />
@@ -778,7 +778,7 @@ export default function RobotMascot({
                   className="eye-arc"
                   d="M106 76 Q118 61 130 76"
                   fill="none"
-                  stroke="#38bdf8"
+                  stroke="var(--cyan)"
                   strokeWidth="6.5"
                   strokeLinecap="round"
                 />

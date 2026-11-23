@@ -6,8 +6,12 @@ export const masteryColor = (v) =>
   v == null ? '#1e3a5f' : v < 51 ? '#7f1d1d' : v < 71 ? '#78350f' : '#0c4a6e';
 
 export function Legend({ path }) {
+  const themePrimary = typeof window !== 'undefined'
+    ? (getComputedStyle(document.documentElement).getPropertyValue('--cyan').trim() || '#00f2fe')
+    : '#00f2fe';
+
   const items = [
-    ['#00f2fe', 'Dominado / Seleccionado'],
+    [themePrimary, 'Dominado / Seleccionado'],
     ['#c084fc', 'En curso / Prerrequisito'],
     ['#fbbf24', 'En progreso (51–70%)'],
     ['#fb7185', 'Reforzar (< 51%)'],
@@ -120,21 +124,24 @@ export default function KnowledgeGraph({
         ...topics.map((t) => {
           const val = values[t.id];
           const isSel = t.id === selected;
+          const themePrimary = typeof window !== 'undefined'
+            ? (getComputedStyle(document.documentElement).getPropertyValue('--cyan').trim() || '#00f2fe')
+            : '#00f2fe';
 
           // Colores temáticos neón según nivel de dominio
           let bgColor = '#0a1d3b';
-          let borderColor = '#00d2ff';
-          let shadowColor = '#00d2ff';
+          let borderColor = themePrimary;
+          let shadowColor = themePrimary;
 
           if (isSel) {
             bgColor = '#09366d';
-            borderColor = '#00f2fe';
-            shadowColor = '#00f2fe';
+            borderColor = themePrimary;
+            shadowColor = themePrimary;
           } else if (val != null) {
             if (val >= 71) {
               bgColor = '#08254a';
-              borderColor = '#00f2fe';
-              shadowColor = '#00d2ff';
+              borderColor = themePrimary;
+              shadowColor = themePrimary;
             } else if (val >= 51) {
               bgColor = '#2a1a04';
               borderColor = '#fbbf24';
