@@ -27,14 +27,14 @@ export default function TeacherHome() {
       {mine.length === 0 ? (
         <Empty>El administrador aún no te asignó materias.</Empty>
       ) : (
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-3.5 sm:grid-cols-2 xl:grid-cols-3">
           {mine.map((s, i) => (
             <motion.div
               key={s.id}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.06 }}
-              className="card-glow flex flex-col items-center text-center gap-3 p-5"
+              className="card-glow flex flex-col items-center text-center gap-2.5 p-4 sm:p-5"
             >
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-400 to-cyan-300 text-[#031126] font-extrabold grid place-items-center text-3xl shadow-[0_0_20px_rgba(34,211,238,0.4)]">
                 {s.icon}

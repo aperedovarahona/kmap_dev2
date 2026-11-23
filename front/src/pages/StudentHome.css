@@ -6,7 +6,7 @@
 /* ---------- Layout de Contenido Grid ---------- */
 .dashboard-content-grid {
   display: flex;
-  gap: 22px;
+  gap: 16px;
   align-items: flex-start;
 }
 
@@ -15,13 +15,13 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .widgets-column {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
   width: 320px;
   flex-shrink: 0;
 }
@@ -30,7 +30,7 @@
 .subjects-section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .section-header-row {
@@ -104,7 +104,7 @@
 .subjects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 18px;
+  gap: 14px;
 }
 
 .subject-card {
@@ -112,7 +112,7 @@
   background: linear-gradient(160deg, #05162e 0%, #030d1e 100%);
   border: 1px solid rgba(0, 210, 255, 0.22);
   border-radius: 16px;
-  padding: 22px 20px 20px;
+  padding: 18px 16px 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -244,8 +244,8 @@
   font-size: 12px;
   color: #8da6c9;
   line-height: 1.4;
-  margin-bottom: 16px;
-  min-height: 34px;
+  margin-bottom: 10px;
+  min-height: 28px;
   position: relative;
   z-index: 2;
   max-width: 210px;
@@ -259,7 +259,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   position: relative;
   z-index: 2;
 }

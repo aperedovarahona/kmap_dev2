@@ -87,37 +87,70 @@ export default function TopicsManager({ subjectId }) {
   };
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[240px_1fr]">
+    <div className="grid gap-3.5 lg:grid-cols-[230px_1fr]">
       <div className="card flex flex-col gap-1 h-fit">
-        <b className="mb-1">Temas</b>
-        {topics.map((x) => <button key={x.id} onClick={() => setTid(x.id)} className={`text-left px-3 py-2 rounded-xl ${x.id === t.id ? 'bg-cyan-300 text-[#042] font-bold' : 'hover:bg-cyan-400/10'}`}>{x.name}</button>)}
+        <b className="mb-1 text-sm text-cyan-200">Temas de la Materia</b>
+        {topics.map((x) => (
+          <button
+            key={x.id}
+            type="button"
+            onClick={() => setTid(x.id)}
+            className={`cursor-pointer text-left px-3 py-2 rounded-xl text-xs sm:text-sm transition-all duration-200 ${
+              x.id === t.id
+                ? 'bg-gradient-to-r from-[#00f2fe] to-sky-400 text-[#021329] font-bold shadow-[0_0_12px_rgba(0,242,254,0.45)]'
+                : 'text-blue-100 hover:bg-cyan-400/15'
+            }`}
+          >
+            {x.name}
+          </button>
+        ))}
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3">
         <div className="card flex flex-col gap-2">
-          <b>Descripción del tema</b>
-          <textarea className="input min-h-[90px]" value={desc} onChange={(e) => setDesc(e.target.value)} placeholder="Explica de qué trata este tema" />
-          <button className="btn w-fit" onClick={saveDesc}>Guardar descripción</button>
+          <b className="text-sm text-white">Descripción del tema</b>
+          <textarea className="input min-h-[75px]" value={desc} onChange={(e) => setDesc(e.target.value)} placeholder="Explica de qué trata este tema" />
+          <button type="button" className="btn w-fit py-2 px-4 text-xs font-bold" onClick={saveDesc}>Guardar descripción</button>
         </div>
         <div className="card">
-          <div className="flex flex-wrap justify-between gap-2 items-center"><b>Material de estudio</b>
-            <div className="flex gap-2"><button className="btn-ghost" onClick={addLink}>+ Enlace</button><label className="btn-ghost cursor-pointer">+ Subir archivo<input type="file" className="hidden" onChange={onFile} /></label></div>
+          <div className="flex flex-wrap justify-between gap-2 items-center">
+            <b className="text-sm text-white">Material de estudio</b>
+            <div className="flex gap-2">
+              <button type="button" className="btn-ghost text-xs py-1.5 px-3" onClick={addLink}>+ Enlace</button>
+              <label className="btn-ghost text-xs py-1.5 px-3 cursor-pointer">+ Subir archivo<input type="file" className="hidden" onChange={onFile} /></label>
+            </div>
           </div>
-          {(t.materials || []).map((m) => <div key={m.id} className="flex justify-between mt-2 px-3 py-2 rounded-xl bg-black/20 text-sm"><span>📄 {m.title} <i className="text-cyan-300">· {m.kind}</i></span><button className="text-rose-300" onClick={() => delMat(m.id)}>Quitar</button></div>)}
-          {!t.materials?.length && <p className="text-sm text-blue-200 mt-2">Sin materiales todavía (libros, investigaciones, ejercicios…).</p>}
+          {(t.materials || []).map((m) => (
+            <div key={m.id} className="flex justify-between items-center mt-2 px-3 py-2 rounded-xl bg-black/25 text-xs sm:text-sm border border-sky-400/20">
+              <span className="truncate mr-2">📄 {m.title} <i className="text-cyan-300">· {m.kind}</i></span>
+              <button type="button" className="text-rose-300 hover:text-rose-200 text-xs font-bold shrink-0 cursor-pointer" onClick={() => delMat(m.id)}>Quitar</button>
+            </div>
+          ))}
+          {!t.materials?.length && <p className="text-xs text-blue-200 mt-2">Sin materiales todavía (libros, investigaciones, ejercicios…).</p>}
         </div>
         <div className="card">
-          <div className="flex flex-wrap justify-between gap-2 items-center"><b>Quiz · {qs.length} preguntas</b><button className="btn" onClick={genAI}>✨ Generar con IA</button></div>
-          <form onSubmit={addQ} className="flex flex-col gap-2 mt-3">
-            <input className="input" placeholder="Pregunta (manual)" value={f.text} onChange={(e) => setF({ ...f, text: e.target.value })} />
-            {f.options.map((o, i) => (
-              <label key={i} className="flex items-center gap-2"><input type="radio" name="ok" checked={f.correct === i} onChange={() => setF({ ...f, correct: i })} /><input className="input" placeholder={`Opción ${'ABCD'[i]}${f.correct === i ? ' (correcta)' : ''}`} value={o} onChange={(e) => setOpt(i, e.target.value)} /></label>
-            ))}
-            <button className="btn-ghost w-fit">+ Agregar pregunta</button>
+          <div className="flex flex-wrap justify-between gap-2 items-center">
+            <b className="text-sm text-white">Quiz · {qs.length} preguntas</b>
+            <button type="button" className="btn py-1.5 px-3.5 text-xs font-bold" onClick={genAI}>✨ Generar con IA</button>
+          </div>
+          <form onSubmit={addQ} className="flex flex-col gap-2 mt-2.5">
+            <input className="input text-xs sm:text-sm" placeholder="Enunciado de la pregunta" value={f.text} onChange={(e) => setF({ ...f, text: e.target.value })} />
+            <div className="grid sm:grid-cols-2 gap-2">
+              {f.options.map((o, i) => (
+                <label key={i} className="flex items-center gap-2 text-xs bg-[#030e20]/60 p-1.5 rounded-lg border border-sky-400/20">
+                  <input type="radio" name="ok" checked={f.correct === i} onChange={() => setF({ ...f, correct: i })} />
+                  <input className="input !py-1 text-xs" placeholder={`Opción ${'ABCD'[i]}${f.correct === i ? ' (correcta)' : ''}`} value={o} onChange={(e) => setOpt(i, e.target.value)} />
+                </label>
+              ))}
+            </div>
+            <button type="submit" className="btn-ghost w-fit text-xs py-1.5 px-3">+ Agregar pregunta</button>
           </form>
           {qs.map((q) => (
-            <div key={q.id} className="mt-2 px-3 py-2 rounded-xl border border-[#1e6fd0] text-sm">
-              <div className="flex justify-between gap-2"><span className="font-semibold">{q.text}</span><button className="text-rose-300" onClick={() => delQ(q.id)}>Eliminar</button></div>
-              <div className="text-blue-200 mt-1">Correcta: {q.options[q.correct]} · <span className="text-cyan-300">{q.source === 'ia' ? 'IA' : 'Manual'}</span></div>
+            <div key={q.id} className="mt-2 px-3 py-2 rounded-xl border border-sky-400/25 bg-[#030e20]/75 text-xs sm:text-sm">
+              <div className="flex justify-between gap-2">
+                <span className="font-semibold text-white">{q.text}</span>
+                <button type="button" className="text-rose-300 hover:text-rose-200 text-xs font-bold shrink-0 cursor-pointer" onClick={() => delQ(q.id)}>Eliminar</button>
+              </div>
+              <div className="text-blue-200 mt-1 text-xs">Correcta: <b className="text-cyan-200">{q.options[q.correct]}</b> · <span className="text-cyan-300 font-semibold">{q.source === 'ia' ? 'IA' : 'Manual'}</span></div>
             </div>
           ))}
         </div>

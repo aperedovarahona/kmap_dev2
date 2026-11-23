@@ -81,7 +81,7 @@ export default function StudentSubject() {
       title={s.name}
       subtitle="Explora el grafo de conocimiento y avanza por los temas."
     >
-      <div className="grid gap-4 lg:grid-cols-[1fr_360px] flex-1">
+      <div className="grid gap-3.5 lg:grid-cols-[1fr_340px] flex-1">
         {/* Columna izquierda: Grafo de la Materia */}
         <div className="card flex flex-col">
           <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
@@ -101,7 +101,7 @@ export default function StudentSubject() {
                 onSelect={(tid) => setSelId(tid)}
               />
               {/* Selector rápido de temas interactivo para móvil/tablet */}
-              <div className="flex flex-wrap gap-1.5 mt-3">
+              <div className="flex flex-wrap gap-1.5 mt-2.5">
                 {topics.map((t) => {
                   const active = t.id === selectedTopic?.id;
                   return (
