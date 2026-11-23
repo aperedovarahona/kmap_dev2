@@ -39,7 +39,13 @@ export default function Layout() {
       {/* Barra móvil para pantallas pequeñas (solo cuando hay sidebar para docente/admin) */}
       {!isStudent && (
         <>
-          <div className="md:hidden fixed top-0 left-0 right-0 h-14 px-4 flex items-center justify-between bg-[#030d1e]/95 border-b border-[#00d2ff]/25 backdrop-blur-md z-50">
+          <div
+            className="md:hidden fixed top-0 left-0 right-0 h-14 px-4 flex items-center justify-between backdrop-blur-md z-50 border-b"
+            style={{
+              background: 'rgba(var(--bg-secondary-rgb, 6, 18, 37), 0.95)',
+              borderColor: 'rgba(var(--primary-rgb), 0.25)',
+            }}
+          >
             <button
               type="button"
               onClick={() => setMobileOpen((prev) => !prev)}
@@ -142,14 +148,14 @@ export default function Layout() {
               <svg className="sidebar-wave" viewBox="0 0 250 80" fill="none">
                 <path
                   d="M -10 60 Q 60 10, 140 45 T 260 20"
-                  stroke="rgba(0, 210, 255, 0.5)"
+                  stroke="rgba(var(--primary-rgb), 0.6)"
                   strokeWidth="2.5"
                   fill="none"
-                  filter="drop-shadow(0 0 6px #00d2ff)"
+                  style={{ filter: 'drop-shadow(0 0 6px var(--cyan))' }}
                 />
                 <path
                   d="M -10 75 Q 80 35, 170 65 T 260 40"
-                  stroke="rgba(0, 140, 255, 0.3)"
+                  stroke="rgba(var(--secondary-rgb), 0.35)"
                   strokeWidth="1.8"
                   fill="none"
                 />

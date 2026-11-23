@@ -1,7 +1,8 @@
 /**
  * ============================================================================
  * KMAP · MOTOR DE TEMAS NEÓN OSCUROS TOTALES
- * Modifica: Fondos, Orbes, Auroras, Botones, Textos, Letras, Bordes y Efectos
+ * Modifica: Fondos completos, Gradientes, Orbes, Auroras, Paneles, Sidebar,
+ * Header, Tarjetas, Botones, Textos, Letras, Bordes y Efectos
  * ============================================================================
  */
 
@@ -12,11 +13,16 @@
 html[data-theme="blue"],
 html[data-theme="blue"] body,
 html[data-theme="blue"] .landing-container,
-html[data-theme="blue"] .login-page-wrapper {
+html[data-theme="blue"] .login-page-wrapper,
+html[data-theme="blue"] .dashboard-layout {
   --bg-primary: #020914;
   --bg-secondary: #061225;
   --bg-tertiary: #0a1c36;
   --bg-dark: #020914;
+  --bg-primary-rgb: 2, 9, 20;
+  --bg-secondary-rgb: 6, 18, 37;
+  --bg-tertiary-rgb: 10, 28, 54;
+  --bg-gradient: radial-gradient(circle at 100% 0%, #0a1b3f 0%, #030a17 50%, #010308 100%);
   --primary-rgb: 0, 242, 254;
   --secondary-rgb: 0, 119, 254;
   --accent-rgb: 157, 80, 255;
@@ -35,7 +41,9 @@ html[data-theme="blue"] .login-page-wrapper {
   --g-title-2: linear-gradient(90deg, #9d50ff, #00f2fe, #0077fe);
   --gradient-main: linear-gradient(135deg, #00f2fe 0%, #0077fe 100%);
   --gradient-title: linear-gradient(90deg, #00f2fe, #9d50ff, #ff3366);
-  --panel-border: rgba(0, 242, 254, 0.3);
+  --panel-bg: rgba(6, 22, 48, 0.75);
+  --panel-bg-hover: rgba(9, 32, 68, 0.9);
+  --panel-border: rgba(0, 242, 254, 0.25);
   --panel-border-hover: rgba(0, 242, 254, 0.7);
   --aurora-1: rgba(0, 242, 254, 0.16);
   --aurora-2: rgba(0, 119, 254, 0.12);
@@ -48,11 +56,16 @@ html[data-theme="blue"] .login-page-wrapper {
 html[data-theme="green"],
 html[data-theme="green"] body,
 html[data-theme="green"] .landing-container,
-html[data-theme="green"] .login-page-wrapper {
+html[data-theme="green"] .login-page-wrapper,
+html[data-theme="green"] .dashboard-layout {
   --bg-primary: #02120a !important;
   --bg-secondary: #041c10 !important;
   --bg-tertiary: #072917 !important;
   --bg-dark: #02120a !important;
+  --bg-primary-rgb: 2, 18, 10 !important;
+  --bg-secondary-rgb: 4, 28, 16 !important;
+  --bg-tertiary-rgb: 7, 41, 23 !important;
+  --bg-gradient: radial-gradient(circle at 100% 0%, #07381d 0%, #02150b 50%, #010804 100%) !important;
   --primary-rgb: 0, 255, 136 !important;
   --secondary-rgb: 0, 184, 107 !important;
   --accent-rgb: 0, 242, 254 !important;
@@ -71,7 +84,9 @@ html[data-theme="green"] .login-page-wrapper {
   --g-title-2: linear-gradient(90deg, #00b86b, #00ff88, #34d399) !important;
   --gradient-main: linear-gradient(135deg, #00ff88 0%, #00b86b 100%) !important;
   --gradient-title: linear-gradient(90deg, #00ff88, #34d399, #00f2fe) !important;
-  --panel-border: rgba(0, 255, 136, 0.3) !important;
+  --panel-bg: rgba(4, 28, 16, 0.75) !important;
+  --panel-bg-hover: rgba(7, 41, 23, 0.9) !important;
+  --panel-border: rgba(0, 255, 136, 0.25) !important;
   --panel-border-hover: rgba(0, 255, 136, 0.75) !important;
   --aurora-1: rgba(0, 255, 136, 0.18) !important;
   --aurora-2: rgba(0, 184, 107, 0.14) !important;
@@ -84,11 +99,16 @@ html[data-theme="green"] .login-page-wrapper {
 html[data-theme="orange"],
 html[data-theme="orange"] body,
 html[data-theme="orange"] .landing-container,
-html[data-theme="orange"] .login-page-wrapper {
+html[data-theme="orange"] .login-page-wrapper,
+html[data-theme="orange"] .dashboard-layout {
   --bg-primary: #140802 !important;
   --bg-secondary: #1c0e04 !important;
   --bg-tertiary: #291507 !important;
   --bg-dark: #140802 !important;
+  --bg-primary-rgb: 20, 8, 2 !important;
+  --bg-secondary-rgb: 28, 14, 4 !important;
+  --bg-tertiary-rgb: 41, 21, 7 !important;
+  --bg-gradient: radial-gradient(circle at 100% 0%, #3a1604 0%, #160802 50%, #090301 100%) !important;
   --primary-rgb: 255, 136, 0 !important;
   --secondary-rgb: 255, 68, 0 !important;
   --accent-rgb: 255, 204, 0 !important;
@@ -107,7 +127,9 @@ html[data-theme="orange"] .login-page-wrapper {
   --g-title-2: linear-gradient(90deg, #ff5500, #ff8800, #ffaa00) !important;
   --gradient-main: linear-gradient(135deg, #ff8800 0%, #ff5500 100%) !important;
   --gradient-title: linear-gradient(90deg, #ff8800, #ffcc00, #ff3d00) !important;
-  --panel-border: rgba(255, 136, 0, 0.3) !important;
+  --panel-bg: rgba(28, 14, 4, 0.75) !important;
+  --panel-bg-hover: rgba(41, 21, 7, 0.9) !important;
+  --panel-border: rgba(255, 136, 0, 0.25) !important;
   --panel-border-hover: rgba(255, 136, 0, 0.75) !important;
   --aurora-1: rgba(255, 136, 0, 0.18) !important;
   --aurora-2: rgba(255, 68, 0, 0.14) !important;
@@ -120,11 +142,16 @@ html[data-theme="orange"] .login-page-wrapper {
 html[data-theme="purple"],
 html[data-theme="purple"] body,
 html[data-theme="purple"] .landing-container,
-html[data-theme="purple"] .login-page-wrapper {
+html[data-theme="purple"] .login-page-wrapper,
+html[data-theme="purple"] .dashboard-layout {
   --bg-primary: #0c0414 !important;
   --bg-secondary: #140722 !important;
   --bg-tertiary: #1f0b34 !important;
   --bg-dark: #0c0414 !important;
+  --bg-primary-rgb: 12, 4, 20 !important;
+  --bg-secondary-rgb: 20, 7, 34 !important;
+  --bg-tertiary-rgb: 31, 11, 52 !important;
+  --bg-gradient: radial-gradient(circle at 100% 0%, #2e0750 0%, #0e0417 50%, #050109 100%) !important;
   --primary-rgb: 176, 38, 255 !important;
   --secondary-rgb: 121, 40, 202 !important;
   --accent-rgb: 255, 0, 127 !important;
@@ -143,7 +170,9 @@ html[data-theme="purple"] .login-page-wrapper {
   --g-title-2: linear-gradient(90deg, #7928ca, #b026ff, #ff007f) !important;
   --gradient-main: linear-gradient(135deg, #b026ff 0%, #7928ca 100%) !important;
   --gradient-title: linear-gradient(90deg, #b026ff, #ff007f, #7928ca) !important;
-  --panel-border: rgba(176, 38, 255, 0.3) !important;
+  --panel-bg: rgba(20, 7, 34, 0.75) !important;
+  --panel-bg-hover: rgba(31, 11, 52, 0.9) !important;
+  --panel-border: rgba(176, 38, 255, 0.25) !important;
   --panel-border-hover: rgba(176, 38, 255, 0.75) !important;
   --aurora-1: rgba(176, 38, 255, 0.18) !important;
   --aurora-2: rgba(121, 40, 202, 0.14) !important;
@@ -156,11 +185,16 @@ html[data-theme="purple"] .login-page-wrapper {
 html[data-theme="yellow"],
 html[data-theme="yellow"] body,
 html[data-theme="yellow"] .landing-container,
-html[data-theme="yellow"] .login-page-wrapper {
+html[data-theme="yellow"] .login-page-wrapper,
+html[data-theme="yellow"] .dashboard-layout {
   --bg-primary: #121002 !important;
   --bg-secondary: #1a1704 !important;
   --bg-tertiary: #262206 !important;
   --bg-dark: #121002 !important;
+  --bg-primary-rgb: 18, 16, 2 !important;
+  --bg-secondary-rgb: 26, 23, 4 !important;
+  --bg-tertiary-rgb: 38, 34, 6 !important;
+  --bg-gradient: radial-gradient(circle at 100% 0%, #362e05 0%, #151302 50%, #080701 100%) !important;
   --primary-rgb: 255, 230, 0 !important;
   --secondary-rgb: 255, 170, 0 !important;
   --accent-rgb: 0, 255, 136 !important;
@@ -179,7 +213,9 @@ html[data-theme="yellow"] .login-page-wrapper {
   --g-title-2: linear-gradient(90deg, #ffaa00, #ffe600, #ffd600) !important;
   --gradient-main: linear-gradient(135deg, #ffe600 0%, #ffaa00 100%) !important;
   --gradient-title: linear-gradient(90deg, #ffe600, #ffaa00, #ffd600) !important;
-  --panel-border: rgba(255, 230, 0, 0.3) !important;
+  --panel-bg: rgba(26, 23, 4, 0.75) !important;
+  --panel-bg-hover: rgba(38, 34, 6, 0.9) !important;
+  --panel-border: rgba(255, 230, 0, 0.25) !important;
   --panel-border-hover: rgba(255, 230, 0, 0.75) !important;
   --aurora-1: rgba(255, 230, 0, 0.18) !important;
   --aurora-2: rgba(255, 170, 0, 0.14) !important;
@@ -192,11 +228,16 @@ html[data-theme="yellow"] .login-page-wrapper {
 html[data-theme="red"],
 html[data-theme="red"] body,
 html[data-theme="red"] .landing-container,
-html[data-theme="red"] .login-page-wrapper {
+html[data-theme="red"] .login-page-wrapper,
+html[data-theme="red"] .dashboard-layout {
   --bg-primary: #140206 !important;
   --bg-secondary: #1c0309 !important;
   --bg-tertiary: #2b050f !important;
   --bg-dark: #140206 !important;
+  --bg-primary-rgb: 20, 2, 6 !important;
+  --bg-secondary-rgb: 28, 3, 9 !important;
+  --bg-tertiary-rgb: 43, 5, 15 !important;
+  --bg-gradient: radial-gradient(circle at 100% 0%, #3e0514 0%, #170207 50%, #090103 100%) !important;
   --primary-rgb: 255, 42, 95 !important;
   --secondary-rgb: 214, 0, 54 !important;
   --accent-rgb: 255, 117, 140 !important;
@@ -215,7 +256,9 @@ html[data-theme="red"] .login-page-wrapper {
   --g-title-2: linear-gradient(90deg, #d60036, #ff2a5f, #ff758c) !important;
   --gradient-main: linear-gradient(135deg, #ff2a5f 0%, #d60036 100%) !important;
   --gradient-title: linear-gradient(90deg, #ff2a5f, #ff758c, #d60036) !important;
-  --panel-border: rgba(255, 42, 95, 0.3) !important;
+  --panel-bg: rgba(28, 3, 9, 0.75) !important;
+  --panel-bg-hover: rgba(43, 5, 15, 0.9) !important;
+  --panel-border: rgba(255, 42, 95, 0.25) !important;
   --panel-border-hover: rgba(255, 42, 95, 0.75) !important;
   --aurora-1: rgba(255, 42, 95, 0.18) !important;
   --aurora-2: rgba(214, 0, 54, 0.14) !important;
@@ -223,40 +266,176 @@ html[data-theme="red"] .login-page-wrapper {
 }
 
 /* ============================================================================
-   APLICACIÓN GLOBAL DE COMPONENTES SEGÚN EL TEMA
+   APLICACIÓN GLOBAL DE FONDOS Y COMPONENTES
    ============================================================================ */
 
-/* 1. Fondo de Grid y Marcas de agua */
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(var(--primary-rgb), .04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--primary-rgb), .04) 1px, transparent 1px) !important;
-}
-.bg-watermark {
-  -webkit-text-stroke: 1px rgba(var(--primary-rgb), .07) !important;
-}
-.login-page-wrapper::before {
-  -webkit-text-stroke: 1px rgba(var(--primary-rgb), .07) !important;
+/* 1. Fondo completo de la ventana */
+html {
+  background-color: var(--bg-primary) !important;
+  background-image: var(--bg-gradient) !important;
+  background-attachment: fixed !important;
 }
 
-/* 2. Orbes y Auroras Flotantes */
-.orb-cyan {
-  background: rgba(var(--primary-rgb), .18) !important;
+body {
+  background-color: transparent !important;
+  color: var(--text-main) !important;
 }
-.orb-purple {
-  background: rgba(var(--secondary-rgb), .15) !important;
+
+/* Ciber Grid en body */
+body::before {
+  background-image:
+    linear-gradient(rgba(var(--primary-rgb), .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--primary-rgb), .035) 1px, transparent 1px) !important;
 }
-.orb-blue {
-  background: rgba(var(--accent-rgb), .12) !important;
+
+/* Polígonos y esquinas con filtro de tono de fondo */
+body::after {
+  filter: hue-rotate(calc(var(--theme-hue, 190) * 1deg - 190deg)) !important;
 }
+
+/* 2. Marcas de agua y blueprints de fondo */
+.watermarks .wm {
+  color: rgba(var(--primary-rgb), .06) !important;
+}
+.watermarks .wm-bit {
+  -webkit-text-stroke: 2px rgba(var(--primary-rgb), .09) !important;
+}
+.watermarks .wm-sigma,
+.watermarks .wm-binary,
+.watermarks .wm-orbit-2 {
+  color: rgba(var(--secondary-rgb), .07) !important;
+  border-color: rgba(var(--secondary-rgb), .12) !important;
+}
+.watermarks .wm-frame,
+.watermarks .wm-orbit-1 {
+  border-color: rgba(var(--primary-rgb), .09) !important;
+}
+
+/* 3. Auroras y orbes */
 .aurora-top-left {
-  background: radial-gradient(circle at 10% 10%, var(--aurora-1) 0%, transparent 60%) !important;
+  background: radial-gradient(circle, rgba(var(--primary-rgb), .12) 0%, transparent 65%) !important;
 }
 .aurora-bottom-right {
-  background: radial-gradient(circle at 90% 90%, var(--aurora-2) 0%, transparent 60%) !important;
+  background: radial-gradient(circle, rgba(var(--secondary-rgb), .12) 0%, transparent 65%) !important;
+}
+.orb-cyan { background: rgba(var(--primary-rgb), .18) !important; }
+.orb-purple { background: rgba(var(--secondary-rgb), .15) !important; }
+.orb-blue { background: rgba(var(--accent-rgb), .12) !important; }
+
+/* 4. Sidebar del Dashboard */
+.sidebar {
+  background: linear-gradient(180deg, rgba(var(--bg-secondary-rgb), 0.82) 0%, rgba(var(--bg-primary-rgb), 0.95) 100%) !important;
+  border-right: 1px solid rgba(var(--primary-rgb), 0.16) !important;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4) !important;
+}
+.sidebar .sidebar-logo img {
+  filter: drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.5)) !important;
+}
+.sidebar .nav-link:hover {
+  color: #ffffff !important;
+  background: rgba(var(--primary-rgb), 0.1) !important;
+}
+.sidebar .nav-link .nav-icon {
+  color: var(--cyan) !important;
+  filter: drop-shadow(0 0 5px rgba(var(--primary-rgb), 0.4)) !important;
+}
+.sidebar .nav-item.active .nav-link {
+  background: var(--g-primary) !important;
+  color: #020914 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.5) !important;
+}
+.sidebar .nav-item.active .nav-icon {
+  color: #020914 !important;
+  filter: none !important;
+}
+.sidebar-wave path:first-child {
+  stroke: rgba(var(--primary-rgb), 0.6) !important;
+  filter: drop-shadow(0 0 6px var(--cyan)) !important;
+}
+.sidebar-wave path:last-child {
+  stroke: rgba(var(--secondary-rgb), 0.4) !important;
 }
 
-/* 3. Letras, Títulos y Animaciones */
+/* 5. Header persistente (Page.jsx) */
+.header-breadcrumbs-card {
+  background: linear-gradient(180deg, rgba(var(--bg-secondary-rgb), 0.9) 0%, rgba(var(--bg-primary-rgb), 0.98) 100%) !important;
+  border-color: rgba(var(--primary-rgb), 0.22) !important;
+  box-shadow: inset 0 0 20px rgba(var(--primary-rgb), 0.05), 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+}
+.header-breadcrumbs-card::before {
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent) !important;
+}
+.header-breadcrumbs-card:hover {
+  border-color: rgba(var(--primary-rgb), 0.5) !important;
+  box-shadow: inset 0 0 30px rgba(var(--primary-rgb), 0.1), 0 0 22px rgba(var(--primary-rgb), 0.35) !important;
+}
+.breadcrumbs .separator {
+  color: var(--cyan) !important;
+}
+.header-card-logo {
+  filter: drop-shadow(0 0 12px rgba(var(--primary-rgb), 0.5)) !important;
+}
+.header-user-controls {
+  background: linear-gradient(180deg, rgba(var(--bg-secondary-rgb), 0.85) 0%, rgba(var(--bg-primary-rgb), 0.95) 100%) !important;
+  border-color: rgba(var(--primary-rgb), 0.22) !important;
+  box-shadow: inset 0 0 20px rgba(var(--primary-rgb), 0.05) !important;
+}
+.control-btn:hover {
+  color: var(--cyan) !important;
+  background: rgba(var(--primary-rgb), 0.1) !important;
+  border-color: rgba(var(--primary-rgb), 0.3) !important;
+  box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.25) !important;
+}
+
+/* 6. Botones Generales */
+.btn {
+  background: var(--g-primary) !important;
+  color: #020914 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 4px 18px rgba(var(--primary-rgb), 0.4) !important;
+}
+.btn:hover {
+  box-shadow: 0 6px 26px rgba(var(--primary-rgb), 0.65) !important;
+}
+.btn-pill {
+  color: var(--cyan) !important;
+  border-color: rgba(var(--primary-rgb), 0.4) !important;
+  background-color: rgba(var(--primary-rgb), 0.08) !important;
+  box-shadow: 0 0 12px rgba(var(--primary-rgb), 0.12) !important;
+}
+.btn-pill:hover {
+  background: var(--g-primary) !important;
+  color: #020914 !important;
+  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.5) !important;
+}
+.btn-ghost {
+  border: 1px solid rgba(var(--primary-rgb), 0.28) !important;
+  background: rgba(var(--bg-secondary-rgb), 0.75) !important;
+  color: var(--text-main) !important;
+}
+.btn-ghost:hover {
+  border-color: var(--cyan) !important;
+  background: rgba(var(--primary-rgb), 0.15) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 16px rgba(var(--primary-rgb), 0.25) !important;
+}
+
+/* 7. Tarjetas y Card Glow */
+.card-glow {
+  background: linear-gradient(160deg, rgba(var(--bg-secondary-rgb), 0.9) 0%, rgba(var(--bg-primary-rgb), 0.95) 100%) !important;
+  border: 1px solid rgba(var(--primary-rgb), 0.25) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(var(--primary-rgb), 0.3) !important;
+}
+.card-glow::before {
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent) !important;
+}
+.card-glow:hover {
+  border-color: var(--cyan) !important;
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.75), 0 0 24px rgba(var(--primary-rgb), 0.25) !important;
+}
+
+/* 8. Textos y Títulos Gradiente */
 .text-gradient,
 .section-title-landing,
 .section-title-gradient {
@@ -277,148 +456,12 @@ html[data-theme="red"] .login-page-wrapper {
   background-clip: text !important;
   color: transparent !important;
 }
-.text-gradient-3 {
-  background: var(--g-title) !important;
-  -webkit-background-clip: text !important;
-  background-clip: text !important;
-  color: transparent !important;
-}
-.hero-symbols span {
-  color: rgba(var(--primary-rgb), .06) !important;
-}
-.hero-symbols span:nth-child(even) {
-  color: rgba(var(--secondary-rgb), .08) !important;
-}
-.value-text strong,
-.marquee b,
-.typewriter-cursor {
-  color: var(--cyan) !important;
-}
-.check-icon {
-  color: var(--cyan) !important;
-  background: rgba(var(--primary-rgb), .12) !important;
-  border-color: rgba(var(--primary-rgb), .35) !important;
-}
 
-/* 4. Botones Principales y Secundarios */
-.btn-nav-register,
-.btn-primary {
-  background: var(--g-primary) !important;
-  color: #020914 !important;
-  box-shadow: 0 6px 25px rgba(var(--primary-rgb), .45) !important;
+/* 9. Scrollbar */
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--primary-rgb), 0.3) !important;
 }
-.btn-nav-register:hover,
-.btn-primary:hover {
-  box-shadow: 0 10px 35px rgba(var(--primary-rgb), .65) !important;
-}
-.btn-nav-login,
-.btn-secondary {
-  border-color: rgba(var(--primary-rgb), .4) !important;
-  color: var(--text-main) !important;
-}
-.btn-nav-login:hover,
-.btn-secondary:hover {
-  background: rgba(var(--primary-rgb), .12) !important;
-  border-color: var(--cyan) !important;
-}
-.hero-badge {
-  background: rgba(var(--primary-rgb), .1) !important;
-  border-color: rgba(var(--primary-rgb), .3) !important;
-  color: var(--cyan) !important;
-}
-.pulse-dot {
+::-webkit-scrollbar-thumb:hover {
   background: var(--cyan) !important;
   box-shadow: 0 0 10px var(--cyan) !important;
-}
-
-/* 5. Círculos orbitales y marcos Blueprint */
-.robot-rings i,
-.wm-orbit {
-  border-color: rgba(var(--primary-rgb), .25) !important;
-}
-.robot-rings i:nth-child(2) {
-  border-color: rgba(var(--secondary-rgb), .3) !important;
-}
-.wm-frame {
-  border-color: rgba(var(--primary-rgb), .12) !important;
-}
-.wm {
-  -webkit-text-stroke: 1.5px rgba(var(--primary-rgb), .12) !important;
-}
-
-/* 6. Efectos del Cursor (FX) */
-.fx-ring {
-  border-color: var(--cyan) !important;
-}
-.fx-dot {
-  background: var(--cyan) !important;
-  box-shadow: 0 0 12px var(--cyan) !important;
-}
-.fx-spot {
-  background: radial-gradient(circle, rgba(var(--primary-rgb), .18) 0%, transparent 70%) !important;
-}
-.fx-grid {
-  background-image:
-    linear-gradient(rgba(var(--primary-rgb), .05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(var(--primary-rgb), .05) 1px, transparent 1px) !important;
-}
-
-/* 7. Login y Tarjetas */
-.login-mascot-column::before {
-  border-color: rgba(var(--primary-rgb), .25) !important;
-}
-.login-mascot-column::after {
-  border-color: rgba(var(--secondary-rgb), .3) !important;
-}
-.login-mascot-badge {
-  border-color: rgba(var(--primary-rgb), .4) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, .5), inset 0 0 15px rgba(var(--primary-rgb), .2) !important;
-}
-.login-mascot-badge::before {
-  background: var(--cyan) !important;
-  box-shadow: 0 0 10px var(--cyan) !important;
-}
-.login-mascot-badge span {
-  color: var(--cyan) !important;
-}
-.login-form-column .card-glow {
-  border-color: rgba(var(--primary-rgb), .25) !important;
-}
-.login-form-column .btn {
-  background: var(--g-primary) !important;
-  color: #020914 !important;
-  box-shadow: 0 4px 15px rgba(var(--primary-rgb), .35) !important;
-}
-.login-form-column .btn:hover {
-  box-shadow: 0 10px 30px rgba(var(--primary-rgb), .55) !important;
-}
-.login-form-column input.input:focus {
-  border-color: var(--cyan) !important;
-  box-shadow: 0 0 0 4px rgba(var(--primary-rgb), .15), 0 0 18px rgba(var(--primary-rgb), .25) !important;
-}
-
-/* 8. Botones demo de acceso rápido y botones fantasma */
-.btn-ghost {
-  border: 1px solid rgba(var(--primary-rgb), 0.3) !important;
-  background: rgba(var(--primary-rgb), 0.05) !important;
-  color: var(--text-main) !important;
-  transition: all 0.25s ease !important;
-}
-.btn-ghost:hover {
-  border-color: var(--cyan) !important;
-  background: rgba(var(--primary-rgb), 0.15) !important;
-  box-shadow: 0 0 14px rgba(var(--primary-rgb), 0.25) !important;
-  transform: translateY(-1px) !important;
-}
-
-/* 9. Mascota Robot (ojos, trim y antenas) */
-.eye-arc {
-  stroke: var(--cyan) !important;
-}
-#antenna-orb {
-  fill: var(--cyan) !important;
-}
-.pet-bubble {
-  border-color: var(--cyan) !important;
-  box-shadow: 0 0 18px rgba(var(--primary-rgb), 0.45) !important;
 }

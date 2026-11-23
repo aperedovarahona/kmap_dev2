@@ -86,9 +86,9 @@ const PANEL_BOT_STYLES = `
   margin-bottom: 12px;
   max-width: 250px;
   min-width: 190px;
-  background: rgba(6, 18, 38, 0.94);
-  border: 1px solid rgba(0, 242, 254, 0.5);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 242, 254, 0.25);
+  background: rgba(var(--bg-secondary-rgb, 6, 18, 38), 0.94);
+  border: 1px solid rgba(var(--primary-rgb), 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(var(--primary-rgb), 0.25);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   padding: 10px 14px;
@@ -115,9 +115,9 @@ const PANEL_BOT_STYLES = `
   right: 48px;
   width: 12px;
   height: 12px;
-  background: rgba(6, 18, 38, 0.94);
-  border-right: 1px solid rgba(0, 242, 254, 0.5);
-  border-bottom: 1px solid rgba(0, 242, 254, 0.5);
+  background: rgba(var(--bg-secondary-rgb, 6, 18, 38), 0.94);
+  border-right: 1px solid rgba(var(--primary-rgb), 0.5);
+  border-bottom: 1px solid rgba(var(--primary-rgb), 0.5);
   transform: rotate(45deg);
 }
 .pbot-bubble-badge {
@@ -125,7 +125,7 @@ const PANEL_BOT_STYLES = `
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: #00f2fe;
+  color: var(--cyan);
   display: flex;
   align-items: center;
   gap: 5px;
@@ -135,8 +135,8 @@ const PANEL_BOT_STYLES = `
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #00f2fe;
-  box-shadow: 0 0 8px #00f2fe;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
   animation: pbot-blink 1.4s infinite;
 }
 @keyframes pbot-blink {
@@ -179,7 +179,7 @@ const PANEL_BOT_STYLES = `
 }
 .pbot-menu-btn {
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(0, 242, 254, 0.2);
+  border: 1px solid rgba(var(--primary-rgb), 0.2);
   border-radius: 10px;
   padding: 7px 10px;
   color: #e2f1ff;
@@ -193,8 +193,8 @@ const PANEL_BOT_STYLES = `
   transition: all 0.2s ease;
 }
 .pbot-menu-btn:hover {
-  background: rgba(0, 242, 254, 0.15);
-  border-color: #00f2fe;
+  background: rgba(var(--primary-rgb), 0.15);
+  border-color: var(--cyan);
   color: #ffffff;
   transform: translateX(3px);
 }
@@ -208,9 +208,9 @@ const PANEL_BOT_STYLES = `
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #00f2fe, #0077fe 70%, #030d1e);
+  background: radial-gradient(circle at 35% 30%, var(--cyan), var(--blue) 70%, var(--bg-primary, #030d1e));
   border: 2px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 25px rgba(0, 242, 254, 0.65), 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 25px rgba(var(--primary-rgb), 0.65), 0 8px 20px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,11 +220,11 @@ const PANEL_BOT_STYLES = `
 }
 .pbot-mini-trigger:hover {
   transform: scale(1.12) rotate(8deg);
-  box-shadow: 0 0 35px rgba(0, 242, 254, 0.9), 0 10px 25px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 35px rgba(var(--primary-rgb), 0.9), 0 10px 25px rgba(0, 0, 0, 0.6);
 }
 @keyframes pbot-mini-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(0, 242, 254, 0.6); }
-  50% { box-shadow: 0 0 35px rgba(157, 80, 255, 0.8); }
+  0%, 100% { box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.6); }
+  50% { box-shadow: 0 0 35px rgba(var(--secondary-rgb), 0.8); }
 }
 
 /* Partículas de chispas */
@@ -500,12 +500,12 @@ export default function PanelBot() {
                   <stop offset="100%" stopColor="#000711" />
                 </linearGradient>
                 <linearGradient id="pbotNeonCyan" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#00f2fe" />
-                  <stop offset="100%" stopColor="#0077fe" />
+                  <stop offset="0%" stopColor="var(--cyan)" />
+                  <stop offset="100%" stopColor="var(--blue)" />
                 </linearGradient>
                 <radialGradient id="pbotPlasmaGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#00f2fe" stopOpacity="0.8" />
-                  <stop offset="60%" stopColor="#9d50ff" stopOpacity="0.4" />
+                  <stop offset="0%" stopColor="var(--cyan)" stopOpacity="0.8" />
+                  <stop offset="60%" stopColor="var(--secondary, var(--purple))" stopOpacity="0.4" />
                   <stop offset="100%" stopColor="transparent" stopOpacity="0" />
                 </radialGradient>
               </defs>
@@ -516,48 +516,48 @@ export default function PanelBot() {
               {/* Anillo orbital exterior antigravedad */}
               <g className="pbot-ring-outer">
                 <ellipse cx="65" cy="70" rx="56" ry="18" stroke="url(#pbotNeonCyan)" strokeWidth="1.8" strokeDasharray="18 10" opacity="0.85" />
-                <circle cx="121" cy="70" r="3.5" fill="#00f2fe" filter="drop-shadow(0 0 6px #00f2fe)" />
+                <circle cx="121" cy="70" r="3.5" fill="var(--cyan)" style={{ filter: 'drop-shadow(0 0 6px var(--cyan))' }} />
               </g>
 
               {/* Anillo orbital interior cruzado */}
               <g className="pbot-ring-inner">
-                <ellipse cx="65" cy="70" rx="46" ry="14" stroke="#9d50ff" strokeWidth="1.4" strokeDasharray="12 8" opacity="0.75" />
-                <circle cx="19" cy="70" r="3" fill="#9d50ff" filter="drop-shadow(0 0 5px #9d50ff)" />
+                <ellipse cx="65" cy="70" rx="46" ry="14" stroke="var(--secondary, var(--purple))" strokeWidth="1.4" strokeDasharray="12 8" opacity="0.75" />
+                <circle cx="19" cy="70" r="3" fill="var(--secondary, var(--purple))" style={{ filter: 'drop-shadow(0 0 5px var(--secondary, var(--purple)))' }} />
               </g>
 
               {/* Antena / Sensor superior */}
-              <line x1="65" y1="36" x2="65" y2="20" stroke="#00f2fe" strokeWidth="2.5" strokeLinecap="round" />
-              <circle cx="65" cy="18" r="5" fill="#9d50ff" stroke="#00f2fe" strokeWidth="1.5" />
-              <circle cx="65" cy="18" r="2.5" fill="#00f2fe" />
+              <line x1="65" y1="36" x2="65" y2="20" stroke="var(--cyan)" strokeWidth="2.5" strokeLinecap="round" />
+              <circle cx="65" cy="18" r="5" fill="var(--secondary, var(--purple))" stroke="var(--cyan)" strokeWidth="1.5" />
+              <circle cx="65" cy="18" r="2.5" fill="var(--cyan)" />
 
               {/* Chasis esférico metálico */}
-              <circle cx="65" cy="70" r="34" fill="url(#pbotBodyGrad)" stroke="#00f2fe" strokeWidth="2.5" />
+              <circle cx="65" cy="70" r="34" fill="url(#pbotBodyGrad)" stroke="var(--cyan)" strokeWidth="2.5" />
 
               {/* Detalle de armadura lateral */}
-              <path d="M 35 60 Q 32 70 35 80" stroke="#9d50ff" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 95 60 Q 98 70 95 80" stroke="#9d50ff" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M 35 60 Q 32 70 35 80" stroke="var(--secondary, var(--purple))" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M 95 60 Q 98 70 95 80" stroke="var(--secondary, var(--purple))" strokeWidth="2.5" strokeLinecap="round" />
 
               {/* Visor digital negro curvado */}
-              <rect x="42" y="54" width="46" height="30" rx="14" fill="url(#pbotVisorGrad)" stroke="rgba(0, 242, 254, 0.5)" strokeWidth="1.5" />
+              <rect x="42" y="54" width="46" height="30" rx="14" fill="url(#pbotVisorGrad)" stroke="rgba(var(--primary-rgb), 0.5)" strokeWidth="1.5" />
 
               {/* Expresiones LED dinámicas en el visor */}
               {mood === 'blink' ? (
                 // Ojos parpadeando (líneas planas)
-                <g stroke="#00f2fe" strokeWidth="3" strokeLinecap="round">
+                <g stroke="var(--cyan)" strokeWidth="3" strokeLinecap="round">
                   <line x1="50" y1="69" x2="58" y2="69" />
                   <line x1="72" y1="69" x2="80" y2="69" />
                 </g>
               ) : mood === 'wink' ? (
                 // Ojo izquierdo guiñando, derecho abierto
                 <g>
-                  <path d="M 49 69 Q 54 64 59 69" stroke="#00f2fe" strokeWidth="3" strokeLinecap="round" fill="none" />
-                  <circle cx="76" cy="69" r="4" fill="#00f2fe" filter="drop-shadow(0 0 5px #00f2fe)" />
+                  <path d="M 49 69 Q 54 64 59 69" stroke="var(--cyan)" strokeWidth="3" strokeLinecap="round" fill="none" />
+                  <circle cx="76" cy="69" r="4" fill="var(--cyan)" style={{ filter: 'drop-shadow(0 0 5px var(--cyan))' }} />
                 </g>
               ) : (
                 // Ojos normales felices LED brillantes
-                <g fill="#00f2fe">
-                  <ellipse cx="54" cy="68" rx="4.5" ry="5.5" filter="drop-shadow(0 0 6px #00f2fe)" />
-                  <ellipse cx="76" cy="68" rx="4.5" ry="5.5" filter="drop-shadow(0 0 6px #00f2fe)" />
+                <g fill="var(--cyan)">
+                  <ellipse cx="54" cy="68" rx="4.5" ry="5.5" style={{ filter: 'drop-shadow(0 0 6px var(--cyan))' }} />
+                  <ellipse cx="76" cy="68" rx="4.5" ry="5.5" style={{ filter: 'drop-shadow(0 0 6px var(--cyan))' }} />
                   {/* Pupilas de luz blanca */}
                   <circle cx="55.5" cy="66.5" r="1.6" fill="#ffffff" />
                   <circle cx="77.5" cy="66.5" r="1.6" fill="#ffffff" />
@@ -565,12 +565,12 @@ export default function PanelBot() {
               )}
 
               {/* Sonrisa digital LED tenue */}
-              <path d="M 60 76 Q 65 79 70 76" stroke="rgba(0, 242, 254, 0.75)" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+              <path d="M 60 76 Q 65 79 70 76" stroke="rgba(var(--primary-rgb), 0.75)" strokeWidth="1.8" strokeLinecap="round" fill="none" />
 
               {/* Propulsor inferior con cono de iones */}
               <g className="pbot-thruster">
-                <polygon points="56,104 74,104 65,122" fill="url(#pbotNeonCyan)" opacity="0.85" filter="drop-shadow(0 0 8px #00f2fe)" />
-                <ellipse cx="65" cy="104" rx="8" ry="2.5" fill="#1e3a5f" stroke="#00f2fe" strokeWidth="1.2" />
+                <polygon points="56,104 74,104 65,122" fill="url(#pbotNeonCyan)" opacity="0.85" style={{ filter: 'drop-shadow(0 0 8px var(--cyan))' }} />
+                <ellipse cx="65" cy="104" rx="8" ry="2.5" fill="#1e3a5f" stroke="var(--cyan)" strokeWidth="1.2" />
               </g>
             </svg>
           </div>

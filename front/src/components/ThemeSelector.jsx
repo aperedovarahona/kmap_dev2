@@ -18,7 +18,14 @@ export default function ThemeSelector() {
     const saved = localStorage.getItem('kmap_theme') || 'blue';
     setCurrent(saved);
     document.documentElement.setAttribute('data-theme', saved);
-    document.body.setAttribute('data-theme', saved);
+    if (document.body) document.body.setAttribute('data-theme', saved);
+
+    const onThemeChange = (e) => {
+      if (e.detail && e.detail !== current) {
+        setCurrent(e.detail);
+      }
+    };
+    window.addEventListener('kmap-theme-change', onThemeChange);
 
     const onOutside = (e) => {
       if (ref.current && !ref.current.contains(e.target)) {
@@ -26,14 +33,18 @@ export default function ThemeSelector() {
       }
     };
     document.addEventListener('mousedown', onOutside);
-    return () => document.removeEventListener('mousedown', onOutside);
-  }, []);
+    return () => {
+      document.removeEventListener('mousedown', onOutside);
+      window.removeEventListener('kmap-theme-change', onThemeChange);
+    };
+  }, [current]);
 
   const selectTheme = (themeId) => {
     setCurrent(themeId);
     document.documentElement.setAttribute('data-theme', themeId);
-    document.body.setAttribute('data-theme', themeId);
+    if (document.body) document.body.setAttribute('data-theme', themeId);
     localStorage.setItem('kmap_theme', themeId);
+    window.dispatchEvent(new CustomEvent('kmap-theme-change', { detail: themeId }));
     setOpen(false);
   };
 

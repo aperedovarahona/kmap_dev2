@@ -85,11 +85,16 @@ export default function UserMenu({ size = 'md', className = '' }) {
       {open && (
         <div
           role="menu"
-          className="absolute right-0 mt-2.5 w-60 max-h-[85vh] overflow-y-auto rounded-2xl bg-[#061429]/95 backdrop-blur-xl border border-[#00d2ff]/40 shadow-[0_12px_36px_rgba(0,180,255,0.25)] p-3 z-50 animate-in fade-in zoom-in-95 duration-150 origin-top-right text-slate-100"
+          className="absolute right-0 mt-2.5 w-60 max-h-[85vh] overflow-y-auto rounded-2xl backdrop-blur-xl border p-3 z-50 animate-in fade-in zoom-in-95 duration-150 origin-top-right text-slate-100"
+          style={{
+            background: 'rgba(var(--bg-secondary-rgb, 6, 20, 41), 0.96)',
+            borderColor: 'rgba(var(--primary-rgb), 0.35)',
+            boxShadow: '0 12px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(var(--primary-rgb), 0.2)',
+          }}
         >
           {/* Tarjeta de información del usuario */}
-          <div className="flex items-center gap-3 pb-3 border-b border-[#00d2ff]/15">
-            <div className="w-10 h-10 rounded-full overflow-hidden border border-[#00d2ff]/50 shrink-0">
+          <div className="flex items-center gap-3 pb-3 border-b" style={{ borderColor: 'rgba(var(--primary-rgb), 0.15)' }}>
+            <div className="w-10 h-10 rounded-full overflow-hidden border shrink-0" style={{ borderColor: 'rgba(var(--primary-rgb), 0.5)' }}>
               <img
                 src="/assets/images/avatar.svg"
                 alt={user?.name || 'Avatar'}
@@ -101,7 +106,14 @@ export default function UserMenu({ size = 'md', className = '' }) {
                 {user?.name || 'Usuario'}
               </div>
               <div className="flex items-center gap-1.5 mt-0.5">
-                <span className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#00d2ff]/15 text-[#00f2fe] border border-[#00d2ff]/30">
+                <span
+                  className="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full border"
+                  style={{
+                    background: 'rgba(var(--primary-rgb), 0.12)',
+                    color: 'var(--cyan)',
+                    borderColor: 'rgba(var(--primary-rgb), 0.3)',
+                  }}
+                >
                   {user?.role === 'admin'
                     ? 'Administrador'
                     : user?.role === 'docente'
@@ -119,9 +131,18 @@ export default function UserMenu({ size = 'md', className = '' }) {
             <button
               type="button"
               onClick={handleGoProfile}
-              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-cyan-100 hover:text-white hover:bg-[#00d2ff]/15 transition-all duration-150 cursor-pointer text-left"
+              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold hover:text-white transition-all duration-150 cursor-pointer text-left"
+              style={{ color: 'var(--text-light)' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(var(--primary-rgb), 0.15)';
+                e.currentTarget.style.color = '#ffffff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = 'var(--text-light)';
+              }}
             >
-              <svg className="w-4 h-4 text-[#00d2ff]" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-4 h-4" style={{ color: 'var(--cyan)' }} viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
               </svg>
               <span>Mi Perfil</span>
@@ -130,9 +151,18 @@ export default function UserMenu({ size = 'md', className = '' }) {
             <button
               type="button"
               onClick={handleGoLanding}
-              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold text-cyan-100 hover:text-white hover:bg-[#00d2ff]/15 transition-all duration-150 cursor-pointer text-left"
+              className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-semibold hover:text-white transition-all duration-150 cursor-pointer text-left"
+              style={{ color: 'var(--text-light)' }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(var(--primary-rgb), 0.15)';
+                e.currentTarget.style.color = '#ffffff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = 'var(--text-light)';
+              }}
             >
-              <svg className="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-4 h-4" style={{ color: 'var(--cyan)' }} viewBox="0 0 24 24" fill="currentColor">
                 <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
               </svg>
               <span>Portada / Landing</span>

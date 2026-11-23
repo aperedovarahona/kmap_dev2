@@ -5,6 +5,7 @@ import { useDb } from '../lib/db.js';
 import { topicsOf } from '../lib/logic.js';
 import { info } from '../alerts.js';
 import UserMenu from './UserMenu.jsx';
+import ThemeSelector from './ThemeSelector.jsx';
 import './Page.css';
 
 export default function Page({ title, subtitle, crumb, backTo, icon, actions, children }) {
@@ -97,6 +98,7 @@ export default function Page({ title, subtitle, crumb, backTo, icon, actions, ch
 
         {/* Right User & Utility Controls */}
         <div className="header-user-controls">
+          <ThemeSelector />
           <button
             className="control-btn"
             title="Configuración de Perfil"

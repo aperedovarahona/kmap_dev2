@@ -52,7 +52,7 @@ export default function TeacherSubject() {
       actions={
         <div className="flex flex-wrap gap-2 items-center">
           <button type="button" className="btn-ghost text-xs" onClick={copy}>
-            Código: <b className="text-cyan-300 tracking-widest">{s.code}</b> 📋
+            Código: <b className="tracking-widest" style={{ color: 'var(--cyan)' }}>{s.code}</b> 📋
           </button>
           <button type="button" className="btn-ghost text-xs" onClick={newCode}>
             Nuevo código

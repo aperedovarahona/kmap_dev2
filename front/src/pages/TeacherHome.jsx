@@ -36,12 +36,18 @@ export default function TeacherHome() {
               transition={{ delay: i * 0.06 }}
               className="card-glow flex flex-col items-center text-center gap-2.5 p-4 sm:p-5"
             >
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sky-400 to-cyan-300 text-[#031126] font-extrabold grid place-items-center text-3xl shadow-[0_0_20px_rgba(34,211,238,0.4)]">
+              <div
+                className="w-16 h-16 rounded-2xl text-[#020914] font-extrabold grid place-items-center text-3xl transition-transform duration-300 group-hover:scale-105"
+                style={{
+                  background: 'var(--g-primary)',
+                  boxShadow: '0 0 20px rgba(var(--primary-rgb), 0.45)',
+                }}
+              >
                 {s.icon}
               </div>
               <b className="text-xl text-white">{s.name}</b>
-              <p className="text-sm text-blue-200">{s.desc}</p>
-              <div className="text-xs text-cyan-300 font-semibold">
+              <p className="text-sm" style={{ color: 'var(--text-muted)' }}>{s.desc}</p>
+              <div className="text-xs font-semibold" style={{ color: 'var(--cyan)' }}>
                 {topicsOf(db, s.id).length} temas •{' '}
                 {db.enrollments.filter((e) => e.subjectId === s.id).length} estudiantes
               </div>
@@ -50,7 +56,7 @@ export default function TeacherHome() {
                 onClick={(e) => copy(e, s.code)}
                 className="btn-ghost text-xs w-full"
               >
-                Código de matrícula: <b className="text-cyan-300 tracking-widest">{s.code}</b> 📋
+                Código de matrícula: <b className="tracking-widest" style={{ color: 'var(--cyan)' }}>{s.code}</b> 📋
               </button>
               <button
                 type="button"
