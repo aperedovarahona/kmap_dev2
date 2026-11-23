@@ -4,8 +4,7 @@ import { motion } from 'framer-motion';
 import { useAuth } from '../auth.jsx';
 import { fail, info } from '../alerts.js';
 import { Tabs } from '../components/ui.jsx';
-import RobotMascot from '../components/RobotMascot.jsx';
-import { CursorFX, BitLogo, Line } from '../components/FX.jsx';
+import { BitLogo, Line } from '../components/FX.jsx';
 import './Login.css';
 
 export default function Login() {
@@ -52,29 +51,9 @@ export default function Login() {
     }
   };
 
-  const badgeText = passFocus
-    ? '🙈 ¡No miro tu contraseña!'
-    : '🤖 ¡Hola! Soy tu tutor interactivo KMAP';
-
   return (
     <div className="login-page-wrapper">
-      {/* Cursor con estela, anillo, luz y robotito que lo sigue */}
-      <CursorFX />
-
       <div className="login-content-grid">
-        {/* Lado izquierdo: mascota */}
-        <div className="login-mascot-column">
-          <div className="login-mascot-float">
-            <RobotMascot mode="inline" size="xl" coveringEyes={passFocus} />
-          </div>
-          <div className="login-mascot-badge mt-4">
-            <span className="text-xs font-bold text-cyan-200 tracking-wide">
-              <Line text={badgeText} kind="" />
-            </span>
-          </div>
-        </div>
-
-        {/* Lado derecho: tarjeta de formulario */}
         <div className="login-form-column">
           <motion.form
             initial={{ opacity: 0, scale: 0.96 }}
@@ -82,26 +61,16 @@ export default function Login() {
             onSubmit={submit}
             className="card-glow w-full flex flex-col gap-4 p-7"
           >
-            <div className="flex items-center justify-between gap-3">
-              {/* Logo animado: se escribe solo y cada letra salta al pasar el cursor */}
-              <BitLogo onClick={() => nav('/')} title="Volver a la portada" />
-              <button
-                type="button"
-                onClick={() => nav('/')}
-                className="text-xs text-cyan-300 hover:text-white flex items-center gap-1 transition-colors cursor-pointer bg-transparent border-none p-0"
-                title="Volver a la página principal"
-              >
-                ← Volver al inicio
-              </button>
+            <div className="flex items-center justify-center">
+              <BitLogo />
             </div>
 
-            <h1 className="login-title">
-              <Line text={reg ? 'Crea tu cuenta' : '¡Hola de nuevo!'} kind="l-wave" />
+            <h1 className="login-title text-center">
+              <Line text={reg ? 'Crea tu cuenta' : 'Iniciar Sesión'} kind="l-wave" />
             </h1>
 
-            <p className="text-[#8ca5c9] text-sm">
-              Explora tu grafo de conocimiento, realiza quizzes adaptativos y descubre tu ruta de
-              aprendizaje con nuestro bot tutor ✨
+            <p className="text-[#8ca5c9] text-sm text-center">
+              Plataforma de grafos de conocimiento y aprendizaje adaptativo KMAP
             </p>
 
             <Tabs
@@ -186,13 +155,13 @@ export default function Login() {
             )}
 
             <button type="submit" className="btn w-full mt-1">
-              {reg ? 'Crear cuenta ❯' : 'Iniciar sesión ❯'}
+              {reg ? 'Crear cuenta ❯' : 'Ingresar a la plataforma ❯'}
             </button>
 
             {role === 'estudiante' && (
               <button
                 type="button"
-                className="text-sm text-[#00d2ff] hover:underline"
+                className="text-sm text-[#00d2ff] hover:underline text-center"
                 onClick={() => setMode(reg ? 'login' : 'register')}
               >
                 {reg ? 'Ya tengo cuenta · Iniciar sesión' : 'Registrarme como nuevo estudiante'}
@@ -200,7 +169,7 @@ export default function Login() {
             )}
 
             <div className="border-t border-[#00d2ff]/20 pt-3 mt-1">
-              <div className="text-xs text-[#8ca5c9] mb-2 font-semibold">
+              <div className="text-xs text-[#8ca5c9] mb-2 font-semibold text-center">
                 Acceso rápido cuentas Demo (1 clic):
               </div>
               <div className="grid grid-cols-3 gap-2">
