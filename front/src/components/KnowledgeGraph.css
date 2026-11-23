@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Knowledge Graph Visualizer Styles (Cyberpunk / BIT ACADEMY Aesthetic)
+   Componente: front/src/components/KnowledgeGraph.jsx
+   ========================================================================== */
+
+.graph-container-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.graph-canvas-viewport {
+  background: radial-gradient(circle at 50% 50%, #06193b 0%, #020b1c 100%);
+  background-image: 
+    radial-gradient(rgba(0, 210, 255, 0.14) 1.2px, transparent 1.2px),
+    radial-gradient(circle at 50% 50%, #06193b 0%, #020b1c 100%);
+  background-size: 24px 24px, 100% 100%;
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  box-shadow: inset 0 0 40px rgba(0, 210, 255, 0.08), 0 8px 32px rgba(0, 10, 30, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.graph-container-wrap:hover .graph-canvas-viewport {
+  border-color: rgba(0, 242, 254, 0.6);
+  box-shadow: inset 0 0 50px rgba(0, 242, 254, 0.12), 0 10px 36px rgba(0, 10, 32, 0.7);
+}
+
+/* Cápsula flotante de controles */
+.graph-controls-capsule {
+  background: rgba(5, 22, 48, 0.88);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 12px rgba(0, 210, 255, 0.15);
+  z-index: 10;
+}
+
+.graph-ctrl-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cffafe;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.18s ease;
+}
+
+.graph-ctrl-btn:hover {
+  background: rgba(0, 210, 255, 0.22);
+  border-color: rgba(0, 242, 254, 0.5);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+  transform: scale(1.08);
+}
+
+.graph-ctrl-btn:active {
+  transform: scale(0.92);
+}
+
+.graph-ctrl-btn-text {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cffafe;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  background: rgba(0, 210, 255, 0.1);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  transition: all 0.18s ease;
+}
+
+.graph-ctrl-btn-text:hover {
+  background: rgba(0, 210, 255, 0.25);
+  border-color: #00f2fe;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(0, 242, 254, 0.45);
+  transform: scale(1.04);
+}
+
+.graph-ctrl-btn-text:active {
+  transform: scale(0.94);
+}

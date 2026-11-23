@@ -1,0 +1,533 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Color Palette - BIT ACADEMY (unvalle_bot) */
+  --bg-dark: #020610;
+  --bg-gradient: radial-gradient(circle at 100% 0%, #0a1b3f 0%, #030a17 50%, #010308 100%);
+  
+  /* Panels (Glassmorphism) */
+  --panel-bg: rgba(6, 22, 48, 0.7);
+  --panel-bg-hover: rgba(9, 32, 68, 0.85);
+  --panel-border: rgba(0, 210, 255, 0.25);
+  --panel-border-hover: rgba(0, 229, 255, 0.6);
+
+  /* Neon Accents */
+  --cyan-primary: #00d2ff;
+  --cyan-glow: #00f2fe;
+  --cyan-bright: #38ef7d;
+  --blue-vivid: #0077fe;
+  --blue-deep: #004ecc;
+  --accent-gold: #ffbe0b;
+  --accent-pink: #ff007f;
+  --accent-purple: #8338ec;
+  --accent-red: #ff3366;
+  --online-green: #00e676;
+
+  /* Typography */
+  --font-main: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --text-white: #ffffff;
+  --text-muted: #8ca5c9;
+  --text-subtle: #4d6d9a;
+
+  /* Shadows & Glows */
+  --glow-cyan-sm: 0 0 12px rgba(0, 210, 255, 0.4);
+  --glow-cyan-md: 0 0 24px rgba(0, 210, 255, 0.35);
+  --glow-cyan-lg: 0 0 40px rgba(0, 229, 255, 0.25);
+  --shadow-card: 0 8px 32px 0 rgba(0, 8, 24, 0.6);
+  --shadow-glow: 0 0 18px rgba(0, 180, 255, 0.3);
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-pill: 9999px;
+
+  /* Layout */
+  --sidebar-width: 250px;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  IMPORTANTE: el fondo (color + degradado) va SOLO en <html>.
+  <body> queda transparente; si el body tuviera fondo propio, taparía
+  la cuadrícula (::before), los polígonos (::after), las auroras y las
+  marcas de agua, que están detrás con z-index negativo.
+*/
+html {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: transparent;
+  color: var(--text-white);
+  font-family: var(--font-main);
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+#root {
+  background: transparent;
+}
+
+/* ==========================================================================
+   FONDO GEOMÉTRICO (Líneas, nodos y resplandores)
+   ========================================================================== */
+
+/* 1. Malla de líneas rectas (Ciber-Grid sutil) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(rgba(0, 210, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  background-position: center center;
+  /* Desvanece la cuadrícula en el centro para no ensuciar las tarjetas */
+  mask-image: radial-gradient(circle at 50% 50%, transparent 30%, black 80%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 30%, black 80%);
+}
+
+/* 2. Estructuras Geométricas (Polígonos y Nodos en las esquinas) */
+/* Usamos un SVG codificado para dibujar líneas y círculos brillantes */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.6;
+  /* El SVG dibuja un hexágono gigante y líneas orbitales */
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='rgba(0,210,255,0.08)' stroke-width='2' fill='none'%3E%3Cpath d='M 0 0 L 250 0 L 450 200 L 450 450 L 200 700 L 0 700 Z' /%3E%3Cpath d='M 1000 1000 L 750 1000 L 550 800 L 550 550 L 800 300 L 1000 300 Z' /%3E%3Ccircle cx='250' cy='0' r='4' fill='rgba(0,210,255,0.3)' stroke='none'/%3E%3Ccircle cx='450' cy='200' r='4' fill='rgba(0,210,255,0.3)' stroke='none'/%3E%3Ccircle cx='200' cy='700' r='4' fill='rgba(0,210,255,0.3)' stroke='none'/%3E%3Ccircle cx='750' cy='1000' r='4' fill='rgba(0,210,255,0.3)' stroke='none'/%3E%3Ccircle cx='550' cy='800' r='4' fill='rgba(0,210,255,0.3)' stroke='none'/%3E%3Ccircle cx='800' cy='300' r='4' fill='rgba(0,210,255,0.3)' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 3. Auroras dinámicas para darle vida y color de fondo */
+.aurora-bottom-right {
+  position: fixed;
+  bottom: -20%;
+  right: -10%;
+  width: 80vw;
+  height: 80vw;
+  background: radial-gradient(circle, rgba(0, 119, 254, 0.08) 0%, transparent 60%);
+  filter: blur(120px);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulseAuroraRight 15s ease-in-out infinite alternate-reverse;
+}
+
+.aurora-top-left {
+  position: fixed;
+  top: -20%;
+  left: -10%;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.06) 0%, transparent 60%);
+  filter: blur(100px);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulseAuroraLeft 12s ease-in-out infinite alternate;
+}
+
+@keyframes pulseAuroraLeft {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.6; }
+  100% { transform: scale(1.1) translate(5%, 5%); opacity: 1; }
+}
+
+@keyframes pulseAuroraRight {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.5; }
+  100% { transform: scale(1.15) translate(-5%, -5%); opacity: 1; }
+}
+
+/* ==========================================================================
+   SCROLLBAR CUSTOMIZATION
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 210, 255, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan-primary);
+  box-shadow: 0 0 10px var(--cyan-primary);
+}
+
+/* ==========================================================================
+   KMAP Utility Components
+   ========================================================================== */
+@layer components {
+  .card {
+    background: var(--panel-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow-card), inset 0 0 1px rgba(0, 229, 255, 0.3);
+    transition: var(--transition-smooth);
+  }
+
+  .card:hover {
+    border-color: var(--panel-border-hover);
+    box-shadow: 0 12px 32px rgba(0, 10, 32, 0.7), var(--glow-cyan-sm);
+    transform: translateY(-2px);
+  }
+
+  .card-glow {
+    background: rgba(6, 22, 48, 0.8);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(0, 229, 255, 0.45);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    box-shadow: 0 8px 32px rgba(0, 10, 30, 0.65), var(--glow-cyan-sm), inset 0 0 1px rgba(0, 229, 255, 0.4);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--cyan-glow), transparent);
+    opacity: 0.6;
+  }
+
+  .card-glow:hover {
+    border-color: var(--cyan-glow);
+    box-shadow: 0 14px 38px rgba(0, 10, 34, 0.75), var(--glow-cyan-md);
+    transform: translateY(-2px);
+  }
+
+  .btn {
+    cursor: pointer;
+    user-select: none;
+    border-radius: 9999px;
+    padding: 0.625rem 1.5rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #021226;
+    background-image: linear-gradient(135deg, #00d2ff 0%, #0099ff 100%);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.45);
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 60%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+  }
+
+  .btn:hover {
+    background-image: linear-gradient(135deg, #00f2fe 0%, #00b4d8 100%);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 28px rgba(0, 242, 254, 0.75);
+  }
+
+  .btn:hover::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .btn:active {
+    transform: scale(0.96);
+  }
+
+  .btn-pill {
+    cursor: pointer;
+    user-select: none;
+    border-radius: 9999px;
+    padding: 0.5rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--cyan-primary);
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    background-color: rgba(0, 180, 255, 0.08);
+    box-shadow: 0 0 12px rgba(0, 210, 255, 0.1);
+    transition: all 0.25s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-pill:hover {
+    background-image: linear-gradient(135deg, #0088ff 0%, #00d2ff 100%);
+    border-color: transparent;
+    color: #021226;
+    font-weight: 700;
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.45);
+  }
+
+  .btn-pill:active {
+    transform: scale(0.95);
+  }
+
+  .btn-ghost {
+    cursor: pointer;
+    user-select: none;
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0.875rem;
+    border: 1px solid rgba(0, 210, 255, 0.25);
+    background-color: rgba(6, 22, 48, 0.75);
+    color: #cffafe;
+    transition: all 0.2s ease-out;
+  }
+
+  .btn-ghost:hover {
+    background-color: rgba(0, 210, 255, 0.15);
+    border-color: var(--cyan-glow);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 16px rgba(0, 210, 255, 0.25);
+  }
+
+  .btn-ghost:active {
+    transform: scale(0.95);
+  }
+
+  .input {
+    width: 100%;
+    border-radius: var(--radius-md);
+    background-color: rgba(3, 13, 30, 0.9);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    color: #ffffff;
+    outline: none;
+    transition: all 0.25s ease;
+  }
+
+  .input::placeholder {
+    color: rgba(140, 165, 201, 0.5);
+  }
+
+  .input:hover {
+    border-color: rgba(0, 210, 255, 0.6);
+    background-color: rgba(4, 18, 40, 0.9);
+  }
+
+  .input:focus {
+    border-color: var(--cyan-glow);
+    background-color: rgba(0, 210, 255, 0.05);
+    box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.15);
+  }
+
+  .interactive-row {
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .interactive-row:hover {
+    transform: translate(6px, 0);
+    border-color: rgba(0, 242, 254, 0.75);
+    background-color: rgba(0, 210, 255, 0.1);
+    box-shadow: var(--glow-cyan-sm);
+  }
+
+  .interactive-row:active {
+    transform: scale(0.99);
+  }
+}
+
+/* ==========================================================================
+   MARCAS DE AGUA (BIT, Σ, π, { }, √x, A, 01) + marcos y órbitas
+   Se renderizan con <BackgroundWatermarks /> (ver App.jsx).
+   Van FUERA de @layer components a propósito.
+   ========================================================================== */
+
+.watermarks {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Base de todo símbolo / letra */
+.wm {
+  position: absolute;
+  font-family: var(--font-main);
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+  color: rgba(0, 210, 255, 0.05);
+  animation: wmFloat 14s ease-in-out infinite alternate;
+}
+
+/* "BIT" gigante: solo contorno, detrás del título */
+.wm-bit {
+  top: 6%;
+  left: 20%;
+  font-size: clamp(260px, 42vw, 780px);
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(0, 210, 255, 0.08);
+  animation: none;
+}
+
+.wm-sigma {
+  top: 14%;
+  left: 8%;
+  font-size: clamp(120px, 16vw, 300px);
+  color: rgba(131, 56, 236, 0.07);
+  animation-duration: 16s;
+}
+
+.wm-pi {
+  top: 18%;
+  left: 46%;
+  font-size: clamp(70px, 9vw, 170px);
+  color: rgba(0, 210, 255, 0.09);
+  animation-duration: 12s;
+}
+
+.wm-braces {
+  top: 6%;
+  right: 6%;
+  font-size: clamp(90px, 11vw, 210px);
+  color: rgba(0, 210, 255, 0.07);
+  animation-duration: 18s;
+}
+
+.wm-sqrt {
+  bottom: 6%;
+  left: 8%;
+  font-size: clamp(100px, 13vw, 250px);
+  color: rgba(0, 119, 254, 0.08);
+  animation-duration: 15s;
+}
+
+.wm-delta {
+  top: 52%;
+  left: 50%;
+  font-size: clamp(110px, 12vw, 230px);
+  color: rgba(0, 210, 255, 0.07);
+  animation-duration: 13s;
+}
+
+.wm-binary {
+  bottom: -2%;
+  right: 3%;
+  font-size: clamp(150px, 20vw, 380px);
+  color: rgba(131, 56, 236, 0.09);
+  animation-duration: 20s;
+}
+
+/* Marcos rectangulares estilo blueprint */
+.wm-frame {
+  position: absolute;
+  border: 1px solid rgba(0, 210, 255, 0.07);
+}
+
+.wm-frame-1 {
+  top: 11%;
+  left: 55%;
+  width: 28vw;
+  height: 12vw;
+}
+
+.wm-frame-2 {
+  top: 20%;
+  left: 62%;
+  width: 14vw;
+  height: 14vw;
+}
+
+/* Círculos orbitales alrededor del robot / hero */
+.wm-orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 210, 255, 0.1);
+}
+
+.wm-orbit-1 {
+  top: 28%;
+  right: 4%;
+  width: 34vw;
+  height: 34vw;
+  max-width: 640px;
+  max-height: 640px;
+}
+
+.wm-orbit-2 {
+  top: 34%;
+  right: 8%;
+  width: 24vw;
+  height: 24vw;
+  max-width: 450px;
+  max-height: 450px;
+  border-color: rgba(131, 56, 236, 0.12);
+}
+
+@keyframes wmFloat {
+  0%   { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-18px) rotate(2deg); }
+}
+
+/* Responsive: en móvil dejamos solo lo esencial */
+@media (max-width: 768px) {
+  .wm-frame,
+  .wm-orbit,
+  .wm-pi,
+  .wm-delta,
+  .wm-braces {
+    display: none;
+  }
+
+  .wm-bit {
+    left: -4%;
+    font-size: 70vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wm {
+    animation: none;
+  }
+}

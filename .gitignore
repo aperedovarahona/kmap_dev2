@@ -1,0 +1,18 @@
+# Dependencias
+node_modules/
+front/node_modules/
+
+# Variables de entorno
+.env
+backend/.env
+front/.env
+
+# Archivos de compilación y dist
+front/dist/
+dist/
+*.log
+.DS_Store
+
+# Archivos subidos localmente
+backend/uploads/*
+!backend/uploads/.gitkeep

@@ -1,0 +1,14 @@
+{
+  "name": "mapa-conocimiento",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mapa de Conocimiento: Front Standalone (React + Vite)",
+  "scripts": {
+    "postinstall": "npm --prefix front install",
+    "install:all": "npm --prefix front install",
+    "dev": "npm --prefix front run dev",
+    "build": "npm --prefix front run build",
+    "preview": "npm --prefix front run preview",
+    "start": "npm --prefix front run preview"
+  }
+}

@@ -1,0 +1,2405 @@
+{
+  "users": [
+    {
+      "id": "u-admin",
+      "role": "admin",
+      "name": "Administrador",
+      "username": "admin",
+      "email": "admin@demo.com",
+      "password": "admin123",
+      "altPasswords": [
+        "123456",
+        "admin"
+      ]
+    },
+    {
+      "id": "u-doc",
+      "role": "docente",
+      "name": "Prof. Rivera",
+      "username": "docente",
+      "email": "docente@demo.com",
+      "altEmails": [
+        "rivera@umss.edu"
+      ],
+      "carnet": "1234567",
+      "password": "1234567",
+      "altPasswords": [
+        "123456"
+      ],
+      "mustChange": false
+    },
+    {
+      "id": "u-ale",
+      "role": "estudiante",
+      "name": "Jhoselyn Lopez",
+      "username": "estudiante",
+      "sis": "202012345",
+      "email": "jhoselyn@est.umss.edu",
+      "altEmails": [
+        "estudiante@demo.com",
+        "ale@est.umss.edu"
+      ],
+      "password": "123456"
+    },
+    {
+      "id": "s1",
+      "role": "estudiante",
+      "name": "Ana Torres",
+      "sis": "202100001",
+      "email": "est1@est.umss.edu",
+      "password": "123456"
+    },
+    {
+      "id": "s2",
+      "role": "estudiante",
+      "name": "Carlos Méndez",
+      "sis": "202100002",
+      "email": "est2@est.umss.edu",
+      "password": "123456"
+    },
+    {
+      "id": "s3",
+      "role": "estudiante",
+      "name": "María López",
+      "sis": "202100003",
+      "email": "est3@est.umss.edu",
+      "password": "123456"
+    },
+    {
+      "id": "s4",
+      "role": "estudiante",
+      "name": "Diego Vargas",
+      "sis": "202100004",
+      "email": "est4@est.umss.edu",
+      "password": "123456"
+    },
+    {
+      "id": "s5",
+      "role": "estudiante",
+      "name": "Sofía Rojas",
+      "sis": "202100005",
+      "email": "est5@est.umss.edu",
+      "password": "123456"
+    },
+    {
+      "id": "s6",
+      "role": "estudiante",
+      "name": "Luis Fernández",
+      "sis": "202100006",
+      "email": "est6@est.umss.edu",
+      "password": "123456"
+    },
+    {
+      "id": "s7",
+      "role": "estudiante",
+      "name": "Valeria Castro",
+      "sis": "202100007",
+      "email": "est7@est.umss.edu",
+      "password": "123456"
+    },
+    {
+      "id": "s8",
+      "role": "estudiante",
+      "name": "Mateo Morales",
+      "sis": "202100008",
+      "email": "est8@est.umss.edu",
+      "password": "123456"
+    },
+    {
+      "id": "s9",
+      "role": "estudiante",
+      "name": "Camila Ortiz",
+      "sis": "202100009",
+      "email": "est9@est.umss.edu",
+      "password": "123456"
+    },
+    {
+      "id": "s10",
+      "role": "estudiante",
+      "name": "Andrés Guzmán",
+      "sis": "202100010",
+      "email": "est10@est.umss.edu",
+      "password": "123456"
+    },
+    {
+      "id": "xhzscr3",
+      "role": "docente",
+      "name": "Pepe",
+      "email": "pepe@demo.com",
+      "carnet": "123456789",
+      "password": "123456789",
+      "mustChange": true
+    }
+  ],
+  "subjects": [
+    {
+      "id": "sub-bd",
+      "name": "Bases de Datos",
+      "desc": "Explora el grafo de conocimiento y avanza por los temas de modelado y SQL.",
+      "icon": "🗄️",
+      "theme": "purple",
+      "teacherId": "u-doc",
+      "code": "BDD3K9"
+    },
+    {
+      "id": "sub-prg",
+      "name": "Programación",
+      "desc": "Lógica algorítmica, estructuras de control y desarrollo modular.",
+      "icon": "</>",
+      "theme": "blue",
+      "teacherId": "u-doc",
+      "code": "PRG4M9"
+    },
+    {
+      "id": "sub-1",
+      "name": "Matemáticas",
+      "desc": "Del álgebra y factorización hasta límites, derivadas e integrales.",
+      "icon": "🧮",
+      "theme": "green",
+      "teacherId": "u-doc",
+      "code": "CAL7K2"
+    },
+    {
+      "id": "sub-alg",
+      "name": "Álgebra Lineal",
+      "desc": "Vectores, matrices, determinantes y espacios vectoriales.",
+      "icon": "📐",
+      "theme": "cyan",
+      "teacherId": "xhzscr3",
+      "code": "ALG8Q5"
+    }
+  ],
+  "topics": [
+    {
+      "id": "bd-intro",
+      "subjectId": "sub-bd",
+      "name": "Bases de Datos",
+      "desc": "Fundamentos de sistemas gestores de bases de datos, arquitectura y modelos de datos.",
+      "icon": "🗄️",
+      "x": 380,
+      "y": 55,
+      "materials": [
+        {
+          "id": "mat-bd-intro-1",
+          "title": "Apunte - Bases de Datos.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-bd-intro-2",
+          "title": "Ejercicios Prácticos.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        },
+        {
+          "id": "mat-bd-intro-3",
+          "title": "Investigación",
+          "kind": "Enlace",
+          "url": "https://es.wikipedia.org/wiki/Modelo_entidad-relaci%C3%B3n"
+        }
+      ]
+    },
+    {
+      "id": "bd-er",
+      "subjectId": "sub-bd",
+      "name": "Modelo ER",
+      "desc": "El modelo Entidad-Relación es una herramienta para representar la estructura de una base de datos a través de entidades, atributos y relaciones.",
+      "icon": "🔀",
+      "x": 180,
+      "y": 195,
+      "materials": [
+        {
+          "id": "mat-bd-er-1",
+          "title": "Apunte - Modelo ER.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-bd-er-2",
+          "title": "Ejercicios Prácticos.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        },
+        {
+          "id": "mat-bd-er-3",
+          "title": "Investigación",
+          "kind": "Enlace",
+          "url": "https://es.wikipedia.org/wiki/Modelo_entidad-relaci%C3%B3n"
+        }
+      ]
+    },
+    {
+      "id": "bd-rel",
+      "subjectId": "sub-bd",
+      "name": "Modelo Relacional",
+      "desc": "Representación de datos mediante relaciones (tablas), tuplas, claves primarias y foráneas.",
+      "icon": "📋",
+      "x": 580,
+      "y": 195,
+      "materials": [
+        {
+          "id": "mat-bd-rel-1",
+          "title": "Apunte - Modelo Relacional.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-bd-rel-2",
+          "title": "Ejercicios Prácticos.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        },
+        {
+          "id": "mat-bd-rel-3",
+          "title": "Investigación",
+          "kind": "Enlace",
+          "url": "https://es.wikipedia.org/wiki/Modelo_entidad-relaci%C3%B3n"
+        }
+      ]
+    },
+    {
+      "id": "bd-norm",
+      "subjectId": "sub-bd",
+      "name": "Normalización",
+      "desc": "Aplicación de formas normales (1FN, 2FN, 3FN, BCNF) para eliminar redundancia y anomalías.",
+      "icon": "⚙️",
+      "x": 180,
+      "y": 345,
+      "materials": [
+        {
+          "id": "mat-bd-norm-1",
+          "title": "Apunte - Normalización.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-bd-norm-2",
+          "title": "Ejercicios Prácticos.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        },
+        {
+          "id": "mat-bd-norm-3",
+          "title": "Investigación",
+          "kind": "Enlace",
+          "url": "https://es.wikipedia.org/wiki/Modelo_entidad-relaci%C3%B3n"
+        }
+      ]
+    },
+    {
+      "id": "bd-sql",
+      "subjectId": "sub-bd",
+      "name": "SQL",
+      "desc": "Lenguaje de consulta estructurado: DDL, DML, JOINs, agregaciones y subconsultas.",
+      "icon": "</>",
+      "x": 580,
+      "y": 345,
+      "materials": [
+        {
+          "id": "mat-bd-sql-1",
+          "title": "Apunte - SQL.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-bd-sql-2",
+          "title": "Ejercicios Prácticos.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        },
+        {
+          "id": "mat-bd-sql-3",
+          "title": "Investigación",
+          "kind": "Enlace",
+          "url": "https://es.wikipedia.org/wiki/Modelo_entidad-relaci%C3%B3n"
+        }
+      ]
+    },
+    {
+      "id": "p-var",
+      "subjectId": "sub-prg",
+      "name": "Variables",
+      "desc": "Tipos de datos primitivos, declaración de variables y operadores.",
+      "icon": "📦",
+      "x": 100,
+      "y": 180,
+      "materials": [
+        {
+          "id": "mat-p-var-1",
+          "title": "Apunte - Variables.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-p-var-2",
+          "title": "Práctica de Variables.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "p-con",
+      "subjectId": "sub-prg",
+      "name": "Condicionales",
+      "desc": "Estructuras selectivas if, else, switch y lógica booleana.",
+      "icon": "🔀",
+      "x": 280,
+      "y": 100,
+      "materials": [
+        {
+          "id": "mat-p-con-1",
+          "title": "Apunte - Condicionales.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-p-con-2",
+          "title": "Práctica de Condicionales.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "p-cic",
+      "subjectId": "sub-prg",
+      "name": "Ciclos",
+      "desc": "Bucles for, while y do-while para iteración controlada.",
+      "icon": "🔄",
+      "x": 280,
+      "y": 260,
+      "materials": [
+        {
+          "id": "mat-p-cic-1",
+          "title": "Apunte - Ciclos.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-p-cic-2",
+          "title": "Práctica de Ciclos.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "p-fnc",
+      "subjectId": "sub-prg",
+      "name": "Funciones",
+      "desc": "Modularización, parámetros, retorno y alcance de variables.",
+      "icon": "⚡",
+      "x": 480,
+      "y": 180,
+      "materials": [
+        {
+          "id": "mat-p-fnc-1",
+          "title": "Apunte - Funciones.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-p-fnc-2",
+          "title": "Práctica de Funciones.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "p-arr",
+      "subjectId": "sub-prg",
+      "name": "Arreglos",
+      "desc": "Listas, vectores, recorrido y métodos de transformación.",
+      "icon": "📚",
+      "x": 660,
+      "y": 180,
+      "materials": [
+        {
+          "id": "mat-p-arr-1",
+          "title": "Apunte - Arreglos.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-p-arr-2",
+          "title": "Práctica de Arreglos.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "t-ari",
+      "subjectId": "sub-1",
+      "name": "Aritmética",
+      "desc": "Operaciones básicas, fracciones y potencias.",
+      "icon": "➕",
+      "x": 90,
+      "y": 200,
+      "materials": [
+        {
+          "id": "mat-t-ari-1",
+          "title": "Guía de Aritmética.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-t-ari-2",
+          "title": "Ejercicios de Aritmética.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "t-alg",
+      "subjectId": "sub-1",
+      "name": "Álgebra",
+      "desc": "Ecuaciones lineales y sistemas.",
+      "icon": "✖️",
+      "x": 250,
+      "y": 90,
+      "materials": [
+        {
+          "id": "mat-t-alg-1",
+          "title": "Guía de Álgebra.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-t-alg-2",
+          "title": "Ejercicios de Álgebra.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "t-tri",
+      "subjectId": "sub-1",
+      "name": "Trigonometría",
+      "desc": "Razones trigonométricas e identidades.",
+      "icon": "📐",
+      "x": 250,
+      "y": 310,
+      "materials": [
+        {
+          "id": "mat-t-tri-1",
+          "title": "Guía de Trigonometría.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-t-tri-2",
+          "title": "Ejercicios de Trigonometría.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "t-fac",
+      "subjectId": "sub-1",
+      "name": "Factorización",
+      "desc": "Factor común, diferencia de cuadrados y trinomios.",
+      "icon": "🧩",
+      "x": 420,
+      "y": 90,
+      "materials": [
+        {
+          "id": "mat-t-fac-1",
+          "title": "Guía de Factorización.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-t-fac-2",
+          "title": "Ejercicios de Factorización.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "t-fun",
+      "subjectId": "sub-1",
+      "name": "Funciones",
+      "desc": "Dominio, evaluación y composición.",
+      "icon": "📈",
+      "x": 420,
+      "y": 250,
+      "materials": [
+        {
+          "id": "mat-t-fun-1",
+          "title": "Guía de Funciones.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-t-fun-2",
+          "title": "Ejercicios de Funciones.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "t-lim",
+      "subjectId": "sub-1",
+      "name": "Límites",
+      "desc": "Concepto de límite y cálculo algebraico.",
+      "icon": "🎯",
+      "x": 590,
+      "y": 170,
+      "materials": [
+        {
+          "id": "mat-t-lim-1",
+          "title": "Guía de Límites.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-t-lim-2",
+          "title": "Ejercicios de Límites.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "t-der",
+      "subjectId": "sub-1",
+      "name": "Derivadas",
+      "desc": "Reglas de derivación y razón de cambio.",
+      "icon": "∂",
+      "x": 760,
+      "y": 90,
+      "materials": [
+        {
+          "id": "mat-t-der-1",
+          "title": "Guía de Derivadas.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-t-der-2",
+          "title": "Ejercicios de Derivadas.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "t-int",
+      "subjectId": "sub-1",
+      "name": "Integrales",
+      "desc": "Antiderivadas e integral definida.",
+      "icon": "∫",
+      "x": 760,
+      "y": 260,
+      "materials": [
+        {
+          "id": "mat-t-int-1",
+          "title": "Guía de Integrales.pdf",
+          "kind": "PDF",
+          "url": ""
+        },
+        {
+          "id": "mat-t-int-2",
+          "title": "Ejercicios de Integrales.docx",
+          "kind": "Ejercicios",
+          "url": ""
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "subjectId": "sub-bd",
+      "source": "bd-intro",
+      "target": "bd-er"
+    },
+    {
+      "subjectId": "sub-bd",
+      "source": "bd-intro",
+      "target": "bd-rel"
+    },
+    {
+      "subjectId": "sub-bd",
+      "source": "bd-er",
+      "target": "bd-norm"
+    },
+    {
+      "subjectId": "sub-bd",
+      "source": "bd-rel",
+      "target": "bd-sql"
+    },
+    {
+      "subjectId": "sub-prg",
+      "source": "p-var",
+      "target": "p-con"
+    },
+    {
+      "subjectId": "sub-prg",
+      "source": "p-var",
+      "target": "p-cic"
+    },
+    {
+      "subjectId": "sub-prg",
+      "source": "p-con",
+      "target": "p-fnc"
+    },
+    {
+      "subjectId": "sub-prg",
+      "source": "p-cic",
+      "target": "p-fnc"
+    },
+    {
+      "subjectId": "sub-prg",
+      "source": "p-fnc",
+      "target": "p-arr"
+    },
+    {
+      "subjectId": "sub-1",
+      "source": "t-ari",
+      "target": "t-alg"
+    },
+    {
+      "subjectId": "sub-1",
+      "source": "t-ari",
+      "target": "t-tri"
+    },
+    {
+      "subjectId": "sub-1",
+      "source": "t-alg",
+      "target": "t-fac"
+    },
+    {
+      "subjectId": "sub-1",
+      "source": "t-alg",
+      "target": "t-fun"
+    },
+    {
+      "subjectId": "sub-1",
+      "source": "t-tri",
+      "target": "t-fun"
+    },
+    {
+      "subjectId": "sub-1",
+      "source": "t-fac",
+      "target": "t-lim"
+    },
+    {
+      "subjectId": "sub-1",
+      "source": "t-fun",
+      "target": "t-lim"
+    },
+    {
+      "subjectId": "sub-1",
+      "source": "t-lim",
+      "target": "t-der"
+    },
+    {
+      "subjectId": "sub-1",
+      "source": "t-lim",
+      "target": "t-int"
+    }
+  ],
+  "questions": [
+    {
+      "id": "qbd-0",
+      "topicId": "bd-er",
+      "text": "¿Qué representa el modelo ER?",
+      "options": [
+        "La estructura de una base de datos",
+        "El diseño de una interfaz",
+        "El lenguaje de programación",
+        "Un tipo de red"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-1",
+      "topicId": "bd-er",
+      "text": "¿Cómo se representa gráficamente una entidad en el modelo ER clásico?",
+      "options": [
+        "Con un rectángulo",
+        "Con una elipse",
+        "Con un triángulo",
+        "Con una línea punteada"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-2",
+      "topicId": "bd-er",
+      "text": "¿Qué elemento describe una propiedad o característica de una entidad?",
+      "options": [
+        "Atributo",
+        "Tupla",
+        "Índice",
+        "Trigger"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-3",
+      "topicId": "bd-er",
+      "text": "¿Qué indica la cardinalidad 1:N en una relación?",
+      "options": [
+        "Una entidad A se asocia con muchas de B",
+        "Ambas entidades solo tienen un registro",
+        "No existe relación entre tablas",
+        "Es una clave primaria compuesta"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-4",
+      "topicId": "bd-er",
+      "text": "¿Qué es un atributo identificador o clave en el modelo ER?",
+      "options": [
+        "El que distingue de forma única cada ocurrencia de una entidad",
+        "Un atributo que siempre puede ser nulo",
+        "Una tabla externa sin relación",
+        "Un procedimiento almacenado"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-5",
+      "topicId": "bd-intro",
+      "text": "¿Qué es un SGBD (DBMS)?",
+      "options": [
+        "Un software para gestionar y consultar bases de datos",
+        "Un protocolo de red inalámbrica",
+        "Un compilador de hojas de estilo",
+        "Un sistema operativo móvil"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-6",
+      "topicId": "bd-intro",
+      "text": "¿Cuál es una ventaja principal de usar una base de datos frente a archivos planos?",
+      "options": [
+        "Integridad, concurrencia y menor redundancia de datos",
+        "Mayor duplicidad de archivos",
+        "No requiere estructura alguna",
+        "Solo permite un usuario a la vez"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-7",
+      "topicId": "bd-rel",
+      "text": "En el modelo relacional, ¿qué garantiza una clave foránea (Foreign Key)?",
+      "options": [
+        "La integridad referencial entre dos tablas",
+        "Que todos los campos sean de texto",
+        "Que la tabla no tenga filas",
+        "La encriptación de contraseñas"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-8",
+      "topicId": "bd-rel",
+      "text": "¿Cómo se denomina formalmente a una fila en el modelo relacional?",
+      "options": [
+        "Tupla",
+        "Atributo",
+        "Dominio",
+        "Esquema"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-9",
+      "topicId": "bd-norm",
+      "text": "¿Qué exige la Primera Forma Normal (1FN)?",
+      "options": [
+        "Que todos los atributos sean atómicos (sin grupos repetitivos)",
+        "Tener al menos cinco claves foráneas",
+        "Eliminar todas las claves primarias",
+        "Unir todas las tablas en una sola"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-10",
+      "topicId": "bd-norm",
+      "text": "¿Qué tipo de dependencia se elimina al pasar de 2FN a 3FN?",
+      "options": [
+        "La dependencia transitiva respecto a la clave primaria",
+        "La clave primaria entera",
+        "Las relaciones uno a muchos",
+        "Los índices únicos"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-11",
+      "topicId": "bd-sql",
+      "text": "¿Qué comando SQL se utiliza para consultar registros de una tabla?",
+      "options": [
+        "SELECT",
+        "UPDATE",
+        "DROP",
+        "ALTER"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qbd-12",
+      "topicId": "bd-sql",
+      "text": "¿Qué cláusula combina filas de dos tablas basándose en una columna relacionada?",
+      "options": [
+        "JOIN",
+        "GROUP BY",
+        "ORDER BY",
+        "TRUNCATE"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qprg-0",
+      "topicId": "p-var",
+      "text": "¿Qué es una variable en programación?",
+      "options": [
+        "Un espacio en memoria para almacenar un valor",
+        "Un bucle infinito",
+        "Un error de sintaxis",
+        "Un cable de red"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qprg-1",
+      "topicId": "p-var",
+      "text": "¿Qué operador devuelve el resto de una división entera?",
+      "options": [
+        "%",
+        "/",
+        "*",
+        "^"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qprg-2",
+      "topicId": "p-con",
+      "text": "¿Cuándo se ejecuta el bloque else de un condicional?",
+      "options": [
+        "Cuando la condición del if es falsa",
+        "Siempre antes del if",
+        "Solo si hay un error de compilación",
+        "Nunca"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qprg-3",
+      "topicId": "p-cic",
+      "text": "¿Qué estructura es ideal cuando conocemos el número exacto de iteraciones?",
+      "options": [
+        "Ciclo for",
+        "Condicional switch",
+        "Operador ternario",
+        "Import"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qprg-4",
+      "topicId": "p-fnc",
+      "text": "¿Para qué sirve la sentencia return en una función?",
+      "options": [
+        "Devuelve un valor y finaliza la ejecución de la función",
+        "Reinicia el computador",
+        "Declara una clase global",
+        "Borra los parámetros"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "qprg-5",
+      "topicId": "p-arr",
+      "text": "¿Cuál es el índice del primer elemento de un arreglo en la mayoría de lenguajes?",
+      "options": [
+        "0",
+        "1",
+        "-1",
+        "10"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q0",
+      "topicId": "t-ari",
+      "text": "12 + 8 ÷ 4 = ?",
+      "options": [
+        "14",
+        "5",
+        "20",
+        "10"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q1",
+      "topicId": "t-ari",
+      "text": "3/4 + 1/2 = ?",
+      "options": [
+        "5/4",
+        "4/6",
+        "3/8",
+        "1"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q2",
+      "topicId": "t-ari",
+      "text": "2³ · 2² = ?",
+      "options": [
+        "2⁵",
+        "2⁶",
+        "4⁵",
+        "2¹"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q3",
+      "topicId": "t-alg",
+      "text": "Resuelve 2x + 6 = 14",
+      "options": [
+        "x = 4",
+        "x = 10",
+        "x = 3",
+        "x = 5"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q4",
+      "topicId": "t-alg",
+      "text": "Si 3(x − 2) = 2x + 1, x = ?",
+      "options": [
+        "7",
+        "5",
+        "−1",
+        "3"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q5",
+      "topicId": "t-alg",
+      "text": "x + y = 5, x − y = 1: (x, y) = ?",
+      "options": [
+        "(3, 2)",
+        "(2, 3)",
+        "(4, 1)",
+        "(1, 4)"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q6",
+      "topicId": "t-fac",
+      "text": "Factoriza x² − 9",
+      "options": [
+        "(x − 3)(x + 3)",
+        "(x − 3)²",
+        "x(x − 9)",
+        "(x + 9)(x − 1)"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q7",
+      "topicId": "t-fac",
+      "text": "Factoriza x² + 5x + 6",
+      "options": [
+        "(x + 2)(x + 3)",
+        "(x + 1)(x + 6)",
+        "(x − 2)(x − 3)",
+        "(x + 5)(x + 1)"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q8",
+      "topicId": "t-fac",
+      "text": "Factoriza 6x² + 7x − 3",
+      "options": [
+        "(2x + 3)(3x − 1)",
+        "(6x − 1)(x + 3)",
+        "(2x − 3)(3x + 1)",
+        "(3x + 3)(2x − 1)"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q9",
+      "topicId": "t-fun",
+      "text": "Si f(x) = 2x + 1, f(3) = ?",
+      "options": [
+        "7",
+        "6",
+        "5",
+        "9"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q10",
+      "topicId": "t-fun",
+      "text": "Dominio de f(x) = √(x − 4)",
+      "options": [
+        "x ≥ 4",
+        "x ≤ 4",
+        "x > 0",
+        "Todos los reales"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q11",
+      "topicId": "t-fun",
+      "text": "f(x) = x², g(x) = x + 1. (f∘g)(2) = ?",
+      "options": [
+        "9",
+        "5",
+        "6",
+        "7"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q12",
+      "topicId": "t-tri",
+      "text": "sen(90°) = ?",
+      "options": [
+        "1",
+        "0",
+        "−1",
+        "1/2"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q13",
+      "topicId": "t-tri",
+      "text": "cos(60°) = ?",
+      "options": [
+        "1/2",
+        "√3/2",
+        "1",
+        "0"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q14",
+      "topicId": "t-tri",
+      "text": "tan x equivale a",
+      "options": [
+        "sen x / cos x",
+        "cos x / sen x",
+        "1 / sen x",
+        "sen x · cos x"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q15",
+      "topicId": "t-lim",
+      "text": "lím x→2 (x + 3) = ?",
+      "options": [
+        "5",
+        "2",
+        "3",
+        "∞"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q16",
+      "topicId": "t-lim",
+      "text": "lím x→3 (x² − 9)/(x − 3) = ?",
+      "options": [
+        "6",
+        "0",
+        "3",
+        "No existe"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q17",
+      "topicId": "t-lim",
+      "text": "lím x→0 sen(x)/x = ?",
+      "options": [
+        "1",
+        "0",
+        "∞",
+        "−1"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q18",
+      "topicId": "t-der",
+      "text": "d/dx x³ = ?",
+      "options": [
+        "3x²",
+        "x²",
+        "3x",
+        "x⁴/4"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q19",
+      "topicId": "t-der",
+      "text": "d/dx sen x = ?",
+      "options": [
+        "cos x",
+        "−cos x",
+        "−sen x",
+        "tan x"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q20",
+      "topicId": "t-der",
+      "text": "d/dx (x·eˣ) = ?",
+      "options": [
+        "eˣ(x + 1)",
+        "x·eˣ⁻¹",
+        "eˣ",
+        "x·eˣ"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q21",
+      "topicId": "t-int",
+      "text": "∫ 2x dx = ?",
+      "options": [
+        "x² + C",
+        "2x² + C",
+        "x + C",
+        "2 + C"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q22",
+      "topicId": "t-int",
+      "text": "∫ cos x dx = ?",
+      "options": [
+        "sen x + C",
+        "−sen x + C",
+        "cos x + C",
+        "tan x + C"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "q23",
+      "topicId": "t-int",
+      "text": "∫₀¹ 3x² dx = ?",
+      "options": [
+        "1",
+        "3",
+        "0",
+        "1/3"
+      ],
+      "correct": 0,
+      "source": "manual"
+    },
+    {
+      "id": "a72du02",
+      "topicId": "bd-intro",
+      "text": "¿Cuál es el objetivo fundamental del tema \"Bases de Datos\" dentro de la materia?",
+      "options": [
+        "Comprender y aplicar: Fundamentos de sistemas gestores de bases de datos, arquitectura y modelos de datos.",
+        "Ignorar los prerrequisitos teóricos de Bases de Datos",
+        "Reemplazar toda validación práctica por definiciones sin contexto",
+        "Ninguna de las anteriores es aplicable a Bases de Datos"
+      ],
+      "correct": 0,
+      "source": "ia"
+    },
+    {
+      "id": "82xnwg7",
+      "topicId": "bd-intro",
+      "text": "Al resolver un problema práctico de \"Bases de Datos\", ¿qué paso garantiza una solución correcta?",
+      "options": [
+        "Omitir las condiciones iniciales del problema",
+        "Identificar las propiedades clave de Bases de Datos y verificar las restricciones del modelo",
+        "Aplicar fórmulas al azar sin validar unidades ni tipos de datos",
+        "Suponer que todos los casos tienen solución única sin comprobarlo"
+      ],
+      "correct": 1,
+      "source": "ia"
+    },
+    {
+      "id": "goq3mtw",
+      "topicId": "bd-intro",
+      "text": "¿Cuál de las siguientes afirmaciones sobre \"Bases de Datos\" es VERDADERA?",
+      "options": [
+        "No guarda ninguna relación con los temas posteriores del grafo de la materia",
+        "Es un concepto aislado que no requiere razonamiento lógico",
+        "Su dominio sirve como base directa para avanzar en la ruta de aprendizaje de la asignatura",
+        "Solo tiene utilidad histórica y no se evalúa en casos reales"
+      ],
+      "correct": 2,
+      "source": "ia"
+    },
+    {
+      "id": "1gadofr",
+      "topicId": "bd-intro",
+      "text": "Si un estudiante reprueba una evaluación sobre \"Bases de Datos\", ¿qué acción recomienda el sistema BIT ACADEMY - Kmap?",
+      "options": [
+        "Abandonar la materia inmediatamente",
+        "Repasar los nodos prerrequisito en el grafo DAG y revisar el material de estudio asociado a Bases de Datos",
+        "Intentar el último tema del curso sin estudiar los previos",
+        "Eliminar su historial de progreso"
+      ],
+      "correct": 1,
+      "source": "ia"
+    },
+    {
+      "id": "rhnrp32",
+      "topicId": "bd-intro",
+      "text": "En el contexto de \"Bases de Datos\" (Fundamentos de sistemas gestores de bases de datos, arquitectura y modelos de datos.), ¿qué indicador refleja un estado de aprendizaje \"dominado\"?",
+      "options": [
+        "Obtener una calificación igual o superior a la nota mínima de aprobación (51%) del nodo",
+        "No haber abierto ningún material de estudio del nodo",
+        "Tener un puntaje de 0 en todos los intentos",
+        "Dejar el intento de quiz en estado abandonado"
+      ],
+      "correct": 0,
+      "source": "ia"
+    }
+  ],
+  "enrollments": [
+    {
+      "userId": "u-ale",
+      "subjectId": "sub-bd"
+    },
+    {
+      "userId": "u-ale",
+      "subjectId": "sub-prg"
+    },
+    {
+      "userId": "u-ale",
+      "subjectId": "sub-1"
+    },
+    {
+      "userId": "s1",
+      "subjectId": "sub-bd"
+    },
+    {
+      "userId": "s1",
+      "subjectId": "sub-1"
+    },
+    {
+      "userId": "s2",
+      "subjectId": "sub-bd"
+    },
+    {
+      "userId": "s2",
+      "subjectId": "sub-1"
+    },
+    {
+      "userId": "s3",
+      "subjectId": "sub-bd"
+    },
+    {
+      "userId": "s3",
+      "subjectId": "sub-1"
+    },
+    {
+      "userId": "s4",
+      "subjectId": "sub-bd"
+    },
+    {
+      "userId": "s4",
+      "subjectId": "sub-1"
+    },
+    {
+      "userId": "s5",
+      "subjectId": "sub-bd"
+    },
+    {
+      "userId": "s5",
+      "subjectId": "sub-1"
+    },
+    {
+      "userId": "s6",
+      "subjectId": "sub-bd"
+    },
+    {
+      "userId": "s6",
+      "subjectId": "sub-1"
+    },
+    {
+      "userId": "s7",
+      "subjectId": "sub-bd"
+    },
+    {
+      "userId": "s7",
+      "subjectId": "sub-1"
+    },
+    {
+      "userId": "s8",
+      "subjectId": "sub-bd"
+    },
+    {
+      "userId": "s8",
+      "subjectId": "sub-1"
+    },
+    {
+      "userId": "s9",
+      "subjectId": "sub-bd"
+    },
+    {
+      "userId": "s9",
+      "subjectId": "sub-1"
+    },
+    {
+      "userId": "s10",
+      "subjectId": "sub-bd"
+    },
+    {
+      "userId": "s10",
+      "subjectId": "sub-1"
+    }
+  ],
+  "attempts": [
+    {
+      "id": "att-jh-0",
+      "userId": "u-ale",
+      "topicId": "bd-intro",
+      "score": 95,
+      "date": "2026-11-20T09:21:55.176Z"
+    },
+    {
+      "id": "att-jh-1",
+      "userId": "u-ale",
+      "topicId": "bd-er",
+      "score": 80,
+      "date": "2026-11-20T09:21:55.178Z"
+    },
+    {
+      "id": "att-jh-2",
+      "userId": "u-ale",
+      "topicId": "bd-rel",
+      "score": 85,
+      "date": "2026-11-20T09:21:55.178Z"
+    },
+    {
+      "id": "att-jh-3",
+      "userId": "u-ale",
+      "topicId": "bd-norm",
+      "score": 40,
+      "date": "2026-11-20T09:21:55.178Z"
+    },
+    {
+      "id": "att-jh-4",
+      "userId": "u-ale",
+      "topicId": "p-var",
+      "score": 90,
+      "date": "2026-11-20T09:21:55.178Z"
+    },
+    {
+      "id": "att-jh-5",
+      "userId": "u-ale",
+      "topicId": "p-con",
+      "score": 85,
+      "date": "2026-11-20T09:21:55.178Z"
+    },
+    {
+      "id": "att-jh-6",
+      "userId": "u-ale",
+      "topicId": "t-ari",
+      "score": 92,
+      "date": "2026-11-20T09:21:55.178Z"
+    },
+    {
+      "id": "att-jh-7",
+      "userId": "u-ale",
+      "topicId": "t-alg",
+      "score": 88,
+      "date": "2026-11-20T09:21:55.178Z"
+    },
+    {
+      "id": "att-jh-8",
+      "userId": "u-ale",
+      "topicId": "t-fac",
+      "score": 35,
+      "date": "2026-11-20T09:21:55.178Z"
+    },
+    {
+      "id": "att-s1-bd-intro",
+      "userId": "s1",
+      "topicId": "bd-intro",
+      "score": 98,
+      "date": "2026-11-21T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-bd-er",
+      "userId": "s1",
+      "topicId": "bd-er",
+      "score": 95,
+      "date": "2026-11-21T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-bd-rel",
+      "userId": "s1",
+      "topicId": "bd-rel",
+      "score": 92,
+      "date": "2026-11-21T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-bd-norm",
+      "userId": "s1",
+      "topicId": "bd-norm",
+      "score": 89,
+      "date": "2026-11-21T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-bd-sql",
+      "userId": "s1",
+      "topicId": "bd-sql",
+      "score": 86,
+      "date": "2026-11-21T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-t-ari",
+      "userId": "s1",
+      "topicId": "t-ari",
+      "score": 100,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-t-alg",
+      "userId": "s1",
+      "topicId": "t-alg",
+      "score": 87,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-t-tri",
+      "userId": "s1",
+      "topicId": "t-tri",
+      "score": 95,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-t-fac",
+      "userId": "s1",
+      "topicId": "t-fac",
+      "score": 53,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-t-fun",
+      "userId": "s1",
+      "topicId": "t-fun",
+      "score": 63,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-t-lim",
+      "userId": "s1",
+      "topicId": "t-lim",
+      "score": 49,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-t-der",
+      "userId": "s1",
+      "topicId": "t-der",
+      "score": 37,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s1-t-int",
+      "userId": "s1",
+      "topicId": "t-int",
+      "score": 31,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-bd-intro",
+      "userId": "s2",
+      "topicId": "bd-intro",
+      "score": 95,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-bd-er",
+      "userId": "s2",
+      "topicId": "bd-er",
+      "score": 92,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-bd-rel",
+      "userId": "s2",
+      "topicId": "bd-rel",
+      "score": 89,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-bd-norm",
+      "userId": "s2",
+      "topicId": "bd-norm",
+      "score": 86,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-bd-sql",
+      "userId": "s2",
+      "topicId": "bd-sql",
+      "score": 83,
+      "date": "2026-11-20T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-t-ari",
+      "userId": "s2",
+      "topicId": "t-ari",
+      "score": 100,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-t-alg",
+      "userId": "s2",
+      "topicId": "t-alg",
+      "score": 84,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-t-tri",
+      "userId": "s2",
+      "topicId": "t-tri",
+      "score": 92,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-t-fac",
+      "userId": "s2",
+      "topicId": "t-fac",
+      "score": 50,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-t-fun",
+      "userId": "s2",
+      "topicId": "t-fun",
+      "score": 60,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-t-lim",
+      "userId": "s2",
+      "topicId": "t-lim",
+      "score": 46,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-t-der",
+      "userId": "s2",
+      "topicId": "t-der",
+      "score": 34,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s2-t-int",
+      "userId": "s2",
+      "topicId": "t-int",
+      "score": 28,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-bd-intro",
+      "userId": "s3",
+      "topicId": "bd-intro",
+      "score": 93,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-bd-er",
+      "userId": "s3",
+      "topicId": "bd-er",
+      "score": 90,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-bd-rel",
+      "userId": "s3",
+      "topicId": "bd-rel",
+      "score": 87,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-bd-norm",
+      "userId": "s3",
+      "topicId": "bd-norm",
+      "score": 84,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-bd-sql",
+      "userId": "s3",
+      "topicId": "bd-sql",
+      "score": 81,
+      "date": "2026-11-19T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-t-ari",
+      "userId": "s3",
+      "topicId": "t-ari",
+      "score": 99,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-t-alg",
+      "userId": "s3",
+      "topicId": "t-alg",
+      "score": 81,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-t-tri",
+      "userId": "s3",
+      "topicId": "t-tri",
+      "score": 89,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-t-fac",
+      "userId": "s3",
+      "topicId": "t-fac",
+      "score": 47,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-t-fun",
+      "userId": "s3",
+      "topicId": "t-fun",
+      "score": 57,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-t-lim",
+      "userId": "s3",
+      "topicId": "t-lim",
+      "score": 43,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-t-der",
+      "userId": "s3",
+      "topicId": "t-der",
+      "score": 31,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s3-t-int",
+      "userId": "s3",
+      "topicId": "t-int",
+      "score": 25,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-bd-intro",
+      "userId": "s4",
+      "topicId": "bd-intro",
+      "score": 89,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-bd-er",
+      "userId": "s4",
+      "topicId": "bd-er",
+      "score": 86,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-bd-rel",
+      "userId": "s4",
+      "topicId": "bd-rel",
+      "score": 83,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-bd-norm",
+      "userId": "s4",
+      "topicId": "bd-norm",
+      "score": 80,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-bd-sql",
+      "userId": "s4",
+      "topicId": "bd-sql",
+      "score": 77,
+      "date": "2026-11-18T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-t-ari",
+      "userId": "s4",
+      "topicId": "t-ari",
+      "score": 96,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-t-alg",
+      "userId": "s4",
+      "topicId": "t-alg",
+      "score": 78,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-t-tri",
+      "userId": "s4",
+      "topicId": "t-tri",
+      "score": 86,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-t-fac",
+      "userId": "s4",
+      "topicId": "t-fac",
+      "score": 44,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-t-fun",
+      "userId": "s4",
+      "topicId": "t-fun",
+      "score": 54,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-t-lim",
+      "userId": "s4",
+      "topicId": "t-lim",
+      "score": 40,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-t-der",
+      "userId": "s4",
+      "topicId": "t-der",
+      "score": 28,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s4-t-int",
+      "userId": "s4",
+      "topicId": "t-int",
+      "score": 22,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-bd-intro",
+      "userId": "s5",
+      "topicId": "bd-intro",
+      "score": 86,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-bd-er",
+      "userId": "s5",
+      "topicId": "bd-er",
+      "score": 83,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-bd-rel",
+      "userId": "s5",
+      "topicId": "bd-rel",
+      "score": 80,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-bd-norm",
+      "userId": "s5",
+      "topicId": "bd-norm",
+      "score": 77,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-bd-sql",
+      "userId": "s5",
+      "topicId": "bd-sql",
+      "score": 74,
+      "date": "2026-11-17T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-t-ari",
+      "userId": "s5",
+      "topicId": "t-ari",
+      "score": 93,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-t-alg",
+      "userId": "s5",
+      "topicId": "t-alg",
+      "score": 75,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-t-tri",
+      "userId": "s5",
+      "topicId": "t-tri",
+      "score": 83,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-t-fac",
+      "userId": "s5",
+      "topicId": "t-fac",
+      "score": 41,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-t-fun",
+      "userId": "s5",
+      "topicId": "t-fun",
+      "score": 51,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-t-lim",
+      "userId": "s5",
+      "topicId": "t-lim",
+      "score": 37,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-t-der",
+      "userId": "s5",
+      "topicId": "t-der",
+      "score": 25,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s5-t-int",
+      "userId": "s5",
+      "topicId": "t-int",
+      "score": 20,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-bd-intro",
+      "userId": "s6",
+      "topicId": "bd-intro",
+      "score": 84,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-bd-er",
+      "userId": "s6",
+      "topicId": "bd-er",
+      "score": 81,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-bd-rel",
+      "userId": "s6",
+      "topicId": "bd-rel",
+      "score": 78,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-bd-norm",
+      "userId": "s6",
+      "topicId": "bd-norm",
+      "score": 75,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-bd-sql",
+      "userId": "s6",
+      "topicId": "bd-sql",
+      "score": 72,
+      "date": "2026-11-16T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-t-ari",
+      "userId": "s6",
+      "topicId": "t-ari",
+      "score": 90,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-t-alg",
+      "userId": "s6",
+      "topicId": "t-alg",
+      "score": 72,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-t-tri",
+      "userId": "s6",
+      "topicId": "t-tri",
+      "score": 80,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-t-fac",
+      "userId": "s6",
+      "topicId": "t-fac",
+      "score": 38,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-t-fun",
+      "userId": "s6",
+      "topicId": "t-fun",
+      "score": 48,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-t-lim",
+      "userId": "s6",
+      "topicId": "t-lim",
+      "score": 34,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-t-der",
+      "userId": "s6",
+      "topicId": "t-der",
+      "score": 22,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s6-t-int",
+      "userId": "s6",
+      "topicId": "t-int",
+      "score": 20,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-bd-intro",
+      "userId": "s7",
+      "topicId": "bd-intro",
+      "score": 82,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-bd-er",
+      "userId": "s7",
+      "topicId": "bd-er",
+      "score": 79,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-bd-rel",
+      "userId": "s7",
+      "topicId": "bd-rel",
+      "score": 76,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-bd-norm",
+      "userId": "s7",
+      "topicId": "bd-norm",
+      "score": 73,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-bd-sql",
+      "userId": "s7",
+      "topicId": "bd-sql",
+      "score": 70,
+      "date": "2026-11-15T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-t-ari",
+      "userId": "s7",
+      "topicId": "t-ari",
+      "score": 87,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-t-alg",
+      "userId": "s7",
+      "topicId": "t-alg",
+      "score": 69,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-t-tri",
+      "userId": "s7",
+      "topicId": "t-tri",
+      "score": 77,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-t-fac",
+      "userId": "s7",
+      "topicId": "t-fac",
+      "score": 35,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-t-fun",
+      "userId": "s7",
+      "topicId": "t-fun",
+      "score": 45,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-t-lim",
+      "userId": "s7",
+      "topicId": "t-lim",
+      "score": 31,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-t-der",
+      "userId": "s7",
+      "topicId": "t-der",
+      "score": 20,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s7-t-int",
+      "userId": "s7",
+      "topicId": "t-int",
+      "score": 20,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-bd-intro",
+      "userId": "s8",
+      "topicId": "bd-intro",
+      "score": 76,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-bd-er",
+      "userId": "s8",
+      "topicId": "bd-er",
+      "score": 73,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-bd-rel",
+      "userId": "s8",
+      "topicId": "bd-rel",
+      "score": 70,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-bd-norm",
+      "userId": "s8",
+      "topicId": "bd-norm",
+      "score": 67,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-bd-sql",
+      "userId": "s8",
+      "topicId": "bd-sql",
+      "score": 64,
+      "date": "2026-11-14T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-t-ari",
+      "userId": "s8",
+      "topicId": "t-ari",
+      "score": 84,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-t-alg",
+      "userId": "s8",
+      "topicId": "t-alg",
+      "score": 66,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-t-tri",
+      "userId": "s8",
+      "topicId": "t-tri",
+      "score": 74,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-t-fac",
+      "userId": "s8",
+      "topicId": "t-fac",
+      "score": 32,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-t-fun",
+      "userId": "s8",
+      "topicId": "t-fun",
+      "score": 42,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-t-lim",
+      "userId": "s8",
+      "topicId": "t-lim",
+      "score": 28,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-t-der",
+      "userId": "s8",
+      "topicId": "t-der",
+      "score": 20,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s8-t-int",
+      "userId": "s8",
+      "topicId": "t-int",
+      "score": 20,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s9-bd-intro",
+      "userId": "s9",
+      "topicId": "bd-intro",
+      "score": 71,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s9-bd-er",
+      "userId": "s9",
+      "topicId": "bd-er",
+      "score": 68,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s9-bd-rel",
+      "userId": "s9",
+      "topicId": "bd-rel",
+      "score": 65,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s9-bd-norm",
+      "userId": "s9",
+      "topicId": "bd-norm",
+      "score": 62,
+      "date": "2026-11-13T09:21:55.179Z"
+    },
+    {
+      "id": "att-s9-bd-sql",
+      "userId": "s9",
+      "topicId": "bd-sql",
+      "score": 59,
+      "date": "2026-11-13T09:21:55.180Z"
+    },
+    {
+      "id": "att-s9-t-ari",
+      "userId": "s9",
+      "topicId": "t-ari",
+      "score": 81,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s9-t-alg",
+      "userId": "s9",
+      "topicId": "t-alg",
+      "score": 63,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s9-t-tri",
+      "userId": "s9",
+      "topicId": "t-tri",
+      "score": 71,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s9-t-fac",
+      "userId": "s9",
+      "topicId": "t-fac",
+      "score": 29,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s9-t-fun",
+      "userId": "s9",
+      "topicId": "t-fun",
+      "score": 39,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s9-t-lim",
+      "userId": "s9",
+      "topicId": "t-lim",
+      "score": 25,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s9-t-der",
+      "userId": "s9",
+      "topicId": "t-der",
+      "score": 20,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s9-t-int",
+      "userId": "s9",
+      "topicId": "t-int",
+      "score": 20,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-bd-intro",
+      "userId": "s10",
+      "topicId": "bd-intro",
+      "score": 65,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-bd-er",
+      "userId": "s10",
+      "topicId": "bd-er",
+      "score": 62,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-bd-rel",
+      "userId": "s10",
+      "topicId": "bd-rel",
+      "score": 59,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-bd-norm",
+      "userId": "s10",
+      "topicId": "bd-norm",
+      "score": 56,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-bd-sql",
+      "userId": "s10",
+      "topicId": "bd-sql",
+      "score": 53,
+      "date": "2026-11-12T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-t-ari",
+      "userId": "s10",
+      "topicId": "t-ari",
+      "score": 78,
+      "date": "2026-11-11T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-t-alg",
+      "userId": "s10",
+      "topicId": "t-alg",
+      "score": 60,
+      "date": "2026-11-11T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-t-tri",
+      "userId": "s10",
+      "topicId": "t-tri",
+      "score": 68,
+      "date": "2026-11-11T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-t-fac",
+      "userId": "s10",
+      "topicId": "t-fac",
+      "score": 26,
+      "date": "2026-11-11T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-t-fun",
+      "userId": "s10",
+      "topicId": "t-fun",
+      "score": 36,
+      "date": "2026-11-11T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-t-lim",
+      "userId": "s10",
+      "topicId": "t-lim",
+      "score": 22,
+      "date": "2026-11-11T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-t-der",
+      "userId": "s10",
+      "topicId": "t-der",
+      "score": 20,
+      "date": "2026-11-11T09:21:55.180Z"
+    },
+    {
+      "id": "att-s10-t-int",
+      "userId": "s10",
+      "topicId": "t-int",
+      "score": 20,
+      "date": "2026-11-11T09:21:55.180Z"
+    }
+  ]
+}

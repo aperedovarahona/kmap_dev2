@@ -1,0 +1,9 @@
+{
+  "name": "plan-kmap-backend",
+  "version": "2.0.0",
+  "description": "API REST Plan Kmap - Backend en PHP (CodeIgniter 3 MVC) con MySQL (bd_kmap)",
+  "scripts": {
+    "start": "php -S 0.0.0.0:4000 router.php",
+    "dev": "php -S 0.0.0.0:4000 router.php"
+  }
+}

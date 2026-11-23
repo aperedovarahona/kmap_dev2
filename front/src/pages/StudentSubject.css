@@ -1,0 +1,26 @@
+/* ==========================================================================
+   BIT ACADEMY - Student Subject Details Styles
+   Componente: front/src/pages/StudentSubject.jsx
+   ========================================================================== */
+
+.subject-details-layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  flex: 1;
+}
+
+@media (min-width: 1024px) {
+  .subject-details-layout {
+    grid-template-columns: 1fr 360px;
+  }
+}
+
+.topic-selector-btn {
+  cursor: pointer;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}

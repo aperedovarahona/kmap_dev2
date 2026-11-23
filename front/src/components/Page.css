@@ -1,0 +1,253 @@
+/* =========================================================
+   BIT ACADEMY · PAGE LAYOUT (HEADER) · CSS MODULAR
+   Header persistente (sticky) con Logo integrado y sin desbordes
+   ========================================================= */
+
+/* ---------- CONTENEDOR PRINCIPAL DEL HEADER (STICKY / PERSISTENTE) ---------- */
+.top-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.65rem 0.2rem;
+  margin-bottom: 1.25rem;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+/* ---------- TARJETA IZQUIERDA (BREADCRUMBS, LOGO Y ACCIONES) ---------- */
+.header-breadcrumbs-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(180deg, rgba(5, 22, 46, 0.9) 0%, rgba(3, 13, 30, 0.98) 100%);
+  border: 1px solid var(--border-soft, rgba(0, 210, 255, 0.22));
+  border-radius: 16px;
+  padding: 0.55rem 1.1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 210, 255, 0.05), 0 4px 20px rgba(0, 8, 24, 0.4);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Línea brillante superior */
+.header-breadcrumbs-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan, #00f2fe), transparent);
+  opacity: 0.7;
+}
+
+.header-breadcrumbs-card:hover {
+  border-color: rgba(0, 242, 254, 0.4);
+  box-shadow: inset 0 0 30px rgba(0, 210, 255, 0.1), 0 0 22px rgba(0, 210, 255, 0.35);
+}
+
+/* Contenedor Interno: Ruta y Logo de Marca */
+.header-brand-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+/* Ruta (Breadcrumbs) mantenida en la parte superior */
+.breadcrumbs {
+  font-size: 0.72rem;
+  color: #8ca5c9;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.breadcrumbs .separator {
+  color: var(--cyan, #00f2fe);
+  margin: 0 0.3rem;
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
+/* Logo integrado en reemplazo del icono y texto anterior */
+.header-logo-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.header-logo-box:hover {
+  transform: scale(1.02);
+}
+
+.header-card-logo {
+  height: 36px;
+  width: auto;
+  filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.5));
+  transition: filter 0.25s ease;
+}
+
+.header-logo-box:hover .header-card-logo {
+  filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.85));
+}
+
+.header-title-addon {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  white-space: nowrap;
+  letter-spacing: 0.4px;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+}
+
+/* ---------- ACCIONES DEL HEADER (BOTONES) ---------- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;
+  padding-left: 0.8rem;
+}
+
+.header-actions button {
+  white-space: nowrap !important;
+  height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 10px !important;
+  font-weight: 800 !important;
+  font-size: 0.82rem !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+  padding: 0 1rem !important;
+  gap: 0.5rem !important;
+}
+
+/* Botón "Unirme con código" / cursos secundarios */
+.header-actions button.btn-courses {
+  background: rgba(0, 210, 255, 0.08) !important;
+  color: var(--cyan, #00f2fe) !important;
+  border: 1px solid rgba(0, 242, 254, 0.35) !important;
+}
+
+.header-actions button.btn-courses:hover {
+  background: rgba(0, 210, 255, 0.15) !important;
+  border-color: var(--cyan, #00f2fe) !important;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Botón Quiz (Play) */
+.header-actions button.btn-quiz {
+  background: linear-gradient(135deg, #00f2fe 0%, #0077fe 100%) !important;
+  color: #021019 !important;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.4) !important;
+}
+
+.header-actions button.btn-quiz svg {
+  fill: #021019 !important;
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.header-actions button.btn-quiz:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.7) !important;
+  filter: brightness(1.1) !important;
+}
+
+.header-actions button:active {
+  transform: scale(0.95) !important;
+}
+
+/* ---------- CONTROLES DE USUARIO (DERECHA) ---------- */
+.header-user-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: linear-gradient(180deg, rgba(5, 22, 46, 0.85) 0%, rgba(3, 13, 30, 0.95) 100%);
+  border: 1px solid var(--border-soft, rgba(0, 210, 255, 0.22));
+  border-radius: 16px;
+  padding: 0.4rem 0.5rem;
+  box-shadow: inset 0 0 20px rgba(0, 210, 255, 0.05);
+  flex-shrink: 0;
+}
+
+/* Botón de Configuración (Engranaje) */
+.control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  color: #8ca5c9;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.4s ease;
+}
+
+.control-btn:hover {
+  color: var(--cyan, #00f2fe);
+  background: rgba(0, 242, 254, 0.08) !important;
+  border-color: rgba(0, 242, 254, 0.3) !important;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+}
+
+.control-btn:hover svg {
+  transform: rotate(90deg);
+}
+
+.control-btn:active {
+  transform: scale(0.9);
+}
+
+/* ---------- RESPONSIVE PARA TABLETS Y MÓVILES ---------- */
+@media (max-width: 900px) {
+  .header-breadcrumbs-card {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .header-actions {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-header {
+    gap: 0.5rem;
+    padding: 0.45rem 0;
+  }
+  .header-breadcrumbs-card {
+    padding: 0.5rem 0.75rem;
+  }
+  .header-card-logo {
+    height: 30px;
+  }
+  .header-title-addon {
+    font-size: 0.85rem;
+  }
+}

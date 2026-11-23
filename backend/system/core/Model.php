@@ -1,0 +1,15 @@
+<?php
+/**
+ * CodeIgniter 3 Core Model
+ */
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+#[\AllowDynamicProperties]
+class CI_Model {
+
+    public function __construct() {}
+
+    public function __get($key) {
+        return get_instance()->$key;
+    }
+}

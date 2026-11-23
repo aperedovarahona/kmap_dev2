@@ -1,0 +1,26 @@
+/* ==========================================================================
+   BIT ACADEMY - User Menu & Avatar Styles
+   Componente: front/src/components/UserMenu.jsx
+   ========================================================================== */
+
+.user-avatar-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.user-avatar-wrap:hover {
+  transform: scale(1.06);
+}
+
+.user-avatar-wrap img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #00d2ff;
+  box-shadow: 0 0 14px rgba(0, 210, 255, 0.4);
+}
