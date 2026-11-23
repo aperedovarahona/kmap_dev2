@@ -56,6 +56,7 @@ CREATE TABLE materias (
     icono VARCHAR(50) DEFAULT '📚',
     color_tema VARCHAR(30) DEFAULT 'purple',
     activo TINYINT(1) NOT NULL DEFAULT 1,
+    anticopia_activa TINYINT(1) NOT NULL DEFAULT 1,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id),
     KEY idx_materia_docente (docente_id),

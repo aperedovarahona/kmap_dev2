@@ -59,6 +59,8 @@ class Materia_model extends CI_Model {
         if (isset($data['descripcion'])) $update['descripcion'] = trim($data['descripcion']);
         if (isset($data['icono'])) $update['icono'] = $data['icono'];
         if (isset($data['color_tema'])) $update['color_tema'] = $data['color_tema'];
+        if (isset($data['anticopia_activa'])) $update['anticopia_activa'] = $data['anticopia_activa'] ? 1 : 0;
+        if (isset($data['antiCopy'])) $update['anticopia_activa'] = $data['antiCopy'] ? 1 : 0;
 
         if (!empty($update)) {
             $this->db->where('id', (int) $id);
@@ -86,6 +88,8 @@ class Materia_model extends CI_Model {
             'teacherName' => $docName ?: 'Docente Asignado',
             'icon' => $row['icono'] ?: '📚',
             'theme' => $row['color_tema'] ?: 'purple',
+            'antiCopy' => isset($row['anticopia_activa']) ? (bool) $row['anticopia_activa'] : true,
+            'anticopia_activa' => isset($row['anticopia_activa']) ? (bool) $row['anticopia_activa'] : true,
             'activo' => (bool) $row['activo']
         ];
     }

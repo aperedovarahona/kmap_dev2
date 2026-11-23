@@ -1,16 +1,36 @@
 import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useDb } from '../lib/db.js';
 
 /**
  * Protección anti-copia, anti-click derecho y pantalla negra ante intentos de captura
  * para usuarios con rol "estudiante".
+ * Permite activación/desactivación por materia configurada por el docente.
  */
 export default function StudentSecurityGuard({ active }) {
   const shieldRef = useRef(null);
   const timerRef = useRef(null);
+  const location = useLocation();
+  const db = useDb();
+
+  // Detectar si la materia en la que se encuentra el estudiante tiene anticopia desactivada
+  let isSubjectAntiCopyDisabled = false;
+  const match = location.pathname.match(/\/materia\/([^/]+)/);
+  if (match && match[1]) {
+    const subjectId = match[1];
+    const sub = db?.subjects?.find((s) => String(s.id) === String(subjectId) || s.code === subjectId);
+    if (sub && sub.antiCopy === false) {
+      isSubjectAntiCopyDisabled = true;
+    }
+  }
+
+  // La protección solo opera si active es true Y la materia no tiene el flag antiCopy desactivado
+  const isGuardActive = Boolean(active && !isSubjectAntiCopyDisabled);
 
   useEffect(() => {
-    if (!active) {
+    if (!isGuardActive) {
       document.documentElement.classList.remove('kmap-student-guard');
+      if (shieldRef.current) shieldRef.current.style.display = 'none';
       return;
     }
 
@@ -172,9 +192,9 @@ export default function StudentSecurityGuard({ active }) {
       window.removeEventListener('beforeprint', onBeforePrint, false);
       window.removeEventListener('afterprint', onAfterPrint, false);
     };
-  }, [active]);
+  }, [isGuardActive]);
 
-  if (!active) return null;
+  if (!isGuardActive) return null;
 
   return (
     <>

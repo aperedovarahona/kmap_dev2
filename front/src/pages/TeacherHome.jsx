@@ -47,9 +47,22 @@ export default function TeacherHome() {
               </div>
               <b className="text-xl text-white">{s.name}</b>
               <p className="text-sm" style={{ color: 'var(--text-muted)' }}>{s.desc}</p>
-              <div className="text-xs font-semibold" style={{ color: 'var(--cyan)' }}>
-                {topicsOf(db, s.id).length} temas •{' '}
-                {db.enrollments.filter((e) => e.subjectId === s.id).length} estudiantes
+              <div className="flex items-center justify-between w-full text-xs px-1">
+                <span className="font-semibold" style={{ color: 'var(--cyan)' }}>
+                  {topicsOf(db, s.id).length} temas •{' '}
+                  {db.enrollments.filter((e) => e.subjectId === s.id).length} estudiantes
+                </span>
+                <span
+                  className="px-2 py-0.5 rounded-full font-bold text-[11px] border"
+                  style={{
+                    background: s.antiCopy !== false ? 'rgba(var(--primary-rgb), 0.12)' : 'rgba(255, 255, 255, 0.05)',
+                    borderColor: s.antiCopy !== false ? 'var(--cyan)' : 'rgba(255, 255, 255, 0.2)',
+                    color: s.antiCopy !== false ? 'var(--cyan)' : 'var(--text-muted)',
+                  }}
+                  title={s.antiCopy !== false ? 'Medidas anticopia activas' : 'Medidas anticopia desactivadas'}
+                >
+                  {s.antiCopy !== false ? '🛡️ Anticopia ON' : '🔓 Anticopia OFF'}
+                </span>
               </div>
               <button
                 type="button"

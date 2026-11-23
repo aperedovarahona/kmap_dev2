@@ -72,7 +72,8 @@ class Kmap_model extends CI_Model {
                     'theme' => $m['color_tema'] ?: 'purple',
                     'code' => $m['codigo'],
                     'teacherId' => (string) $m['docente_id'],
-                    'teacherName' => $docName ?: 'Docente'
+                    'teacherName' => $docName ?: 'Docente',
+                    'antiCopy' => isset($m['anticopia_activa']) ? (bool) $m['anticopia_activa'] : true
                 ];
             }
         }
@@ -255,6 +256,18 @@ class Kmap_model extends CI_Model {
                             'estado' => 'activo'
                         ]);
                     }
+                }
+            }
+        }
+
+        // Si se actualizó la configuración de materias (ej. anticopia)
+        if (!empty($state['subjects']) && is_array($state['subjects'])) {
+            foreach ($state['subjects'] as $sub) {
+                if (isset($sub['id']) && is_numeric($sub['id']) && isset($sub['antiCopy'])) {
+                    $this->db->where('id', (int) $sub['id']);
+                    $this->db->update('materias', [
+                        'anticopia_activa' => $sub['antiCopy'] ? 1 : 0
+                    ]);
                 }
             }
         }
