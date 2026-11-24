@@ -8,6 +8,15 @@ const __dirname = path.dirname(__filename);
 const backendDir = path.resolve(__dirname, '..', 'backend');
 const isWin = process.platform === 'win32';
 
+// Inyectar node_modules/.bin al inicio del PATH del entorno
+const binDir = path.resolve(__dirname, 'node_modules', '.bin');
+const pathKey = Object.keys(process.env).find((k) => k.toLowerCase() === 'path') || 'PATH';
+const currentPath = process.env[pathKey] || '';
+const customEnv = {
+  ...process.env,
+  [pathKey]: `${binDir}${path.delimiter}${currentPath}`,
+};
+
 console.log('====================================================');
 console.log('🚀 Iniciando Plan Kmap Fullstack (PHP CI3 + React)');
 console.log('   Backend : http://localhost:4000 (PHP CodeIgniter 3)');
@@ -42,7 +51,8 @@ const phpBin = resolvePhpBin();
 const phpServer = spawn(phpBin, ['-S', '0.0.0.0:4000', 'router.php'], {
   cwd: backendDir,
   stdio: 'inherit',
-  shell: isWin,
+  shell: false,
+  env: customEnv,
 });
 
 phpServer.on('error', (err) => {
@@ -50,12 +60,16 @@ phpServer.on('error', (err) => {
   console.error('Verifica que PHP esté instalado y agregado a tu variable PATH o en C:\\xampp\\php\\php.exe');
 });
 
-// 2. Iniciar servidor de desarrollo de Vite a través de npm dev:front
-const npmCmd = isWin ? 'npm.cmd' : 'npm';
-const viteServer = spawn(npmCmd, ['run', 'dev:front'], {
+// 2. Iniciar servidor de desarrollo de Vite directamente desde node_modules/.bin
+const viteExecutable = path.resolve(__dirname, 'node_modules', '.bin', isWin ? 'vite.cmd' : 'vite');
+const viteCmd = fs.existsSync(viteExecutable) ? viteExecutable : (isWin ? 'npx.cmd' : 'npx');
+const viteArgs = fs.existsSync(viteExecutable) ? [] : ['vite'];
+
+const viteServer = spawn(viteCmd, viteArgs, {
   cwd: __dirname,
   stdio: 'inherit',
   shell: isWin,
+  env: customEnv,
 });
 
 viteServer.on('error', (err) => {
