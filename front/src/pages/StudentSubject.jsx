@@ -111,9 +111,19 @@ export default function StudentSubject() {
                       onClick={() => setSelId(t.id)}
                       className={`cursor-pointer px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-200 ${
                         active
-                          ? 'bg-gradient-to-r from-[#00f2fe] to-sky-400 text-[#021329] shadow-[0_0_15px_rgba(0,242,254,0.5)] scale-105'
-                          : 'bg-[#05132b]/85 border border-sky-400/35 text-cyan-100 hover:border-cyan-300 hover:bg-cyan-400/15 active:scale-95'
+                          ? 'text-[#021329] scale-105'
+                          : 'bg-[#05132b]/85 border text-white hover:bg-white/10 active:scale-95'
                       }`}
+                      style={
+                        active
+                          ? {
+                              background: 'var(--g-primary)',
+                              boxShadow: '0 0 15px rgba(var(--primary-rgb), 0.5)',
+                            }
+                          : {
+                              borderColor: 'rgba(var(--primary-rgb), 0.35)',
+                            }
+                      }
                     >
                       {t.icon || '📘'} {t.name}
                     </button>

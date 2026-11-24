@@ -60,7 +60,7 @@ function useStrength(pwd) {
       { label: 'Sin contraseña', color: '#3b4a63', pct: 0 },
       { label: 'Muy débil',      color: '#ff4d6d', pct: 25 },
       { label: 'Débil',          color: '#ffbe0b', pct: 50 },
-      { label: 'Buena',          color: '#00d2ff', pct: 75 },
+      { label: 'Buena',          color: 'var(--cyan)', pct: 75 },
       { label: 'Muy segura',     color: '#00e676', pct: 100 },
     ][level];
     return { rules: passed, level, meta };

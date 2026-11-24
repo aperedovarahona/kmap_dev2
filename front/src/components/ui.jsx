@@ -1,22 +1,26 @@
 import { motion } from 'framer-motion';
 
-export const ProgressBar = ({ value, color = 'cyan' }) => {
-  const barColors = {
-    cyan: 'from-sky-400 via-cyan-300 to-[#00f2fe] shadow-[0_0_14px_rgba(0,242,254,0.75)]',
-    purple: 'from-violet-500 via-purple-400 to-fuchsia-300 shadow-[0_0_14px_rgba(217,70,239,0.75)]',
-    blue: 'from-blue-500 via-sky-400 to-cyan-300 shadow-[0_0_14px_rgba(56,189,248,0.75)]',
-    green: 'from-emerald-400 via-teal-300 to-cyan-300 shadow-[0_0_14px_rgba(52,211,153,0.75)]',
-  };
+export const ProgressBar = ({ value, color = 'theme' }) => {
   return (
     <div className="flex items-center gap-2.5 w-full">
-      <div className="h-2.5 flex-1 rounded-full bg-[#041024] border border-sky-400/25 overflow-hidden p-0.5">
+      <div 
+        className="h-2.5 flex-1 rounded-full overflow-hidden p-0.5 border"
+        style={{
+          background: 'rgba(var(--bg-primary-rgb, 4, 16, 36), 0.95)',
+          borderColor: 'rgba(var(--primary-rgb), 0.25)',
+        }}
+      >
         <motion.div
-          className={`h-full rounded-full bg-gradient-to-r ${barColors[color] || barColors.cyan}`}
+          className="h-full rounded-full"
+          style={{
+            background: 'var(--g-primary)',
+            boxShadow: '0 0 14px rgba(var(--primary-rgb), 0.65)',
+          }}
           initial={{ width: 0 }}
           animate={{ width: `${Math.min(100, Math.max(0, value || 0))}%` }}
         />
       </div>
-      <span className="text-xs font-extrabold text-cyan-200 w-9 text-right">{value || 0}%</span>
+      <span className="text-xs font-extrabold w-9 text-right" style={{ color: 'var(--cyan)' }}>{value || 0}%</span>
     </div>
   );
 };

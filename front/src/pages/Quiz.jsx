@@ -204,7 +204,7 @@ export default function Quiz() {
                   cx="80"
                   cy="80"
                   r={radius}
-                  stroke={res.score >= PASS ? '#00f2fe' : '#f43f5e'}
+                  stroke={res.score >= PASS ? 'var(--cyan)' : '#f43f5e'}
                   strokeWidth="14"
                   strokeDasharray={circumference}
                   strokeDashoffset={strokeDashoffset}
@@ -212,7 +212,7 @@ export default function Quiz() {
                   fill="transparent"
                   style={{
                     filter: `drop-shadow(0 0 12px ${
-                      res.score >= PASS ? 'rgba(0,242,254,0.75)' : 'rgba(244,63,94,0.75)'
+                      res.score >= PASS ? 'rgba(var(--primary-rgb),0.75)' : 'rgba(244,63,94,0.75)'
                     })`,
                   }}
                 />
@@ -418,8 +418,21 @@ export default function Quiz() {
             <span className="text-sm text-blue-100 font-medium">Material</span>
           </button>
 
-          <div className="flex items-center gap-3 px-2.5 py-2 rounded-xl bg-cyan-500/15 border border-cyan-300/60 shadow-[0_0_15px_rgba(0,242,254,0.2)]">
-            <span className="w-7 h-7 rounded-full bg-[#00f2fe] text-[#031126] grid place-items-center text-xs font-black shadow-[0_0_12px_rgba(0,242,254,0.75)] shrink-0">
+          <div
+            className="flex items-center gap-3 px-2.5 py-2 rounded-xl border"
+            style={{
+              background: 'rgba(var(--primary-rgb), 0.15)',
+              borderColor: 'var(--cyan)',
+              boxShadow: '0 0 15px rgba(var(--primary-rgb), 0.25)',
+            }}
+          >
+            <span
+              className="w-7 h-7 rounded-full text-[#031126] grid place-items-center text-xs font-black shrink-0"
+              style={{
+                background: 'var(--cyan)',
+                boxShadow: '0 0 12px rgba(var(--primary-rgb), 0.75)',
+              }}
+            >
               2
             </span>
             <span className="text-sm font-extrabold text-white">Quiz</span>
@@ -474,18 +487,34 @@ export default function Quiz() {
                       onClick={() => setSelectedOpt(k)}
                       className={`group cursor-pointer w-full flex items-center gap-3.5 px-4 py-3.5 rounded-xl border text-left text-sm transition-all duration-200 ${
                         active
-                          ? 'bg-gradient-to-r from-cyan-500/30 to-sky-500/20 border-[#00f2fe] text-white scale-[1.01] shadow-[0_0_22px_rgba(0,242,254,0.4)]'
-                          : 'bg-[#041022]/80 border-[#16497a] text-blue-100 hover:border-cyan-300 hover:bg-cyan-400/15 hover:translate-x-1.5 hover:shadow-[0_0_18px_rgba(0,242,254,0.22)] active:scale-[0.99]'
+                          ? 'text-white scale-[1.01]'
+                          : 'bg-[#041022]/80 text-blue-100 hover:translate-x-1.5 active:scale-[0.99]'
                       }`}
+                      style={
+                        active
+                          ? {
+                              background: 'rgba(var(--primary-rgb), 0.25)',
+                              borderColor: 'var(--cyan)',
+                              boxShadow: '0 0 22px rgba(var(--primary-rgb), 0.4)',
+                            }
+                          : {
+                              borderColor: 'rgba(var(--primary-rgb), 0.25)',
+                            }
+                      }
                     >
                       <span
-                        className={`w-5 h-5 rounded-full border-2 grid place-items-center shrink-0 transition-transform duration-200 group-hover:scale-110 ${
-                          active
-                            ? 'border-[#00f2fe] shadow-[0_0_10px_#00f2fe]'
-                            : 'border-blue-400/70 group-hover:border-cyan-300'
-                        }`}
+                        className="w-5 h-5 rounded-full border-2 grid place-items-center shrink-0 transition-transform duration-200 group-hover:scale-110"
+                        style={{
+                          borderColor: active ? 'var(--cyan)' : 'rgba(var(--primary-rgb), 0.5)',
+                          boxShadow: active ? '0 0 10px var(--cyan)' : 'none',
+                        }}
                       >
-                        {active && <span className="w-2.5 h-2.5 rounded-full bg-[#00f2fe]" />}
+                        {active && (
+                          <span
+                            className="w-2.5 h-2.5 rounded-full"
+                            style={{ background: 'var(--cyan)' }}
+                          />
+                        )}
                       </span>
                       <span className="font-semibold">{o.o}</span>
                     </button>
@@ -499,10 +528,20 @@ export default function Quiz() {
                   Pregunta {i + 1} de {qs.length}
                 </span>
 
-                <div className="flex-1 max-w-xs h-2.5 rounded-full bg-[#041022] border border-sky-400/25 overflow-hidden p-0.5">
+                <div
+                  className="flex-1 max-w-xs h-2.5 rounded-full overflow-hidden p-0.5 border"
+                  style={{
+                    background: 'rgba(var(--bg-primary-rgb, 4, 16, 36), 0.95)',
+                    borderColor: 'rgba(var(--primary-rgb), 0.25)',
+                  }}
+                >
                   <div
-                    className="h-full rounded-full bg-gradient-to-r from-sky-400 via-cyan-300 to-[#00f2fe] shadow-[0_0_12px_rgba(0,242,254,0.65)] transition-all duration-300"
-                    style={{ width: `${progressPct}%` }}
+                    className="h-full rounded-full transition-all duration-300"
+                    style={{
+                      width: `${progressPct}%`,
+                      background: 'var(--g-primary)',
+                      boxShadow: '0 0 12px rgba(var(--primary-rgb), 0.65)',
+                    }}
                   />
                 </div>
 

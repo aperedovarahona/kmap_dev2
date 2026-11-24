@@ -11,36 +11,35 @@ import JoinSubjectModal from '../components/JoinSubjectModal.jsx'; // Importamos
 import './StudentHome.css';
 
 function SubjectWatermark({ type }) {
-  // ... (Mantén tu código de SubjectWatermark exactamente igual)
   if (type === 'code' || type === 'blue') {
     return (
       <svg className="card-watermark" viewBox="0 0 100 100" fill="none">
-        <path d="M 20 20 L 70 20 M 30 35 L 85 35 M 20 50 L 60 50 M 40 65 L 80 65 M 20 80 L 50 80" stroke="#00d2ff" strokeWidth="3" strokeLinecap="round" />
-        <text x="35" y="45" fill="#00d2ff" fontFamily="monospace" fontSize="28" fontWeight="bold">{'{ ; }'}</text>
+        <path d="M 20 20 L 70 20 M 30 35 L 85 35 M 20 50 L 60 50 M 40 65 L 80 65 M 20 80 L 50 80" stroke="var(--cyan)" strokeWidth="3" strokeLinecap="round" />
+        <text x="35" y="45" fill="var(--cyan)" fontFamily="monospace" fontSize="28" fontWeight="bold">{'{ ; }'}</text>
       </svg>
     );
   }
   if (type === 'math' || type === 'green') {
     return (
       <svg className="card-watermark" viewBox="0 0 100 100" fill="none">
-        <text x="50" y="30" fill="#00d2ff" fontSize="22" fontWeight="bold" textAnchor="middle">+</text>
-        <text x="75" y="55" fill="#00d2ff" fontSize="24" fontWeight="bold" textAnchor="middle">×</text>
-        <text x="50" y="80" fill="#00d2ff" fontSize="22" fontWeight="bold" textAnchor="middle">÷</text>
-        <text x="25" y="55" fill="#00d2ff" fontSize="22" fontWeight="bold" textAnchor="middle">%</text>
-        <text x="75" y="25" fill="#00d2ff" fontSize="20" fontWeight="bold" textAnchor="middle">π</text>
+        <text x="50" y="30" fill="var(--cyan)" fontSize="22" fontWeight="bold" textAnchor="middle">+</text>
+        <text x="75" y="55" fill="var(--cyan)" fontSize="24" fontWeight="bold" textAnchor="middle">×</text>
+        <text x="50" y="80" fill="var(--cyan)" fontSize="22" fontWeight="bold" textAnchor="middle">÷</text>
+        <text x="25" y="55" fill="var(--cyan)" fontSize="22" fontWeight="bold" textAnchor="middle">%</text>
+        <text x="75" y="25" fill="var(--cyan)" fontSize="20" fontWeight="bold" textAnchor="middle">π</text>
       </svg>
     );
   }
   if (type === 'science' || type === 'cyan') {
     return (
       <svg className="card-watermark" viewBox="0 0 100 100" fill="none">
-        <polygon points="50,15 75,30 75,60 50,75 25,60 25,30" stroke="#00d2ff" strokeWidth="2.5" />
-        <circle cx="50" cy="15" r="4" fill="#00d2ff" />
-        <circle cx="75" cy="30" r="4" fill="#00d2ff" />
-        <circle cx="75" cy="60" r="4" fill="#00d2ff" />
-        <circle cx="50" cy="75" r="4" fill="#00d2ff" />
-        <circle cx="25" cy="60" r="4" fill="#00d2ff" />
-        <circle cx="25" cy="30" r="4" fill="#00d2ff" />
+        <polygon points="50,15 75,30 75,60 50,75 25,60 25,30" stroke="var(--cyan)" strokeWidth="2.5" />
+        <circle cx="50" cy="15" r="4" fill="var(--cyan)" />
+        <circle cx="75" cy="30" r="4" fill="var(--cyan)" />
+        <circle cx="75" cy="60" r="4" fill="var(--cyan)" />
+        <circle cx="50" cy="75" r="4" fill="var(--cyan)" />
+        <circle cx="25" cy="60" r="4" fill="var(--cyan)" />
+        <circle cx="25" cy="30" r="4" fill="var(--cyan)" />
       </svg>
     );
   }
@@ -49,20 +48,20 @@ function SubjectWatermark({ type }) {
       <svg className="card-watermark watermark-art" viewBox="0 0 100 100" fill="none">
         <path d="M 65 30 C 50 15, 30 25, 40 45 C 20 40, 15 65, 35 70 C 25 85, 55 95, 65 80 C 80 90, 95 70, 85 50 C 95 30, 80 15, 65 30 Z" fill="#ff007f" opacity="0.45" />
         <circle cx="85" cy="20" r="5" fill="#ff007f" opacity="0.6" />
-        <circle cx="20" cy="30" r="4" fill="#00d2ff" opacity="0.5" />
+        <circle cx="20" cy="30" r="4" fill="var(--cyan)" opacity="0.5" />
         <circle cx="80" cy="85" r="3" fill="#ffbe0b" opacity="0.7" />
       </svg>
     );
   }
   return (
     <svg className="card-watermark" viewBox="0 0 100 100" fill="none">
-      <polygon points="10,35 50,15 90,35" stroke="#00d2ff" strokeWidth="2.5" />
-      <rect x="15" y="35" width="70" height="5" stroke="#00d2ff" strokeWidth="1.5" />
-      <line x1="25" y1="40" x2="25" y2="80" stroke="#00d2ff" strokeWidth="3" />
-      <line x1="42" y1="40" x2="42" y2="80" stroke="#00d2ff" strokeWidth="3" />
-      <line x1="58" y1="40" x2="58" y2="80" stroke="#00d2ff" strokeWidth="3" />
-      <line x1="75" y1="40" x2="75" y2="80" stroke="#00d2ff" strokeWidth="3" />
-      <rect x="10" y="80" width="80" height="6" stroke="#00d2ff" strokeWidth="2" />
+      <polygon points="10,35 50,15 90,35" stroke="var(--cyan)" strokeWidth="2.5" />
+      <rect x="15" y="35" width="70" height="5" stroke="var(--cyan)" strokeWidth="1.5" />
+      <line x1="25" y1="40" x2="25" y2="80" stroke="var(--cyan)" strokeWidth="3" />
+      <line x1="42" y1="40" x2="42" y2="80" stroke="var(--cyan)" strokeWidth="3" />
+      <line x1="58" y1="40" x2="58" y2="80" stroke="var(--cyan)" strokeWidth="3" />
+      <line x1="75" y1="40" x2="75" y2="80" stroke="var(--cyan)" strokeWidth="3" />
+      <rect x="10" y="80" width="80" height="6" stroke="var(--cyan)" strokeWidth="2" />
     </svg>
   );
 }
@@ -214,7 +213,7 @@ export default function StudentHome() {
               <div className="access-icon-box !w-10 !h-10 shrink-0">⭐</div>
               <div>
                 <div className="text-[11px] text-[#8ca5c9] font-semibold">Promedio</div>
-                <div className="text-lg font-extrabold text-[#00f2fe]">{avgScore}%</div>
+                <div className="text-lg font-extrabold" style={{ color: 'var(--cyan)' }}>{avgScore}%</div>
               </div>
             </button>
 
@@ -253,20 +252,22 @@ export default function StudentHome() {
                   return (
                     <div
                       key={r.user.id}
-                      className={`interactive-row flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm border ${isMe
-                          ? 'bg-gradient-to-r from-[#00d2ff]/30 to-[#0077fe]/25 border-[#00f2fe] shadow-[0_0_20px_rgba(0,210,255,0.3)]'
-                          : 'bg-[#030d1e]/80 border-[#00d2ff]/20'
-                        }`}
+                      className="interactive-row flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm border"
+                      style={{
+                        background: isMe ? 'rgba(var(--primary-rgb), 0.22)' : 'rgba(var(--bg-secondary-rgb, 3, 13, 30), 0.85)',
+                        borderColor: isMe ? 'var(--cyan)' : 'rgba(var(--primary-rgb), 0.2)',
+                        boxShadow: isMe ? '0 0 20px rgba(var(--primary-rgb), 0.35)' : 'none',
+                      }}
                     >
-                      <span className="w-8 font-black text-[#00d2ff]">
+                      <span className="w-8 font-black" style={{ color: 'var(--cyan)' }}>
                         {['🥇', '🥈', '🥉'][i] || `#${i + 1}`}
                       </span>
                       <Avatar name={r.user.name} size="sm" online={isMe} />
                       <span className="flex-1 font-bold text-white truncate">
                         {r.user.name}{' '}
-                        {isMe && <span className="text-[#00f2fe] text-xs">(Tú)</span>}
+                        {isMe && <span className="text-xs" style={{ color: 'var(--cyan)' }}>(Tú)</span>}
                       </span>
-                      <b className="text-[#00f2fe]">{r.points} XP</b>
+                      <b style={{ color: 'var(--cyan)' }}>{r.points} XP</b>
                     </div>
                   );
                 })}
@@ -293,11 +294,15 @@ export default function StudentHome() {
                     <div
                       key={s.id}
                       onClick={() => nav(`/materia/${s.id}`)}
-                      className="interactive-row rounded-xl bg-[#030d1e]/85 border border-[#00d2ff]/30 p-4"
+                      className="interactive-row rounded-xl p-4 border"
+                      style={{
+                        background: 'rgba(var(--bg-secondary-rgb, 3, 13, 30), 0.85)',
+                        borderColor: 'rgba(var(--primary-rgb), 0.3)',
+                      }}
                     >
                       <div className="flex items-center justify-between mb-2">
                         <b className="text-white">{s.name}</b>
-                        <span className="text-xs font-bold text-[#00d2ff]">
+                        <span className="text-xs font-bold" style={{ color: 'var(--cyan)' }}>
                           {ts.length} temas
                         </span>
                       </div>
