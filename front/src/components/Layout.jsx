@@ -40,8 +40,9 @@ export default function Layout() {
       {!isStudent && (
         <>
           <div
-            className="md:hidden fixed top-0 left-0 right-0 h-14 px-4 flex items-center justify-between backdrop-blur-md z-50 border-b"
+            className="md:hidden fixed top-0 left-0 right-0 h-14 px-4 flex items-center justify-between backdrop-blur-md border-b"
             style={{
+              zIndex: 150,
               background: 'rgba(var(--bg-secondary-rgb, 6, 18, 37), 0.95)',
               borderColor: 'rgba(var(--primary-rgb), 0.25)',
             }}
@@ -66,7 +67,8 @@ export default function Layout() {
           {mobileOpen && (
             <div
               onClick={() => setMobileOpen(false)}
-              className="md:hidden fixed inset-0 bg-black/70 backdrop-blur-xs z-40"
+              className="md:hidden fixed inset-0 bg-black/75 backdrop-blur-xs"
+              style={{ zIndex: 250 }}
             />
           )}
 
