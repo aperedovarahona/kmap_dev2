@@ -75,7 +75,7 @@ export const Empty = ({ children }) => (
   <div className="card text-center text-blue-100 py-10">{children}</div>
 );
 
-export const Avatar = ({ name = 'U', size = 'md', online = true }) => {
+export const Avatar = ({ name = 'U', avatar = null, size = 'md', online = true }) => {
   const sizes = {
     sm: 'w-7 h-7 text-xs',
     md: 'w-10 h-10 text-sm',
@@ -90,14 +90,26 @@ export const Avatar = ({ name = 'U', size = 'md', online = true }) => {
   return (
     <div className="relative inline-flex items-center justify-center shrink-0">
       <div
-        className={`${sizes[size] || sizes.md} rounded-full bg-gradient-to-br from-[#00f2fe] via-sky-400 to-fuchsia-500 p-0.5 shadow-[0_0_16px_rgba(0,242,254,0.5)]`}
+        className={`${sizes[size] || sizes.md} rounded-full p-0.5`}
+        style={{
+          background: 'var(--g-primary)',
+          boxShadow: '0 0 14px rgba(var(--primary-rgb), 0.45)',
+        }}
       >
-        <div className="w-full h-full rounded-full bg-[#081e42] flex items-center justify-center font-extrabold text-cyan-200">
-          {initials}
+        <div
+          className="w-full h-full rounded-full flex items-center justify-center font-extrabold select-none"
+          style={{
+            background: 'var(--bg-secondary)',
+            color: 'var(--cyan)',
+          }}
+        >
+          {avatar || initials}
         </div>
       </div>
       {online && (
-        <span className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-2 ring-[#041126] shadow-[0_0_8px_#34d399]" />
+        <span
+          className="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-2 ring-[#041126] shadow-[0_0_8px_#34d399]"
+        />
       )}
     </div>
   );

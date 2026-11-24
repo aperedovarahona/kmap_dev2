@@ -67,6 +67,27 @@ function useStrength(pwd) {
   }, [pwd]);
 }
 
+const AVATAR_OPTIONS = [
+  { id: 'default', label: 'Por Defecto', icon: null },
+  { id: 'dev-boy', label: 'Cyber Alumno', icon: '🧑‍💻' },
+  { id: 'dev-girl', label: 'Cyber Alumna', icon: '👩‍💻' },
+  { id: 'neon-grad', label: 'Graduado Neón', icon: '🎓' },
+  { id: 'teacher', label: 'Docente Mentor', icon: '🧑‍🏫' },
+  { id: 'scientist', label: 'Científica', icon: '👩‍🔬' },
+  { id: 'astronaut', label: 'Cosmonauta', icon: '👨‍🚀' },
+  { id: 'hacker', label: 'Ciber Hacker', icon: '🕵️' },
+  { id: 'robot-bot', label: 'Dron Bot', icon: '🤖' },
+  { id: 'wizard', label: 'Hechicero Dev', icon: '🧙' },
+  { id: 'artist', label: 'Creativo Digital', icon: '🎨' },
+  { id: 'fire', label: 'Fénix Neón', icon: '🔥' },
+  { id: 'lightning', label: 'Chispa Cuántica', icon: '⚡' },
+  { id: 'shield', label: 'Centinela', icon: '🛡️' },
+  { id: 'star', label: 'Estrella Nova', icon: '⭐' },
+  { id: 'cat', label: 'Cyber Neko', icon: '🐱' },
+  { id: 'fox', label: 'Zorro Digital', icon: '🦊' },
+  { id: 'gem', label: 'Gema Neón', icon: '💎' },
+];
+
 export default function Profile() {
   const { user } = useAuth();
   const [f, setF] = useState({ cur: '', next: '', rep: '' });
@@ -78,6 +99,19 @@ export default function Profile() {
   const strength = useStrength(f.next);
   const match = f.rep.length > 0 && f.rep === f.next;
   const mismatch = f.rep.length > 0 && f.rep !== f.next;
+
+  const selectAvatar = (iconOrNull) => {
+    update((d) => {
+      const u = d.users.find((x) => x.id === user.id);
+      if (u) {
+        u.avatar = iconOrNull;
+      }
+    });
+    if (user) {
+      user.avatar = iconOrNull;
+    }
+    ok('Avatar actualizado', 'Tu nuevo icono de perfil ha sido guardado con éxito.');
+  };
 
   const submit = (e) => {
     e.preventDefault();
@@ -104,17 +138,19 @@ export default function Profile() {
   const initial = (user.name || '?').trim().charAt(0).toUpperCase();
 
   return (
-    <Page crumb="Academy › Perfil" title="Mi perfil">
+    <Page crumb="KMapGraph › Perfil" title="Mi perfil">
       <div className="profile-grid">
-        {/* ---------- Tarjeta de identidad ---------- */}
+        {/* ---------- Tarjeta de identidad y Avatar ---------- */}
         <motion.div
-          className="profile-card profile-card--glow-border"
+          className="profile-card profile-card--glow-border flex flex-col gap-4"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
         >
           <div className="profile-hero">
-            <div className="profile-avatar-ring">
-              <div className="profile-avatar">{initial}</div>
+            <div className="profile-avatar-ring" style={{ borderColor: 'var(--cyan)' }}>
+              <div className="profile-avatar flex items-center justify-center text-3xl select-none" style={{ background: 'var(--bg-secondary)', color: 'var(--cyan)' }}>
+                {user.avatar ? user.avatar : initial}
+              </div>
             </div>
             <div className="profile-hero-text">
               <h2>{user.name}</h2>
@@ -134,6 +170,47 @@ export default function Profile() {
           <div className="profile-badge-strip">
             <span className="chip chip-green">✅ Cuenta activa</span>
             <span className="chip chip-cyan">🔒 Acceso seguro</span>
+          </div>
+
+          {/* Galería de Iconos de Perfil Personalizables */}
+          <div className="pt-3 border-t border-white/10 flex flex-col gap-2.5">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold text-white tracking-wider uppercase">
+                🎨 Icono de Perfil Personalizado
+              </span>
+              <span className="text-[11px] text-[#8ca5c9]">
+                {user.avatar ? 'Personalizado' : 'Iniciales'}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-6 sm:grid-cols-9 gap-2">
+              {AVATAR_OPTIONS.map((av) => {
+                const isSelected = (!user.avatar && av.id === 'default') || user.avatar === av.icon;
+                return (
+                  <button
+                    key={av.id}
+                    type="button"
+                    onClick={() => selectAvatar(av.icon)}
+                    className="w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-all duration-200 cursor-pointer border"
+                    style={{
+                      background: isSelected
+                        ? 'rgba(var(--primary-rgb), 0.25)'
+                        : 'rgba(255, 255, 255, 0.04)',
+                      borderColor: isSelected
+                        ? 'var(--cyan)'
+                        : 'rgba(255, 255, 255, 0.1)',
+                      boxShadow: isSelected
+                        ? '0 0 12px rgba(var(--primary-rgb), 0.5)'
+                        : 'none',
+                      transform: isSelected ? 'scale(1.1)' : 'scale(1)',
+                    }}
+                    title={av.label}
+                  >
+                    {av.icon ? av.icon : '👤'}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </motion.div>
 

@@ -24,8 +24,8 @@ export default function Page({ title, subtitle, crumb, backTo, icon, actions, ch
       }
     }
     info(
-      'Quiz Rápido · BIT ACADEMY',
-      'Iniciando evaluación rápida de conocimientos adaptativos de BIT ACADEMY.'
+      'Quiz Rápido · KMapGraph',
+      'Iniciando evaluación rápida de conocimientos adaptativos de KMapGraph.'
     );
   };
 
@@ -37,7 +37,7 @@ export default function Page({ title, subtitle, crumb, backTo, icon, actions, ch
     }
   };
 
-  const crumbParts = crumb ? crumb.split(/›|❯/).map((c) => c.trim()) : ['Academia', 'Inicio'];
+  const crumbParts = crumb ? crumb.split(/›|❯/).map((c) => c.trim()) : ['KMapGraph', 'Inicio'];
 
   return (
     <motion.div
@@ -46,7 +46,7 @@ export default function Page({ title, subtitle, crumb, backTo, icon, actions, ch
       transition={{ duration: 0.25 }}
       className="flex flex-col flex-1 w-full"
     >
-      {/* Top Header Bar (Persistente / Sticky con estética BIT ACADEMY) */}
+      {/* Top Header Bar (Persistente / Sticky adaptable a toda pantalla) */}
       <header className="top-header">
         {/* Left Breadcrumbs & Quick Actions Pill Card */}
         <div className="header-breadcrumbs-card">
@@ -62,14 +62,14 @@ export default function Page({ title, subtitle, crumb, backTo, icon, actions, ch
             <div
               className="header-logo-box cursor-pointer"
               onClick={() => nav('/panel')}
-              title="BIT ACADEMY · Ir al Inicio"
+              title="KMapGraph · Ir al Inicio"
             >
               <img
                 src="/assets/images/logo.svg"
-                alt="BIT ACADEMY"
+                alt="KMapGraph"
                 className="header-card-logo"
               />
-              {title && title !== 'BIT ACADEMY' && (
+              {title && title !== 'KMapGraph' && (
                 <span className="header-title-addon">· {title}</span>
               )}
             </div>

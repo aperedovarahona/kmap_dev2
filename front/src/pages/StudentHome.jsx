@@ -4,7 +4,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../auth.jsx';
 import { update, useDb } from '../lib/db.js';
 import { best, progress, ranking, topicsOf } from '../lib/logic.js';
-import { fail, ok } from '../alerts.js'; // Quitamos askText e info
+import { fail, ok, askSubjectCode } from '../alerts.js'; // SweetAlert2 modal para pedir código de materia
 import Page from '../components/Page.jsx';
 import { Avatar, Empty, ProgressBar } from '../components/ui.jsx';
 import JoinSubjectModal from '../components/JoinSubjectModal.jsx'; // Importamos el nuevo modal
@@ -164,26 +164,22 @@ export default function StudentHome() {
     ok('¡Te uniste!', `Te has matriculado en ${s.name}`);
   };
 
-  const enrollDirect = (s) => {
+  const enrollWithPrompt = async (s) => {
     const isAlready = (db.enrollments || []).some(
       (e) => String(e.userId || e.studentId) === String(user.id) && String(e.subjectId) === String(s.id)
     );
-    if (isAlready) return;
-    update((d) => {
-      d.enrollments.push({
-        id: uid(),
-        userId: user.id,
-        subjectId: s.id,
-        isNew: true,
-      });
-    });
-    ok('¡Materia agregada!', `Te matriculaste en ${s.name}`);
+    if (isAlready) return fail('Ya estás matriculado en esta materia');
+
+    const enteredCode = await askSubjectCode(s.name, s.code);
+    if (enteredCode) {
+      handleJoinWithCode(enteredCode);
+    }
   };
 
   return (
     <Page
-      crumb="Academia ❯ Inicio"
-      title="BIT ACADEMY"
+      crumb="KMapGraph ❯ Inicio"
+      title="KMapGraph"
       actions={
         <button 
           type="button" 
@@ -401,8 +397,8 @@ export default function StudentHome() {
                     </span>
                     <h3 className="card-title">{s.name}</h3>
                     <p className="card-subtitle">{s.desc}</p>
-                    <button type="button" onClick={() => enrollDirect(s)} className="btn-card-action mt-auto">
-                      <span>＋ Matricularme</span>
+                    <button type="button" onClick={() => enrollWithPrompt(s)} className="btn-card-action mt-auto">
+                      <span>Matricularme</span>
                       <span>❯</span>
                     </button>
                   </motion.div>

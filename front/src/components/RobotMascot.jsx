@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './RobotMascot.css';
 
 const MESSAGE_TRIGGER_CLICK = 3;
-const CUSTOM_MESSAGE = '¡Hola! Soy BITSIBOOT, tu tutor de Plan KMAP 🚀';
+const CUSTOM_MESSAGE = '¡Hola! Soy KMAP-BOT, tu tutor de KMapGraph 🚀';
 
 export default function RobotMascot({
   mode = 'floating',

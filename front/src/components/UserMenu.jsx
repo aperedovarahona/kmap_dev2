@@ -64,16 +64,22 @@ export default function UserMenu({ size = 'md', className = '' }) {
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className={`user-avatar-wrap ${avatarSizeClass} p-0 bg-transparent border-none outline-none focus:outline-none focus:ring-2 focus:ring-[#00d2ff]/60 rounded-full transition-transform duration-200 active:scale-95 cursor-pointer`}
+        className={`user-avatar-wrap ${avatarSizeClass} p-0 bg-transparent border-none outline-none focus:outline-none focus:ring-2 focus:ring-[var(--cyan)] rounded-full transition-transform duration-200 active:scale-95 cursor-pointer`}
         title={`Cuenta de ${user?.name || 'Usuario'}`}
         aria-expanded={open}
         aria-haspopup="true"
       >
-        <img
-          src="/assets/images/avatar.svg"
-          alt={user?.name || 'Avatar'}
-          className="w-full h-full rounded-full object-cover pointer-events-none"
-        />
+        {user?.avatar ? (
+          <span className="user-avatar-custom pointer-events-none select-none">
+            {user.avatar}
+          </span>
+        ) : (
+          <img
+            src="/assets/images/avatar.svg"
+            alt={user?.name || 'Avatar'}
+            className="w-full h-full rounded-full object-cover pointer-events-none"
+          />
+        )}
         {/* Indicador de estado en línea */}
         <span
           className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#030c1c]"
@@ -94,12 +100,16 @@ export default function UserMenu({ size = 'md', className = '' }) {
         >
           {/* Tarjeta de información del usuario */}
           <div className="flex items-center gap-3 pb-3 border-b" style={{ borderColor: 'rgba(var(--primary-rgb), 0.15)' }}>
-            <div className="w-10 h-10 rounded-full overflow-hidden border shrink-0" style={{ borderColor: 'rgba(var(--primary-rgb), 0.5)' }}>
-              <img
-                src="/assets/images/avatar.svg"
-                alt={user?.name || 'Avatar'}
-                className="w-full h-full object-cover"
-              />
+            <div className="w-10 h-10 rounded-full overflow-hidden border shrink-0 flex items-center justify-center" style={{ borderColor: 'var(--cyan)' }}>
+              {user?.avatar ? (
+                <span className="text-xl select-none">{user.avatar}</span>
+              ) : (
+                <img
+                  src="/assets/images/avatar.svg"
+                  alt={user?.name || 'Avatar'}
+                  className="w-full h-full object-cover"
+                />
+              )}
             </div>
             <div className="min-w-0 flex-1">
               <div className="font-bold text-sm text-white truncate" title={user?.name}>

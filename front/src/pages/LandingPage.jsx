@@ -12,10 +12,10 @@ const FULL_TEXT = 'EVALÚA EL APRENDIZAJE.';
 const ERROR_AT = 15;      // posición de la "D" de APRENDIZAJE
 const ERROR_CHAR = 'S';
 
-const ROBOT_MSGS = ['¡Hola! Soy BITSIBOOT.', '¿Listo para aprender?', 'Detecto un vacío en Álgebra...', '¡Vamos a estudiar juntos!', 'Tu ruta óptima está lista.'];
+const ROBOT_MSGS = ['¡Hola! Soy KMAP-BOT.', '¿Listo para aprender?', 'Detecto un vacío en Álgebra...', '¡Vamos a estudiar juntos!', 'Tu ruta óptima está lista.'];
 const TOPICS = ['Álgebra', 'Física', 'Cálculo', 'Química', 'Programación', 'Estadística', 'Biología', 'Geometría', 'Lógica', 'Inglés'];
 
-// Datos con fuente verificable (no son resultados propios de BIT ACADEMY)
+// Datos con fuente verificable (estudios de referencia sobre aprendizaje por dominio)
 const EVIDENCE = [
   { big: '+1σ', label: 'Aprendizaje por dominio', text: 'Estudiantes que dominaban cada tema antes de avanzar superaron al 84% de un aula tradicional.', src: 'Bloom, 1984 · Educational Researcher' },
   { big: '61%', vs: '40%', label: 'Recuerdo a una semana', text: 'Practicar recuperando lo aprendido superó a releer el mismo texto una y otra vez.', src: 'Roediger & Karpicke, 2006 · Psychological Science' },
@@ -32,7 +32,7 @@ const SLIDES = [
 const FEATURES = [
   { icon: '🕸️', title: 'Grafos de Conocimiento', text: 'Visualiza tu materia como un mapa y detecta qué prerrequisitos reforzar.' },
   { icon: '⚡', title: 'Evaluaciones Inteligentes', text: 'La dificultad se ajusta mientras respondes, con feedback instantáneo sobre tus errores.' },
-  { icon: '🤖', title: 'BITSIBOOT IA (Gemini)', text: 'Un asistente 24/7 que guía con preguntas socráticas para que razones, no solo memorices.' },
+  { icon: '🤖', title: 'KMap Tutor IA (Gemini)', text: 'Un asistente 24/7 que guía con preguntas socráticas para que razones, no solo memorices.' },
   { icon: '🔥', title: 'Panel del Docente', text: 'Mapas de calor para ver qué nodo exacto está frenando a tu clase.' },
 ];
 
@@ -79,15 +79,15 @@ const TypeLine = ({ text, typedLen, showErr, errAt, done }) => {
   });
 };
 
-/* "BIT ACADEMY": se escribe letra por letra y cada letra salta al pasar el cursor */
+/* "KMapGraph": se escribe letra por letra y cada letra salta al pasar el cursor */
 const LogoText = ({ len }) => {
-  const t = 'BIT ACADEMY';
+  const t = 'KMapGraph';
   return t.split('').map((c, i) => {
     if (c === ' ') return <span className="logo-gap" key={i} />;
-    const acad = i >= 4;
+    const isGraph = i >= 4;
     return (
       <React.Fragment key={i}>
-        <span className="hop"><span className={`lc ${acad ? '' : 'logo-white'} ${i >= len ? 'off' : ''}`} style={acad ? { color: mixAcad(i - 4) } : undefined}>{c}</span></span>
+        <span className="hop"><span className={`lc ${isGraph ? '' : 'logo-white'} ${i >= len ? 'off' : ''}`} style={isGraph ? { color: mixAcad(i - 4) } : undefined}>{c}</span></span>
         {i === len - 1 && len < t.length && <i className="logo-caret" />}
       </React.Fragment>
     );
@@ -99,10 +99,10 @@ const LandingPage = () => {
   const { user } = useAuth();
   const rootRef = useRef(null);
   const [jump, setJump] = useState(false);
-  const [logoLen, setLogoLen] = useState(logoTyped ? 11 : 0);
+  const [logoLen, setLogoLen] = useState(logoTyped ? 9 : 0);
   useEffect(() => {
     if (logoTyped) return;
-    const t = setInterval(() => setLogoLen((n) => { if (n >= 11) { clearInterval(t); logoTyped = true; return n; } return n + 1; }), 110);
+    const t = setInterval(() => setLogoLen((n) => { if (n >= 9) { clearInterval(t); logoTyped = true; return n; } return n + 1; }), 110);
     return () => clearInterval(t);
   }, []);
 
@@ -172,12 +172,12 @@ const LandingPage = () => {
   return (
     <div className="landing-container" ref={rootRef}>
       <div className="bg-grid" />
-      <div className="bg-watermark">BIT</div>
+      <div className="bg-watermark">KMAP</div>
       <div className="bg-orb orb-cyan" /><div className="bg-orb orb-purple" /><div className="bg-orb orb-blue" />
 
       {/* NAVBAR */}
       <nav className="landing-navbar">
-        <div className="landing-logo" onClick={() => navigate('/')} aria-label="BIT ACADEMY">
+        <div className="landing-logo" onClick={() => navigate('/')} aria-label="KMapGraph">
           <div className="logo-icon">
             <span className="logo-ring" />
             <svg viewBox="0 0 100 100" fill="none">
@@ -238,7 +238,7 @@ const LandingPage = () => {
           </h1>
 
           <p className="hero-subtitle enter" style={{ '--d': '0.45s' }}>
-            BIT ACADEMY mapea tus conocimientos como un grafo: encuentra el tema base que te falta,
+            KMapGraph mapea tus conocimientos como un grafo: encuentra el tema base que te falta,
             te propone la ruta más corta para reforzarlo y te ayuda a retener lo aprendido con práctica e IA.
           </p>
 
@@ -285,7 +285,7 @@ const LandingPage = () => {
             <h2 className="section-title-gradient">EL PROBLEMA NO ERES TÚ. ES EL MÉTODO.</h2>
             <p>
               En una clase estándar todos avanzan al mismo ritmo, aunque les falte una base. Bloom lo estudió en 1984: quienes
-              dominaban cada tema antes de pasar al siguiente rindieron mucho mejor. BIT ACADEMY usa <strong>grafos de conocimiento</strong> para
+              dominaban cada tema antes de pasar al siguiente rindieron mucho mejor. KMapGraph usa <strong>grafos de conocimiento</strong> para
               encontrar el tema base de tu dificultad y reconstruir desde ahí.
             </p>
             <ul className="value-list">
@@ -368,7 +368,7 @@ const LandingPage = () => {
       {/* EVIDENCIA (reemplaza testimonios inventados) */}
       <section className="landing-evidence">
         <h2 className="section-title-landing reveal">LO QUE DICE LA INVESTIGACIÓN</h2>
-        <p className="section-subtitle-landing reveal">Los métodos en los que se inspira BIT ACADEMY, con su fuente.</p>
+        <p className="section-subtitle-landing reveal">Los métodos en los que se inspira KMapGraph, con su fuente.</p>
         <div className="evidence-grid">
           {EVIDENCE.map((e, i) => (
             <div className="evidence-card reveal" key={i} style={{ '--d': `${i * 0.12}s` }} onMouseMove={onCardMove}>
@@ -401,7 +401,7 @@ const LandingPage = () => {
       </section>
 
       <footer className="landing-footer">
-        <p>© 2026 BIT ACADEMY — Ingeniería del aprendizaje para mentes brillantes.</p>
+        <p>© 2026 KMapGraph — Ingeniería del aprendizaje para mentes brillantes.</p>
       </footer>
     </div>
   );

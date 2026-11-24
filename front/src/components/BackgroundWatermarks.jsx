@@ -1,5 +1,5 @@
 /**
- * Marcas de agua decorativas de BIT ACADEMY.
+ * Marcas de agua decorativas de KMapGraph.
  * Los estilos (.watermarks, .wm, .wm-frame, .wm-orbit) están en src/index.css.
  * No necesita importar ningún CSS.
  */
@@ -15,7 +15,7 @@ export default function BackgroundWatermarks() {
       <span className="wm-orbit wm-orbit-2" />
 
       {/* Letras gigantes */}
-      <span className="wm wm-bit">BIT</span>
+      <span className="wm wm-bit">KMAP</span>
 
       {/* Símbolos */}
       <span className="wm wm-sigma">Σ</span>

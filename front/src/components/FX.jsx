@@ -22,15 +22,15 @@ export const Line = ({ text, kind, base = 0 }) => {
   });
 };
 
-/* "BIT ACADEMY": se escribe letra por letra y cada letra salta al pasar el cursor */
+/* "KMapGraph": se escribe letra por letra y cada letra salta al pasar el cursor */
 const LogoText = ({ len }) => {
-  const t = 'BIT ACADEMY';
+  const t = 'KMapGraph';
   return t.split('').map((c, i) => {
     if (c === ' ') return <span className="logo-gap" key={i} />;
-    const acad = i >= 4;
+    const isGraph = i >= 4;
     return (
       <React.Fragment key={i}>
-        <span className="hop"><span className={`lc ${acad ? '' : 'logo-white'} ${i >= len ? 'off' : ''}`} style={acad ? { color: mixAcad(i - 4) } : undefined}>{c}</span></span>
+        <span className="hop"><span className={`lc ${isGraph ? '' : 'logo-white'} ${i >= len ? 'off' : ''}`} style={isGraph ? { color: mixAcad(i - 4) } : undefined}>{c}</span></span>
         {i === len - 1 && len < t.length && <i className="logo-caret" />}
       </React.Fragment>
     );
@@ -111,14 +111,14 @@ export const CursorFX = () => {
 
 /* Logo animado: se escribe solo una vez, cada letra salta al pasar el cursor */
 export const BitLogo = ({ onClick, title }) => {
-  const [len, setLen] = useState(logoTyped ? 11 : 0);
+  const [len, setLen] = useState(logoTyped ? 9 : 0);
   useEffect(() => {
     if (logoTyped) return;
-    const t = setInterval(() => setLen((n) => { if (n >= 11) { clearInterval(t); logoTyped = true; return n; } return n + 1; }), 110);
+    const t = setInterval(() => setLen((n) => { if (n >= 9) { clearInterval(t); logoTyped = true; return n; } return n + 1; }), 110);
     return () => clearInterval(t);
   }, []);
   return (
-    <div className="bit-logo" onClick={onClick} aria-label="BIT ACADEMY" title={title}>
+    <div className="bit-logo" onClick={onClick} aria-label="KMapGraph" title={title}>
           <div className="logo-icon">
             <span className="logo-ring" />
             <svg viewBox="0 0 100 100" fill="none">

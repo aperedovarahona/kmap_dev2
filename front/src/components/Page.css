@@ -24,13 +24,13 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: linear-gradient(180deg, rgba(5, 22, 46, 0.9) 0%, rgba(3, 13, 30, 0.98) 100%);
-  border: 1px solid var(--border-soft, rgba(0, 210, 255, 0.22));
+  background: linear-gradient(180deg, rgba(var(--bg-secondary-rgb, 5, 22, 46), 0.9) 0%, rgba(var(--bg-primary-rgb, 3, 13, 30), 0.98) 100%);
+  border: 1px solid rgba(var(--primary-rgb), 0.22);
   border-radius: 16px;
   padding: 0.55rem 1.1rem;
   position: relative;
   overflow: hidden;
-  box-shadow: inset 0 0 20px rgba(0, 210, 255, 0.05), 0 4px 20px rgba(0, 8, 24, 0.4);
+  box-shadow: inset 0 0 20px rgba(var(--primary-rgb), 0.05), 0 4px 20px rgba(0, 8, 24, 0.4);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   flex: 1;
   min-width: 0;
@@ -41,13 +41,13 @@
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--cyan, #00f2fe), transparent);
-  opacity: 0.7;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0.8;
 }
 
 .header-breadcrumbs-card:hover {
-  border-color: rgba(0, 242, 254, 0.4);
-  box-shadow: inset 0 0 30px rgba(0, 210, 255, 0.1), 0 0 22px rgba(0, 210, 255, 0.35);
+  border-color: rgba(var(--primary-rgb), 0.45);
+  box-shadow: inset 0 0 30px rgba(var(--primary-rgb), 0.1), 0 0 22px rgba(var(--primary-rgb), 0.35);
 }
 
 /* Contenedor Interno: Ruta y Logo de Marca */
@@ -63,7 +63,7 @@
 /* Ruta (Breadcrumbs) mantenida en la parte superior */
 .breadcrumbs {
   font-size: 0.72rem;
-  color: #8ca5c9;
+  color: var(--text-muted);
   font-weight: 600;
   display: flex;
   align-items: center;
@@ -71,10 +71,10 @@
 }
 
 .breadcrumbs .separator {
-  color: var(--cyan, #00f2fe);
+  color: var(--cyan);
   margin: 0 0.3rem;
   font-size: 0.65rem;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 /* Logo integrado en reemplazo del icono y texto anterior */
@@ -93,12 +93,12 @@
 .header-card-logo {
   height: 36px;
   width: auto;
-  filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.5));
+  filter: drop-shadow(0 0 12px rgba(var(--primary-rgb), 0.5));
   transition: filter 0.25s ease;
 }
 
 .header-logo-box:hover .header-card-logo {
-  filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.85));
+  filter: drop-shadow(0 0 20px rgba(var(--primary-rgb), 0.85));
 }
 
 .header-title-addon {
@@ -107,7 +107,7 @@
   color: #ffffff;
   white-space: nowrap;
   letter-spacing: 0.4px;
-  text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+  text-shadow: 0 0 10px rgba(var(--primary-rgb), 0.35);
 }
 
 /* ---------- ACCIONES DEL HEADER (BOTONES) ---------- */
@@ -137,23 +137,23 @@
 
 /* Botón "Unirme con código" / cursos secundarios */
 .header-actions button.btn-courses {
-  background: rgba(0, 210, 255, 0.08) !important;
-  color: var(--cyan, #00f2fe) !important;
-  border: 1px solid rgba(0, 242, 254, 0.35) !important;
+  background: rgba(var(--primary-rgb), 0.08) !important;
+  color: var(--cyan) !important;
+  border: 1px solid rgba(var(--primary-rgb), 0.35) !important;
 }
 
 .header-actions button.btn-courses:hover {
-  background: rgba(0, 210, 255, 0.15) !important;
-  border-color: var(--cyan, #00f2fe) !important;
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3) !important;
+  background: rgba(var(--primary-rgb), 0.18) !important;
+  border-color: var(--cyan) !important;
+  box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.35) !important;
   transform: translateY(-2px) !important;
 }
 
 /* Botón Quiz (Play) */
 .header-actions button.btn-quiz {
-  background: linear-gradient(135deg, #00f2fe 0%, #0077fe 100%) !important;
+  background: var(--g-primary) !important;
   color: #021019 !important;
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.4) !important;
+  box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.4) !important;
 }
 
 .header-actions button.btn-quiz svg {
@@ -164,7 +164,7 @@
 
 .header-actions button.btn-quiz:hover {
   transform: translateY(-2px) scale(1.02) !important;
-  box-shadow: 0 0 25px rgba(0, 242, 254, 0.7) !important;
+  box-shadow: 0 0 25px rgba(var(--primary-rgb), 0.7) !important;
   filter: brightness(1.1) !important;
 }
 
@@ -177,11 +177,11 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  background: linear-gradient(180deg, rgba(5, 22, 46, 0.85) 0%, rgba(3, 13, 30, 0.95) 100%);
-  border: 1px solid var(--border-soft, rgba(0, 210, 255, 0.22));
+  background: linear-gradient(180deg, rgba(var(--bg-secondary-rgb, 5, 22, 46), 0.85) 0%, rgba(var(--bg-primary-rgb, 3, 13, 30), 0.95) 100%);
+  border: 1px solid rgba(var(--primary-rgb), 0.22);
   border-radius: 16px;
   padding: 0.4rem 0.5rem;
-  box-shadow: inset 0 0 20px rgba(0, 210, 255, 0.05);
+  box-shadow: inset 0 0 20px rgba(var(--primary-rgb), 0.05);
   flex-shrink: 0;
 }
 
@@ -195,7 +195,7 @@
   border-radius: 10px;
   background: transparent !important;
   border: 1px solid transparent !important;
-  color: #8ca5c9;
+  color: var(--text-muted);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -207,10 +207,10 @@
 }
 
 .control-btn:hover {
-  color: var(--cyan, #00f2fe);
-  background: rgba(0, 242, 254, 0.08) !important;
-  border-color: rgba(0, 242, 254, 0.3) !important;
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+  color: var(--cyan);
+  background: rgba(var(--primary-rgb), 0.12) !important;
+  border-color: rgba(var(--primary-rgb), 0.35) !important;
+  box-shadow: 0 0 15px rgba(var(--primary-rgb), 0.25);
 }
 
 .control-btn:hover svg {
@@ -221,11 +221,24 @@
   transform: scale(0.9);
 }
 
-/* ---------- RESPONSIVE PARA TABLETS Y MÓVILES ---------- */
-@media (max-width: 900px) {
+/* ---------- RESPONSIVE ADAPTABLE A CUALQUIER PANTALLA ---------- */
+@media (max-width: 1024px) {
+  .top-header {
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
   .header-breadcrumbs-card {
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.65rem;
+    padding: 0.5rem 0.8rem;
   }
   .header-actions {
     width: 100%;
@@ -233,21 +246,30 @@
     padding-left: 0;
     justify-content: flex-start;
     flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .header-user-controls {
+    align-self: flex-end;
+    margin-top: -0.25rem;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
   .top-header {
-    gap: 0.5rem;
-    padding: 0.45rem 0;
-  }
-  .header-breadcrumbs-card {
-    padding: 0.5rem 0.75rem;
+    padding: 0.35rem 0;
   }
   .header-card-logo {
-    height: 30px;
+    height: 28px;
   }
   .header-title-addon {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .header-actions button {
+    font-size: 0.75rem !important;
+    padding: 0 0.75rem !important;
+    height: 32px !important;
   }
 }

@@ -62,6 +62,26 @@ export const askText = async (title, value = '') => {
   return r.isConfirmed ? r.value.trim() : null;
 };
 
+export const askSubjectCode = async (subjectName, expectedCode) => {
+  const r = await Swal.fire({
+    ...base,
+    title: `Matricularme en ${subjectName}`,
+    html: `<p style="font-size:13px; color:#8ca5c9; margin-bottom:12px;">Ingresa el código de acceso de la materia:</p>`,
+    input: 'text',
+    inputPlaceholder: expectedCode ? `EJ. ${expectedCode}` : 'EJ. BDD3K9',
+    showCancelButton: true,
+    confirmButtonText: 'Confirmar matrícula ❯',
+    cancelButtonText: 'Cancelar',
+    inputValidator: (v) => {
+      if (!v || !v.trim()) return 'Debes ingresar el código de la materia';
+      if (expectedCode && v.trim().toUpperCase() !== expectedCode.toUpperCase()) {
+        return `El código ingresado no coincide con ${subjectName}`;
+      }
+    },
+  });
+  return r.isConfirmed ? r.value.trim().toUpperCase() : null;
+};
+
 export { Swal, base };
 
 export const askForm = async (title, fields, confirmButtonText = 'Guardar') => {

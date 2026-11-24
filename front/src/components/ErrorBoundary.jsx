@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * ErrorBoundary robusto para BIT ACADEMY.
+ * ErrorBoundary robusto para KMapGraph.
  * Evita que cualquier excepción de renderizado desmonte la app y deje solo el fondo.
  */
 export default class ErrorBoundary extends React.Component {
@@ -15,7 +15,7 @@ export default class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error('[BIT ACADEMY] Error capturado en render:', error, errorInfo);
+    console.error('[KMapGraph] Error capturado en render:', error, errorInfo);
   }
 
   handleReset = () => {

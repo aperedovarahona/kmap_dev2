@@ -56,7 +56,7 @@ export default function Layout() {
             </button>
             <img
               src="/assets/images/logo.svg"
-              alt="BIT ACADEMY"
+              alt="KMapGraph"
               className="h-10 w-auto cursor-pointer"
               onClick={() => nav('/panel')}
             />
@@ -82,7 +82,7 @@ export default function Layout() {
                 nav('/panel');
               }}
             >
-              <img src="/assets/images/logo.svg" alt="BIT ACADEMY Logo" />
+              <img src="/assets/images/logo.svg" alt="KMapGraph Logo" />
             </div>
 
             {user.role === 'docente' && (
@@ -143,27 +143,8 @@ export default function Layout() {
               </div>
             )}
 
-            {/* Bottom Slogan & Glowing Wave Graphic */}
-            <div className="sidebar-footer">
-              <svg className="sidebar-wave" viewBox="0 0 250 80" fill="none">
-                <path
-                  d="M -10 60 Q 60 10, 140 45 T 260 20"
-                  stroke="rgba(var(--primary-rgb), 0.6)"
-                  strokeWidth="2.5"
-                  fill="none"
-                  style={{ filter: 'drop-shadow(0 0 6px var(--cyan))' }}
-                />
-                <path
-                  d="M -10 75 Q 80 35, 170 65 T 260 40"
-                  stroke="rgba(var(--secondary-rgb), 0.35)"
-                  strokeWidth="1.8"
-                  fill="none"
-                />
-              </svg>
-              <div className="slogan-text">
-                Aprende · Explora · Conquista <span className="slogan-arrow">❯❯</span>
-              </div>
-            </div>
+            {/* Espacio inferior limpio en sidebar */}
+            <div className="mt-auto py-2" />
           </aside>
         </>
       )}
