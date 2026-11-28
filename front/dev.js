@@ -1,8 +1,7 @@
-import { spawn } from 'child_process';
+import { spawn, spawnSync } from 'child_process';
 import path from 'path';
 import fs from 'fs';
-import { fileURLToPath } from 'url';
-import { createServer } from 'vite';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -51,10 +50,29 @@ phpServer.on('error', (err) => {
   console.error('Verifica que PHP esté instalado y agregado a tu variable PATH o en C:\\xampp\\php\\php.exe');
 });
 
-// 2. Iniciar servidor de desarrollo de Vite mediante API nativa (100% multiplataforma, sin shell)
+// 2. Iniciar servidor frontend Vite mediante importación absoluta y comprobación de dependencias
+const viteDistPath = path.resolve(__dirname, 'node_modules', 'vite', 'dist', 'node', 'index.js');
+
+if (!fs.existsSync(viteDistPath)) {
+  console.log('📦 No se encontraron dependencias en front/node_modules. Instalando automáticamente...');
+  const npmCmd = isWin ? 'npm.cmd' : 'npm';
+  const installResult = spawnSync(npmCmd, ['install'], {
+    cwd: __dirname,
+    stdio: 'inherit',
+    shell: isWin,
+  });
+  if (installResult.status !== 0 || !fs.existsSync(viteDistPath)) {
+    console.error('❌ Error instalando paquetes de front/. Ejecuta "npm --prefix front install" manualmente.');
+    process.exit(1);
+  }
+}
+
 let viteServer = null;
 
 try {
+  const viteUrl = pathToFileURL(viteDistPath).href;
+  const { createServer } = await import(viteUrl);
+
   viteServer = await createServer({
     root: __dirname,
     configFile: path.resolve(__dirname, 'vite.config.js'),
