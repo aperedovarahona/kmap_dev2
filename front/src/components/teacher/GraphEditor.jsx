@@ -4,6 +4,12 @@ import '@xyflow/react/dist/style.css';
 import { uid, update, useDb } from '../../lib/db.js';
 import { edgesOf, isDag, topicsOf } from '../../lib/logic.js';
 import { ask, askText, fail, ok } from '../../alerts.js';
+import {
+  BooksIcon,
+  LightningIcon,
+  SaveIcon,
+  LightbulbIcon,
+} from '../Icons.jsx';
 
 function TopicNode({ data, selected }) {
   return (
@@ -35,13 +41,14 @@ function TopicNode({ data, selected }) {
       />
 
       <div
-        className="w-7 h-7 rounded-lg flex items-center justify-center text-sm shrink-0 border"
+        className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border"
         style={{
           background: 'rgba(var(--primary-rgb), 0.2)',
           borderColor: 'rgba(var(--primary-rgb), 0.4)',
+          color: 'var(--cyan)',
         }}
       >
-        📘
+        <BooksIcon className="w-4 h-4" />
       </div>
 
       <div className="flex-1 font-bold text-xs text-white tracking-wide truncate">
@@ -204,12 +211,14 @@ export default function GraphEditor({ subjectId }) {
           <button type="button" className="btn-ghost" onClick={addTopic}>
             ＋ Agregar Tema
           </button>
-          <button type="button" className="btn-ghost text-xs" onClick={reorderNodes} title="Organizar nodos en niveles automáticos">
-            ⚡ Auto-organizar
+          <button type="button" className="btn-ghost text-xs flex items-center gap-1.5" onClick={reorderNodes} title="Organizar nodos en niveles automáticos">
+            <LightningIcon className="w-3.5 h-3.5 text-amber-400" />
+            <span>Auto-organizar</span>
           </button>
         </div>
-        <button type="button" className="btn" onClick={save}>
-          💾 Guardar grafo
+        <button type="button" className="btn flex items-center gap-1.5" onClick={save}>
+          <SaveIcon className="w-4 h-4" />
+          <span>Guardar grafo</span>
         </button>
       </div>
 
@@ -237,8 +246,11 @@ export default function GraphEditor({ subjectId }) {
           <Controls />
         </ReactFlow>
       </div>
-      <p className="text-xs text-blue-200/90 leading-relaxed">
-        💡 <b>Cómo conectar el grafo:</b> Arrastra desde el conector derecho de un tema hacia el conector izquierdo de otro para definir que es su prerrequisito. Doble clic para renombrar; <kbd className="px-1.5 py-0.5 rounded bg-black/40 border border-white/20 text-[10px]">Supr</kbd> para eliminar.
+      <p className="text-xs text-blue-200/90 leading-relaxed flex items-center gap-1.5">
+        <LightbulbIcon className="w-4 h-4 text-yellow-400 shrink-0" />
+        <span>
+          <b>Cómo conectar el grafo:</b> Arrastra desde el conector derecho de un tema hacia el conector izquierdo de otro para definir que es su prerrequisito. Doble clic para renombrar; <kbd className="px-1.5 py-0.5 rounded bg-black/40 border border-white/20 text-[10px]">Supr</kbd> para eliminar.
+        </span>
       </p>
     </div>
   );

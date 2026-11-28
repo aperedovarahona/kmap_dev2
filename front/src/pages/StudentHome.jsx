@@ -8,6 +8,17 @@ import { fail, ok, askSubjectCode } from '../alerts.js'; // SweetAlert2 modal pa
 import Page from '../components/Page.jsx';
 import { Avatar, Empty, ProgressBar } from '../components/ui.jsx';
 import JoinSubjectModal from '../components/JoinSubjectModal.jsx'; // Importamos el nuevo modal
+import {
+  StudentIcon,
+  StarIcon,
+  TrophyIcon,
+  CheckCircleIcon,
+  CrownIcon,
+  MedalIcon,
+  ChartBarIcon,
+  SmartIcon,
+  BooksIcon,
+} from '../components/Icons.jsx';
 import './StudentHome.css';
 
 function SubjectWatermark({ type }) {
@@ -202,7 +213,9 @@ export default function StudentHome() {
           
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-2">
             <button type="button" onClick={() => setSp({ vista: 'materias' })} className="widget-card !p-3.5 flex items-center gap-3 text-left cursor-pointer">
-              <div className="access-icon-box !w-10 !h-10 shrink-0">🎓</div>
+              <div className="access-icon-box !w-10 !h-10 shrink-0">
+                <BooksIcon className="w-5 h-5" />
+              </div>
               <div>
                 <div className="text-[11px] text-[#8ca5c9] font-semibold">Asignaturas</div>
                 <div className="text-lg font-extrabold text-white">{mine.length}</div>
@@ -210,7 +223,9 @@ export default function StudentHome() {
             </button>
 
             <button type="button" onClick={() => setSp({ vista: 'progreso' })} className="widget-card !p-3.5 flex items-center gap-3 text-left cursor-pointer">
-              <div className="access-icon-box !w-10 !h-10 shrink-0">⭐</div>
+              <div className="access-icon-box !w-10 !h-10 shrink-0">
+                <StarIcon className="w-5 h-5 text-amber-400" />
+              </div>
               <div>
                 <div className="text-[11px] text-[#8ca5c9] font-semibold">Promedio</div>
                 <div className="text-lg font-extrabold" style={{ color: 'var(--cyan)' }}>{avgScore}%</div>
@@ -218,7 +233,9 @@ export default function StudentHome() {
             </button>
 
             <button type="button" onClick={() => setSp({ vista: 'rank' })} className="widget-card !p-3.5 flex items-center gap-3 text-left cursor-pointer">
-              <div className="access-icon-box !w-10 !h-10 shrink-0">🏆</div>
+              <div className="access-icon-box !w-10 !h-10 shrink-0">
+                <TrophyIcon className="w-5 h-5 text-yellow-400" />
+              </div>
               <div>
                 <div className="text-[11px] text-[#8ca5c9] font-semibold">Clasificación</div>
                 <div className="text-lg font-extrabold text-[#ffbe0b]">#{myRankPos}</div>
@@ -226,7 +243,9 @@ export default function StudentHome() {
             </button>
 
             <button type="button" onClick={() => setSp({ vista: 'progreso' })} className="widget-card !p-3.5 flex items-center gap-3 text-left cursor-pointer">
-              <div className="access-icon-box !w-10 !h-10 shrink-0">✅</div>
+              <div className="access-icon-box !w-10 !h-10 shrink-0">
+                <CheckCircleIcon className="w-5 h-5 text-emerald-400" />
+              </div>
               <div>
                 <div className="text-[11px] text-[#8ca5c9] font-semibold">Cuestionarios</div>
                 <div className="text-lg font-extrabold text-[#00e676]">
@@ -240,7 +259,8 @@ export default function StudentHome() {
             <div className="card-glow mb-2">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                 <b className="text-lg flex items-center gap-2 text-white">
-                  👑 Clasificación · Ranking General
+                  <CrownIcon className="w-5 h-5 text-amber-400" />
+                  <span>Clasificación · Ranking General</span>
                 </b>
                 <button type="button" onClick={() => setSp({})} className="btn-ghost text-xs py-1.5 px-3">
                   Cerrar vista ✕
@@ -259,8 +279,8 @@ export default function StudentHome() {
                         boxShadow: isMe ? '0 0 20px rgba(var(--primary-rgb), 0.35)' : 'none',
                       }}
                     >
-                      <span className="w-8 font-black" style={{ color: 'var(--cyan)' }}>
-                        {['🥇', '🥈', '🥉'][i] || `#${i + 1}`}
+                      <span className="w-8 font-black flex items-center justify-center" style={{ color: 'var(--cyan)' }}>
+                        {i < 3 ? <MedalIcon rank={i + 1} className="w-5 h-5" /> : `#${i + 1}`}
                       </span>
                       <Avatar name={r.user.name} size="sm" online={isMe} />
                       <span className="flex-1 font-bold text-white truncate">
@@ -279,7 +299,8 @@ export default function StudentHome() {
             <div className="card-glow mb-2">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                 <b className="text-lg flex items-center gap-2 text-white">
-                  📊 Detalle de Mi Progreso
+                  <ChartBarIcon className="w-5 h-5 text-cyan-400" />
+                  <span>Detalle de Mi Progreso</span>
                 </b>
                 <button type="button" onClick={() => setSp({})} className="btn-ghost text-xs py-1.5 px-3">
                   Cerrar vista ✕
@@ -355,7 +376,7 @@ export default function StudentHome() {
                     <SubjectWatermark type={s.theme} />
 
                     <div className="card-icon-badge">
-                      <SubjectIcon type={s.theme} />
+                      <SmartIcon icon={s.icon} name={s.name} className="w-7 h-7" />
                     </div>
 
                     <h3 className="card-title">{s.name}</h3>
@@ -395,7 +416,7 @@ export default function StudentHome() {
                   >
                     <SubjectWatermark type={s.theme} />
                     <div className="card-icon-badge">
-                      <SubjectIcon type={s.theme} />
+                      <SmartIcon icon={s.icon} name={s.name} className="w-7 h-7" />
                     </div>
                     <span className="text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[#00d2ff]/15 text-[#00f2fe] mb-1">
                       Disponible · Código {s.code}

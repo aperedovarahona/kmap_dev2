@@ -1,6 +1,7 @@
 import { genCode, uid, update, useDb } from '../lib/db.js';
 import { askForm, fail, info, ok } from '../alerts.js';
 import Page from '../components/Page.jsx';
+import { BooksIcon, TeacherIcon, SmartIcon, SparklesIcon } from '../components/Icons.jsx';
 
 export default function AdminHome() {
   const db = useDb();
@@ -71,12 +72,20 @@ export default function AdminHome() {
     <Page
       crumb="Admin › Panel"
       title="Panel de Administración"
-      subtitle="Gestiona docentes, materias y asignaciones académicas ✨"
+      subtitle={
+        <span className="inline-flex items-center gap-1.5">
+          Gestiona docentes, materias y asignaciones académicas
+          <SparklesIcon className="w-4 h-4 text-amber-300 inline" />
+        </span>
+      }
     >
       <div className="grid gap-3.5 xl:grid-cols-2">
         <div className="card">
           <div className="flex flex-wrap justify-between items-center gap-2 mb-3">
-            <b className="text-lg text-white">👨‍🏫 Docentes ({docentes.length})</b>
+            <b className="text-lg text-white inline-flex items-center gap-2">
+              <TeacherIcon className="w-5 h-5 text-[var(--cyan)]" />
+              Docentes ({docentes.length})
+            </b>
             <button type="button" className="btn text-xs sm:text-sm" onClick={addTeacher}>
               + Asignar docente
             </button>
@@ -102,7 +111,10 @@ export default function AdminHome() {
 
         <div className="card">
           <div className="flex flex-wrap justify-between items-center gap-2 mb-3">
-            <b className="text-lg text-white">📚 Materias ({db.subjects.length})</b>
+            <b className="text-lg text-white inline-flex items-center gap-2">
+              <BooksIcon className="w-5 h-5 text-[var(--cyan)]" />
+              Materias ({db.subjects.length})
+            </b>
             <button type="button" className="btn text-xs sm:text-sm" onClick={addSubject}>
               + Nueva materia
             </button>
@@ -112,14 +124,24 @@ export default function AdminHome() {
               key={s.id}
               className="interactive-row flex flex-wrap items-center justify-between gap-2 px-4 py-3 mt-2.5 rounded-xl bg-[#05132b]/80 border border-sky-400/30 text-sm"
             >
-              <span>
-                <span className="mr-1.5">{s.icon}</span>
-                <b className="text-white">{s.name}</b>
-                <br />
-                <span className="text-cyan-200 text-xs">
-                  {db.enrollments.filter((e) => e.subjectId === s.id).length} estudiantes · Código{' '}
-                  <b>{s.code}</b>
+              <span className="flex items-center gap-2.5">
+                <span
+                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border"
+                  style={{
+                    background: 'rgba(var(--primary-rgb), 0.15)',
+                    borderColor: 'rgba(var(--primary-rgb), 0.35)',
+                    color: 'var(--cyan)',
+                  }}
+                >
+                  <SmartIcon icon={s.icon} name={s.name} className="w-4 h-4" />
                 </span>
+                <div>
+                  <b className="text-white block">{s.name}</b>
+                  <span className="text-cyan-200 text-xs">
+                    {db.enrollments.filter((e) => e.subjectId === s.id).length} estudiantes · Código{' '}
+                    <b style={{ color: 'var(--cyan)' }}>{s.code}</b>
+                  </span>
+                </div>
               </span>
               <select
                 className="input !w-auto cursor-pointer"

@@ -7,6 +7,7 @@ import { info } from '../alerts.js';
 import Page from '../components/Page.jsx';
 import KnowledgeGraph, { Legend } from '../components/KnowledgeGraph.jsx';
 import { Empty } from '../components/ui.jsx';
+import { SmartIcon, LinkIcon } from '../components/Icons.jsx';
 import './StudentSubject.css';
 
 export default function StudentSubject() {
@@ -68,7 +69,7 @@ export default function StudentSubject() {
     }
     return (
       <span className="w-7 h-7 rounded-lg bg-cyan-500/30 border border-cyan-300/70 text-cyan-200 grid place-items-center text-xs font-black shrink-0 shadow-[0_0_10px_rgba(0,242,254,0.3)]">
-        🔗
+        <LinkIcon className="w-3.5 h-3.5" />
       </span>
     );
   };
@@ -77,7 +78,7 @@ export default function StudentSubject() {
     <Page
       crumb={`Mis Materias › ${s.name}`}
       backTo="/panel"
-      icon={s.icon}
+      icon={<SmartIcon icon={s.icon} name={s.name} className="w-6 h-6" />}
       title={s.name}
       subtitle="Explora el grafo de conocimiento y avanza por los temas."
     >

@@ -6,6 +6,13 @@ import { topicsOf } from '../lib/logic.js';
 import { ok } from '../alerts.js';
 import Page from '../components/Page.jsx';
 import { Empty } from '../components/ui.jsx';
+import {
+  SmartIcon,
+  ShieldSecurityIcon,
+  LockOpenIcon,
+  ClipboardIcon,
+  SparklesIcon,
+} from '../components/Icons.jsx';
 
 export default function TeacherHome() {
   const nav = useNavigate();
@@ -22,7 +29,7 @@ export default function TeacherHome() {
     <Page
       crumb="Docente › Inicio"
       title={`¡Hola, ${user.name}!`}
-      subtitle="Gestiona tus materias, grafos de conocimiento, materiales y mapa de calor ✨"
+      subtitle="Gestiona tus materias, grafos de conocimiento, materiales y mapa de calor adaptativo"
     >
       {mine.length === 0 ? (
         <Empty>El administrador aún no te asignó materias.</Empty>
@@ -37,13 +44,13 @@ export default function TeacherHome() {
               className="card-glow flex flex-col items-center text-center gap-2.5 p-4 sm:p-5"
             >
               <div
-                className="w-16 h-16 rounded-2xl text-[#020914] font-extrabold grid place-items-center text-3xl transition-transform duration-300 group-hover:scale-105"
+                className="w-16 h-16 rounded-2xl text-[#020914] font-extrabold grid place-items-center transition-transform duration-300 group-hover:scale-105"
                 style={{
                   background: 'var(--g-primary)',
                   boxShadow: '0 0 20px rgba(var(--primary-rgb), 0.45)',
                 }}
               >
-                {s.icon}
+                <SmartIcon icon={s.icon} name={s.name} className="w-8 h-8" />
               </div>
               <b className="text-xl text-white">{s.name}</b>
               <p className="text-sm" style={{ color: 'var(--text-muted)' }}>{s.desc}</p>
@@ -53,7 +60,7 @@ export default function TeacherHome() {
                   {db.enrollments.filter((e) => e.subjectId === s.id).length} estudiantes
                 </span>
                 <span
-                  className="px-2 py-0.5 rounded-full font-bold text-[11px] border"
+                  className="px-2 py-0.5 rounded-full font-bold text-[11px] border inline-flex items-center gap-1.5"
                   style={{
                     background: s.antiCopy !== false ? 'rgba(var(--primary-rgb), 0.12)' : 'rgba(255, 255, 255, 0.05)',
                     borderColor: s.antiCopy !== false ? 'var(--cyan)' : 'rgba(255, 255, 255, 0.2)',
@@ -61,15 +68,25 @@ export default function TeacherHome() {
                   }}
                   title={s.antiCopy !== false ? 'Medidas anticopia activas' : 'Medidas anticopia desactivadas'}
                 >
-                  {s.antiCopy !== false ? '🛡️ Anticopia ON' : '🔓 Anticopia OFF'}
+                  {s.antiCopy !== false ? (
+                    <>
+                      <ShieldSecurityIcon className="w-3.5 h-3.5" /> Anticopia ON
+                    </>
+                  ) : (
+                    <>
+                      <LockOpenIcon className="w-3.5 h-3.5" /> Anticopia OFF
+                    </>
+                  )}
                 </span>
               </div>
               <button
                 type="button"
                 onClick={(e) => copy(e, s.code)}
-                className="btn-ghost text-xs w-full"
+                className="btn-ghost text-xs w-full flex items-center justify-center gap-1.5"
               >
-                Código de matrícula: <b className="tracking-widest" style={{ color: 'var(--cyan)' }}>{s.code}</b> 📋
+                <span>Código de matrícula:</span>
+                <b className="tracking-widest" style={{ color: 'var(--cyan)' }}>{s.code}</b>
+                <ClipboardIcon className="w-3.5 h-3.5 opacity-70" />
               </button>
               <button
                 type="button"

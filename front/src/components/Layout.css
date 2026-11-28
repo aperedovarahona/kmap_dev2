@@ -3,6 +3,10 @@
    Componente: front/src/components/Layout.jsx
    ========================================================================== */
 
+:root {
+  --sidebar-width: 250px;
+}
+
 .dashboard-layout {
   display: flex;
   min-height: 100vh;
@@ -11,7 +15,8 @@
 }
 
 .sidebar {
-  width: var(--sidebar-width);
+  width: var(--sidebar-width, 250px);
+  min-width: var(--sidebar-width, 250px);
   height: 100vh;
   position: fixed;
   top: 0;
@@ -219,18 +224,22 @@
 
 /* Main Content Area */
 .main-wrapper {
-  margin-left: var(--sidebar-width);
+  margin-left: var(--sidebar-width, 250px);
+  width: calc(100% - var(--sidebar-width, 250px));
+  min-width: 0;
   flex-grow: 1;
   padding: 16px 22px 24px;
   max-width: 1540px;
-  width: 100%;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 /* Modo sin barra lateral (Panel de Estudiante) */
 .dashboard-layout.no-sidebar .main-wrapper {
   margin-left: 0;
+  width: 100%;
   max-width: 1560px;
   margin-inline: auto;
   padding: 16px 22px 24px;

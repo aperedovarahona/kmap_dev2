@@ -435,6 +435,77 @@ body::after {
   box-shadow: 0 14px 38px rgba(0, 0, 0, 0.75), 0 0 24px rgba(var(--primary-rgb), 0.25) !important;
 }
 
+/* 7.1 Tarjetas de Estadísticas (Widgets) y Materias */
+.widget-card {
+  background: rgba(var(--bg-secondary-rgb), 0.78) !important;
+  border: 1px solid rgba(var(--primary-rgb), 0.26) !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5), inset 0 0 1px rgba(var(--primary-rgb), 0.3) !important;
+}
+.widget-card::before {
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent) !important;
+}
+.widget-card:hover {
+  border-color: var(--cyan) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 0 20px rgba(var(--primary-rgb), 0.35) !important;
+}
+.access-icon-box {
+  background: rgba(var(--primary-rgb), 0.15) !important;
+  border: 1px solid rgba(var(--primary-rgb), 0.45) !important;
+  color: var(--cyan) !important;
+  box-shadow: 0 0 14px rgba(var(--primary-rgb), 0.3) !important;
+}
+.card-icon-badge {
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.22) 0%, rgba(var(--secondary-rgb), 0.15) 100%) !important;
+  border: 1px solid rgba(var(--primary-rgb), 0.5) !important;
+  color: var(--cyan) !important;
+  box-shadow: 0 0 18px rgba(var(--primary-rgb), 0.4) !important;
+}
+.subject-card {
+  background: linear-gradient(160deg, rgba(var(--bg-secondary-rgb), 0.95) 0%, rgba(var(--bg-primary-rgb), 0.98) 100%) !important;
+  border: 1px solid rgba(var(--primary-rgb), 0.26) !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5), inset 0 0 1px rgba(var(--primary-rgb), 0.3) !important;
+}
+.subject-card:hover {
+  border-color: var(--cyan) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 24px rgba(var(--primary-rgb), 0.5) !important;
+}
+.progress-fill {
+  background: var(--g-primary) !important;
+  box-shadow: 0 0 12px rgba(var(--primary-rgb), 0.7) !important;
+}
+.progress-percentage {
+  color: var(--cyan) !important;
+  background: rgba(var(--primary-rgb), 0.12) !important;
+  border-color: rgba(var(--primary-rgb), 0.38) !important;
+  box-shadow: 0 0 10px rgba(var(--primary-rgb), 0.2) !important;
+}
+.btn-card-action {
+  border-color: rgba(var(--primary-rgb), 0.4) !important;
+  color: var(--cyan) !important;
+}
+.btn-card-action::before {
+  background: var(--g-primary) !important;
+}
+.section-header-icon {
+  background: rgba(var(--primary-rgb), 0.15) !important;
+  border-color: rgba(var(--primary-rgb), 0.45) !important;
+  color: var(--cyan) !important;
+  box-shadow: 0 0 14px rgba(var(--primary-rgb), 0.35) !important;
+}
+.profile-card {
+  background: rgba(var(--bg-secondary-rgb), 0.96) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 1px rgba(var(--primary-rgb), 0.25) !important;
+}
+.profile-avatar-ring {
+  background: conic-gradient(from 180deg, var(--cyan), var(--blue), var(--cyan-glow), var(--cyan)) !important;
+  box-shadow: 0 0 24px rgba(var(--primary-rgb), 0.55) !important;
+}
+.profile-role-pill {
+  color: var(--cyan) !important;
+  background: rgba(var(--primary-rgb), 0.15) !important;
+  border-color: rgba(var(--primary-rgb), 0.45) !important;
+}
+
 /* 8. Textos y Títulos Gradiente */
 .text-gradient,
 .section-title-landing,

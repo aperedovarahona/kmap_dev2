@@ -5,6 +5,7 @@ import { PASS, best, fmtDate, nextNodesInGraph, recommendations } from '../lib/l
 import { info } from '../alerts.js';
 import Page from '../components/Page.jsx';
 import { Empty } from '../components/ui.jsx';
+import { SmartIcon, CheckCircleIcon, BooksIcon } from '../components/Icons.jsx';
 
 export default function StudentTopic() {
   const { id, tid } = useParams();
@@ -38,7 +39,7 @@ export default function StudentTopic() {
     <Page
       crumb={`Mis Materias › ${s.name} › ${t.name}`}
       backTo={`/materia/${id}`}
-      icon={t.icon || s.icon}
+      icon={<SmartIcon icon={t.icon || s.icon} name={t.name} className="w-6 h-6" />}
       title={t.name}
       subtitle={s.name}
       actions={
@@ -58,13 +59,13 @@ export default function StudentTopic() {
         <div className="card flex lg:flex-col gap-4 justify-between lg:justify-start h-fit">
           <div className="flex items-center gap-3">
             <span className="w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-300 grid place-items-center text-xs font-bold">
-              ✓
+              <CheckCircleIcon className="w-3.5 h-3.5" />
             </span>
             <span className="text-sm font-semibold text-white">Descripción</span>
           </div>
           <div className="flex items-center gap-3">
             <span className="w-7 h-7 rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-300 grid place-items-center text-xs font-bold">
-              ✓
+              <CheckCircleIcon className="w-3.5 h-3.5" />
             </span>
             <span className="text-sm font-semibold text-white">Material</span>
           </div>
@@ -90,7 +91,10 @@ export default function StudentTopic() {
         {/* Centro: Descripción y Material */}
         <div className="flex flex-col gap-4">
           <div className="card">
-            <b className="text-cyan-300">📖 Descripción del tema</b>
+            <b className="text-cyan-300 inline-flex items-center gap-1.5">
+              <BooksIcon className="w-4 h-4" />
+              <span>Descripción del tema</span>
+            </b>
             <p className="mt-2 text-blue-100 leading-relaxed">
               {t.desc || 'El docente aún no agregó una descripción.'}
             </p>

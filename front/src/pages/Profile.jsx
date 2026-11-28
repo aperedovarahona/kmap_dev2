@@ -4,6 +4,13 @@ import { useAuth } from '../auth.jsx';
 import { update } from '../lib/db.js';
 import { fail, ok } from '../alerts.js';
 import Page from '../components/Page.jsx';
+import {
+  CheckCircleIcon,
+  LockIcon,
+  KeyIcon,
+  PaletteIcon,
+  SmartIcon,
+} from '../components/Icons.jsx';
 import './Profile.css';
 
 /* ---------- Componente Robot Ojo ---------- */
@@ -147,9 +154,9 @@ export default function Profile() {
           animate={{ opacity: 1, y: 0 }}
         >
           <div className="profile-hero">
-            <div className="profile-avatar-ring" style={{ borderColor: 'var(--cyan)' }}>
-              <div className="profile-avatar flex items-center justify-center text-3xl select-none" style={{ background: 'var(--bg-secondary)', color: 'var(--cyan)' }}>
-                {user.avatar ? user.avatar : initial}
+            <div className="profile-avatar-ring">
+              <div className="profile-avatar flex items-center justify-center select-none" style={{ background: 'var(--bg-secondary)', color: 'var(--cyan)' }}>
+                {user.avatar ? <SmartIcon icon={user.avatar} className="w-8 h-8" /> : initial}
               </div>
             </div>
             <div className="profile-hero-text">
@@ -168,15 +175,22 @@ export default function Profile() {
           </div>
 
           <div className="profile-badge-strip">
-            <span className="chip chip-green">✅ Cuenta activa</span>
-            <span className="chip chip-cyan">🔒 Acceso seguro</span>
+            <span className="chip chip-green inline-flex items-center gap-1.5">
+              <CheckCircleIcon className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Cuenta activa</span>
+            </span>
+            <span className="chip chip-cyan inline-flex items-center gap-1.5">
+              <LockIcon className="w-3.5 h-3.5" />
+              <span>Acceso seguro</span>
+            </span>
           </div>
 
           {/* Galería de Iconos de Perfil Personalizables */}
           <div className="pt-3 border-t border-white/10 flex flex-col gap-2.5">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-white tracking-wider uppercase">
-                🎨 Icono de Perfil Personalizado
+              <span className="text-xs font-bold text-white tracking-wider uppercase inline-flex items-center gap-1.5">
+                <PaletteIcon className="w-4 h-4 text-cyan-400" />
+                <span>Icono de Perfil Personalizado</span>
               </span>
               <span className="text-[11px] text-[#8ca5c9]">
                 {user.avatar ? 'Personalizado' : 'Iniciales'}
@@ -203,10 +217,15 @@ export default function Profile() {
                         ? '0 0 12px rgba(var(--primary-rgb), 0.5)'
                         : 'none',
                       transform: isSelected ? 'scale(1.1)' : 'scale(1)',
+                      color: isSelected ? 'var(--cyan)' : '#8da6c9',
                     }}
                     title={av.label}
                   >
-                    {av.icon ? av.icon : '👤'}
+                    {av.icon ? (
+                      <SmartIcon icon={av.icon} className="w-5 h-5" />
+                    ) : (
+                      <span className="text-xs font-black opacity-80">{initial}</span>
+                    )}
                   </button>
                 );
               })}
@@ -223,7 +242,10 @@ export default function Profile() {
           transition={{ delay: 0.08 }}
         >
           <div className="profile-form-head">
-            <b>🔑 Cambiar contraseña</b>
+            <b className="inline-flex items-center gap-2">
+              <KeyIcon className="w-4 h-4 text-amber-400" />
+              <span>Cambiar contraseña</span>
+            </b>
             <span className="profile-form-sub">Refuerza tu seguridad</span>
           </div>
 

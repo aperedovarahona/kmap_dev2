@@ -3,6 +3,7 @@ import { uid, update, useDb } from '../../lib/db.js';
 import { generateQuizAI, topicsOf } from '../../lib/logic.js';
 import { ask, askForm, base, fail, ok, Swal } from '../../alerts.js';
 import { Empty } from '../ui.jsx';
+import { DocumentIcon, SparklesIcon } from '../Icons.jsx';
 
 const empty = { text: '', options: ['', '', '', ''], correct: 0 };
 
@@ -121,7 +122,11 @@ export default function TopicsManager({ subjectId }) {
           </div>
           {(t.materials || []).map((m) => (
             <div key={m.id} className="flex justify-between items-center mt-2 px-3 py-2 rounded-xl bg-black/25 text-xs sm:text-sm border border-sky-400/20">
-              <span className="truncate mr-2">📄 {m.title} <i className="text-cyan-300">· {m.kind}</i></span>
+              <span className="truncate mr-2 inline-flex items-center gap-1.5">
+                <DocumentIcon className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <span>{m.title}</span>
+                <i className="text-cyan-300">· {m.kind}</i>
+              </span>
               <button type="button" className="text-rose-300 hover:text-rose-200 text-xs font-bold shrink-0 cursor-pointer" onClick={() => delMat(m.id)}>Quitar</button>
             </div>
           ))}
@@ -130,7 +135,10 @@ export default function TopicsManager({ subjectId }) {
         <div className="card">
           <div className="flex flex-wrap justify-between gap-2 items-center">
             <b className="text-sm text-white">Quiz · {qs.length} preguntas</b>
-            <button type="button" className="btn py-1.5 px-3.5 text-xs font-bold" onClick={genAI}>✨ Generar con IA</button>
+            <button type="button" className="btn py-1.5 px-3.5 text-xs font-bold inline-flex items-center gap-1.5" onClick={genAI}>
+              <SparklesIcon className="w-3.5 h-3.5" />
+              <span>Generar con IA</span>
+            </button>
           </div>
           <form onSubmit={addQ} className="flex flex-col gap-2 mt-2.5">
             <input className="input text-xs sm:text-sm" placeholder="Enunciado de la pregunta" value={f.text} onChange={(e) => setF({ ...f, text: e.target.value })} />

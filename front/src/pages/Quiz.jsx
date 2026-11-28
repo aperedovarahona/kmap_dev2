@@ -7,6 +7,7 @@ import { PASS, nextNodesInGraph, ranking, recommendations, topicsOf } from '../l
 import { ask, fail, ok } from '../alerts.js';
 import Page from '../components/Page.jsx';
 import { Avatar } from '../components/ui.jsx';
+import { TrophyIcon } from '../components/Icons.jsx';
 
 const shuffle = (a) => [...a].sort(() => Math.random() - 0.5);
 
@@ -179,7 +180,7 @@ export default function Quiz() {
     return (
       <Page crumb="Mis Materias › Resultados del Quiz">
         <div className="flex items-center gap-3 mb-1">
-          <div className="text-3xl">🏆</div>
+          <TrophyIcon className="w-8 h-8 text-yellow-400" />
           <h1 className="text-2xl md:text-3xl font-extrabold text-white">Resultados</h1>
         </div>
 

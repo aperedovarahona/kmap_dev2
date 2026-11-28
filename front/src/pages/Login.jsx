@@ -7,6 +7,7 @@ import { Tabs } from '../components/ui.jsx';
 import RobotMascotStatic from '../components/RobotMascotStatic.jsx';
 import ThemeSelector from '../components/ThemeSelector.jsx';
 import { BitLogo, Line } from '../components/FX.jsx';
+import { StudentIcon, TeacherIcon, AdminIcon } from '../components/Icons.jsx';
 import './Login.css';
 import '../theme.css';
 
@@ -104,14 +105,32 @@ export default function Login() {
 
             <p className="login-subtitle">
               Explora tu grafo de conocimiento, realiza quizzes adaptativos y descubre tu ruta de
-              aprendizaje con nuestro bot tutor ✨
+              aprendizaje con nuestro tutor inteligente
             </p>
 
             <Tabs
               tabs={[
-                ['estudiante', '🎓 Estudiante'],
-                ['docente', '👨‍🏫 Docente'],
-                ['admin', '🛠️ Admin'],
+                [
+                  'estudiante',
+                  <span key="est" className="inline-flex items-center gap-1.5">
+                    <StudentIcon className="w-4 h-4" />
+                    <span>Estudiante</span>
+                  </span>,
+                ],
+                [
+                  'docente',
+                  <span key="doc" className="inline-flex items-center gap-1.5">
+                    <TeacherIcon className="w-4 h-4" />
+                    <span>Docente</span>
+                  </span>,
+                ],
+                [
+                  'admin',
+                  <span key="adm" className="inline-flex items-center gap-1.5">
+                    <AdminIcon className="w-4 h-4" />
+                    <span>Admin</span>
+                  </span>,
+                ],
               ]}
               value={role}
               onChange={(r) => {

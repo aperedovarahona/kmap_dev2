@@ -8,6 +8,15 @@ import { Empty, Tabs } from '../components/ui.jsx';
 import GraphEditor from '../components/teacher/GraphEditor.jsx';
 import TopicsManager from '../components/teacher/TopicsManager.jsx';
 import HeatPanel from '../components/teacher/HeatPanel.jsx';
+import {
+  SmartIcon,
+  ShieldSecurityIcon,
+  LockOpenIcon,
+  ClipboardIcon,
+  KnowledgeNetIcon,
+  QuizQuizIcon,
+  FireIcon,
+} from '../components/Icons.jsx';
 
 export default function TeacherSubject() {
   const { id } = useParams();
@@ -71,7 +80,7 @@ export default function TeacherSubject() {
     <Page
       crumb={`Docente › ${s.name}`}
       backTo="/panel"
-      icon={s.icon}
+      icon={<SmartIcon icon={s.icon} name={s.name} className="w-6 h-6" />}
       title={s.name}
       subtitle={s.desc}
       actions={
@@ -93,7 +102,7 @@ export default function TeacherSubject() {
                 : 'Protección desactivada. Haz clic para activar bloqueo anticopia para estudiantes.'
             }
           >
-            <span>{isAntiCopyEnabled ? '🛡️' : '🔓'}</span>
+            {isAntiCopyEnabled ? <ShieldSecurityIcon className="w-4 h-4 text-cyan-400" /> : <LockOpenIcon className="w-4 h-4" />}
             <span className="hidden sm:inline">Anticopia:</span>
             <span style={{ color: isAntiCopyEnabled ? 'var(--cyan)' : 'var(--text-muted)' }}>
               {isAntiCopyEnabled ? 'ON' : 'OFF'}
@@ -113,8 +122,9 @@ export default function TeacherSubject() {
             </span>
           </button>
 
-          <button type="button" className="btn-ghost text-xs" onClick={copy}>
-            Código: <b className="tracking-widest" style={{ color: 'var(--cyan)' }}>{s.code}</b> 📋
+          <button type="button" className="btn-ghost text-xs flex items-center gap-1.5" onClick={copy}>
+            <span>Código:</span> <b className="tracking-widest" style={{ color: 'var(--cyan)' }}>{s.code}</b>
+            <ClipboardIcon className="w-3.5 h-3.5 opacity-70" />
           </button>
           <button type="button" className="btn-ghost text-xs" onClick={newCode}>
             Nuevo código
@@ -135,13 +145,14 @@ export default function TeacherSubject() {
       >
         <div className="flex items-center gap-3">
           <div
-            className="w-10 h-10 rounded-xl flex items-center justify-center text-lg border"
+            className="w-10 h-10 rounded-xl flex items-center justify-center border"
             style={{
               background: isAntiCopyEnabled ? 'rgba(var(--primary-rgb), 0.2)' : 'rgba(255, 255, 255, 0.05)',
               borderColor: isAntiCopyEnabled ? 'var(--cyan)' : 'rgba(255, 255, 255, 0.15)',
+              color: isAntiCopyEnabled ? 'var(--cyan)' : 'var(--text-muted)',
             }}
           >
-            {isAntiCopyEnabled ? '🛡️' : '🔓'}
+            {isAntiCopyEnabled ? <ShieldSecurityIcon className="w-5 h-5" /> : <LockOpenIcon className="w-5 h-5" />}
           </div>
           <div>
             <div className="text-xs font-bold text-white flex items-center gap-2">
@@ -174,14 +185,22 @@ export default function TeacherSubject() {
             background: isAntiCopyEnabled ? 'rgba(var(--primary-rgb), 0.15)' : 'rgba(255, 255, 255, 0.05)',
           }}
         >
-          {isAntiCopyEnabled ? '🔓 Desactivar medidas anticopia' : '🛡️ Activar medidas anticopia'}
+          {isAntiCopyEnabled ? (
+            <>
+              <LockOpenIcon className="w-4 h-4" /> Desactivar medidas anticopia
+            </>
+          ) : (
+            <>
+              <ShieldSecurityIcon className="w-4 h-4" /> Activar medidas anticopia
+            </>
+          )}
         </button>
       </div>
       <Tabs
         tabs={[
-          ['grafo', '🕸️ Editor de grafo'],
-          ['temas', '📝 Temas y quiz'],
-          ['calor', '🔥 Mapa de calor'],
+          ['grafo', 'Editor de grafo'],
+          ['temas', 'Temas y quiz'],
+          ['calor', 'Mapa de calor'],
         ]}
         value={tab}
         onChange={setTab}
