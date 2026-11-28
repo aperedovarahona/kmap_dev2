@@ -2,20 +2,12 @@ import { spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
+import { createServer } from 'vite';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const backendDir = path.resolve(__dirname, '..', 'backend');
 const isWin = process.platform === 'win32';
-
-// Inyectar node_modules/.bin al inicio del PATH del entorno
-const binDir = path.resolve(__dirname, 'node_modules', '.bin');
-const pathKey = Object.keys(process.env).find((k) => k.toLowerCase() === 'path') || 'PATH';
-const currentPath = process.env[pathKey] || '';
-const customEnv = {
-  ...process.env,
-  [pathKey]: `${binDir}${path.delimiter}${currentPath}`,
-};
 
 console.log('====================================================');
 console.log('🚀 Iniciando Plan Kmap Fullstack (PHP CI3 + React)');
@@ -52,7 +44,6 @@ const phpServer = spawn(phpBin, ['-S', '0.0.0.0:4000', 'router.php'], {
   cwd: backendDir,
   stdio: 'inherit',
   shell: false,
-  env: customEnv,
 });
 
 phpServer.on('error', (err) => {
@@ -60,32 +51,38 @@ phpServer.on('error', (err) => {
   console.error('Verifica que PHP esté instalado y agregado a tu variable PATH o en C:\\xampp\\php\\php.exe');
 });
 
-// 2. Iniciar servidor de desarrollo de Vite directamente desde node_modules/.bin
-const viteExecutable = path.resolve(__dirname, 'node_modules', '.bin', isWin ? 'vite.cmd' : 'vite');
-const viteCmd = fs.existsSync(viteExecutable) ? viteExecutable : (isWin ? 'npx.cmd' : 'npx');
-const viteArgs = fs.existsSync(viteExecutable) ? [] : ['vite'];
+// 2. Iniciar servidor de desarrollo de Vite mediante API nativa (100% multiplataforma, sin shell)
+let viteServer = null;
 
-const viteServer = spawn(viteCmd, viteArgs, {
-  cwd: __dirname,
-  stdio: 'inherit',
-  shell: isWin,
-  env: customEnv,
-});
+try {
+  viteServer = await createServer({
+    root: __dirname,
+    configFile: path.resolve(__dirname, 'vite.config.js'),
+    server: {
+      port: 5173,
+      host: '0.0.0.0',
+    },
+  });
 
-viteServer.on('error', (err) => {
+  await viteServer.listen();
+  viteServer.printUrls();
+  if (typeof viteServer.bindCLIShortcuts === 'function') {
+    viteServer.bindCLIShortcuts({ print: true });
+  }
+} catch (err) {
   console.error('❌ Error al iniciar Vite:', err.message);
-});
+}
 
 // Limpieza de procesos al salir
-function cleanup() {
+async function cleanup() {
   try {
     if (phpServer && !phpServer.killed) {
       phpServer.kill();
     }
   } catch {}
   try {
-    if (viteServer && !viteServer.killed) {
-      viteServer.kill();
+    if (viteServer) {
+      await viteServer.close();
     }
   } catch {}
   process.exit(0);
